@@ -37,7 +37,9 @@
       <h2>About</h2>
       <div class="about-content">
         <div class="profile-photo">
-          <img src="assets/images/profile.jpg" alt="Rahul Ranjan headshot" class="profile-img" width="160" height="160" loading="eager" />
+          <img src="assets/images/profile.jpg" alt="Rahul Ranjan headshot" class="profile-img" width="160" height="160" loading="eager"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="photo-placeholder" style="display:none;" aria-hidden="true">RR</div>
         </div>
         <p>Research-focused professional with expertise in machine learning, data analysis, and software development. Currently pursuing advanced research in biomedical signal processing and deep learning applications.</p>
       </div>
