@@ -1,0 +1,12 @@
+{
+  "name": "rahul201722.github.io",
+  "version": "1.0.0",
+  "description": "Personal portfolio website showcasing ML engineering and AI research experience.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.17"
+  }
+}
