@@ -64,11 +64,31 @@
             z-index: 1;
         }
         
+        .profile-image-container {
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+        
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            animation: fadeInUp 0.6s ease-out, float 3s ease-in-out infinite;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
         }
         
         @keyframes float {
@@ -81,7 +101,7 @@
             font-weight: 400;
             opacity: 0.95;
             margin-bottom: 1rem;
-            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
         }
         
         .hero-description {
@@ -90,7 +110,7 @@
             margin: 0 auto 2rem;
             opacity: 0.9;
             line-height: 1.8;
-            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
         }
         
         .hero-stats {
@@ -99,7 +119,7 @@
             gap: 3rem;
             flex-wrap: wrap;
             margin-top: 2rem;
-            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+            animation: fadeInUp 0.6s ease-out 0.4s backwards;
         }
         
         .stat {
@@ -135,7 +155,7 @@
             gap: 1.5rem;
             margin-top: 2rem;
             flex-wrap: wrap;
-            animation: fadeInUp 0.6s ease-out 0.4s backwards;
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
         }
         
         .contact-btn {
@@ -566,6 +586,11 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -606,6 +631,9 @@
     <div class="hero">
         <div class="particles" id="particles"></div>
         <div class="hero-content">
+            <div class="profile-image-container">
+                <img src="rahul.png" alt="Rahul Ranjan" class="profile-image">
+            </div>
             <h1>Rahul Ranjan</h1>
             <div class="hero-title">Machine Learning Engineer — Computer Vision | Deep Learning | MLOps</div>
             <div class="hero-description">
