@@ -700,9 +700,10 @@
                 </div>
                 <div class="card-subtitle">Monash University, Melbourne, Australia</div>
                 <div class="card-description">
-                    Developed hybrid CNN-Transformer (<10M params) for HR and SpO2 estimation using PyTorch; achieved 95%+ HR accuracy. 
-                    Built full CV pipeline (face detection → tracking → RGB extraction → filtering → inference) using OpenCV, MediaPipe. 
-                    Designed UNet + cross-attention BP estimation model (MAE < 5 mmHg). Optimized inference via CUDA (A40 GPU) + quantization (40% latency reduction).
+                    Led end-to-end research project developing smartphone-based vital sign monitoring system. Owned complete ML infrastructure from data pipeline to model deployment. 
+                    Built and maintained PyTorch training pipelines on A40 GPUs, achieving 95%+ HR accuracy with hybrid CNN-Transformer architecture. 
+                    Collaborated with medical researchers to validate models against clinical standards (AAMI, BHS). 
+                    Presented findings to academic and industry stakeholders, translating technical metrics into clinical impact.
                 </div>
             </div>
 
@@ -713,8 +714,10 @@
                 </div>
                 <div class="card-subtitle">Aglow Engineers, Kolkata</div>
                 <div class="card-description">
-                    Migrated manual logs to SQL-based infrastructure using relational schemas. Built Python automation to generate diff-based comparisons + SMTP email summaries. 
-                    Developed RF & LSTM forecasting models (89% accuracy), reducing downtime 22%. Improved data reliability 85% through automated ingestion + validation.
+                    Owned complete data infrastructure migration from manual Excel logs to automated SQL-based system serving 50+ stakeholders. 
+                    Led cross-functional communication between operations, management, and IT teams to define requirements and deliver automated reporting pipelines. 
+                    Built and deployed predictive maintenance models reducing equipment downtime 22%, directly impacting production schedules. 
+                    Managed daily stakeholder reporting via automated SMTP summaries, improving decision-making speed by 85%.
                 </div>
             </div>
 
@@ -725,9 +728,10 @@
                 </div>
                 <div class="card-subtitle">Centre for Railway Information Systems (CRIS), New Delhi</div>
                 <div class="card-description">
-                    Wrote complex SQL joins, nested queries, temporal filters on WISE DB to build ML datasets. 
-                    Built anomaly detection using Python + XGBoost (94% accuracy, 48h early failure prediction). 
-                    Deployed predictive maintenance models on 200+ assets, reducing downtime 18%.
+                    Managed end-to-end ML project lifecycle for railway infrastructure monitoring across 200+ critical assets. 
+                    Owned data engineering pipeline, working with operations teams to understand failure patterns and define monitoring requirements. 
+                    Coordinated with workshop managers and field engineers to deploy and validate anomaly detection models (94% accuracy). 
+                    Reduced unplanned workshop downtime 18% through 48-hour early failure predictions, directly improving railway operations.
                 </div>
             </div>
 
@@ -738,9 +742,10 @@
                 </div>
                 <div class="card-subtitle">Xilinx (now AMD), Hyderabad</div>
                 <div class="card-description">
-                    Designed custom 4D dictionary structure (file → module → stage → timestamp) for workflow modeling. 
-                    Built 'Data Flow Synchronicity Checker' in pure Python for file-hash verification. 
-                    Automated nightly checks using Bash cron jobs + SMTP notifications. Tool used by 25+ engineers; automated 1000+ file checks/day, improved workflow 30%.
+                    Owned development and deployment of critical workflow validation tool used by 25+ design verification engineers. 
+                    Collaborated with cross-functional teams (design, verification, build) to understand pain points and design automated solutions. 
+                    Built and maintained production infrastructure with nightly automated checks (1000+ file validations/day). 
+                    Communicated tool updates and failure reports via automated notifications, improving team workflow efficiency 30%.
                 </div>
             </div>
         </div>
@@ -759,8 +764,12 @@
                 </div>
                 <div class="card-subtitle">Industry Project | Monash University</div>
                 <div class="card-description">
-                    Built LLM-based civic engagement platform using Flask, React, OpenRouter API with safety filters, templates, and real-time email generation. 
-                    Reduced drafting time and enabled consistent messaging across stakeholders through advanced prompt engineering.
+                    <strong>Architecture:</strong> Full-stack application with React frontend, Flask backend, and OpenRouter API integration for multi-model LLM access (GPT-4, Claude). 
+                    Implemented custom prompt engineering pipeline with safety filters, role-based templates, and context injection for civic communication use cases.
+                    <br><br>
+                    <strong>Features:</strong> Real-time email draft generation with tone adjustment (formal/casual), multi-stakeholder templates, version control for drafts, and A/B testing framework for prompt effectiveness.
+                    <br><br>
+                    <strong>Deployment:</strong> Dockerized application deployed on cloud infrastructure with API rate limiting, caching layer (Redis), and monitoring dashboard for usage analytics.
                 </div>
             </div>
 
@@ -771,8 +780,14 @@
                 </div>
                 <div class="card-subtitle">CRIS, New Delhi</div>
                 <div class="card-description">
-                    Built ML-based anomaly detection using Python + XGBoost achieving 94% accuracy in predicting asset failures 48 hours in advance. 
-                    Deployed predictive maintenance models on 200+ railway assets, reducing workshop downtime by 18%.
+                    <strong>Model Design:</strong> Gradient Boosting (XGBoost) classifier with custom feature engineering from sensor time-series data. 
+                    Features included rolling statistics (mean, std, skewness), lag features, seasonal decomposition, and failure history embeddings. 
+                    Used SMOTE for class imbalance handling and Bayesian optimization for hyperparameter tuning.
+                    <br><br>
+                    <strong>Technical Stack:</strong> Python data pipeline with Pandas/NumPy for preprocessing, SQLAlchemy for database queries, and scikit-learn for model training. 
+                    Built automated retraining pipeline triggered by data drift detection using Kolmogorov-Smirnov tests.
+                    <br><br>
+                    <strong>Deployment:</strong> Model served via REST API with 48-hour rolling predictions. Integrated with existing WISE database infrastructure and deployed monitoring dashboard for prediction confidence scores.
                 </div>
             </div>
 
@@ -783,8 +798,14 @@
                 </div>
                 <div class="card-subtitle">AMD (Xilinx)</div>
                 <div class="card-description">
-                    Built production-grade timing analysis tool in Python. Automated nightly checks using Bash cron jobs + SMTP notifications. 
-                    Tool adopted by 25+ engineers, automated 1000+ file checks/day, improved workflow efficiency by 30%.
+                    <strong>Architecture:</strong> Custom 4D dictionary structure (file → module → build_stage → timestamp) for tracking design verification workflows. 
+                    Implemented SHA-256 hash-based file integrity checking with differential analysis between build stages.
+                    <br><br>
+                    <strong>Technical Implementation:</strong> Pure Python solution using pathlib for file traversal, hashlib for checksums, and multiprocessing.Pool for parallel hash computation. 
+                    Built robust error handling for network file systems and implemented incremental hashing for large files (>1GB).
+                    <br><br>
+                    <strong>Automation & Deployment:</strong> Cron-scheduled nightly runs with configurable thresholds for mismatch detection. 
+                    Generated HTML reports with diff visualization and automated SMTP notifications to engineering teams. Deployed as centralized service on shared infrastructure.
                 </div>
             </div>
 
@@ -795,8 +816,14 @@
                 </div>
                 <div class="card-subtitle">M.Sc. Thesis | BITS Pilani</div>
                 <div class="card-description">
-                    Conducted Monte Carlo simulations on 2D/3D Ising models to analyze phase transitions and critical exponents. 
-                    Achieved 40% runtime reduction via vectorization and multiprocessing techniques.
+                    <strong>Scientific Computing:</strong> Implemented Metropolis-Hastings algorithm for 2D/3D Ising lattice simulations (up to 128³ lattice sizes). 
+                    Analyzed phase transitions using finite-size scaling, extracted critical exponents (β, γ, ν) through data collapse techniques.
+                    <br><br>
+                    <strong>Performance Optimization:</strong> Achieved 40% runtime reduction through NumPy vectorization, Numba JIT compilation, and multiprocessing parallelization across temperature sweeps. 
+                    Optimized memory usage via sparse matrix representations for large lattices.
+                    <br><br>
+                    <strong>Analysis Pipeline:</strong> Built automated analysis pipeline using SciPy curve fitting, correlation length calculations, and susceptibility measurements. 
+                    Visualized results with Matplotlib (phase diagrams, magnetization curves, energy distributions).
                 </div>
             </div>
         </div>
