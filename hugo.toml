@@ -158,22 +158,37 @@ theme = 'devresume'
     [[params.projects.list]]
     title = "VITAL Net: Smartphone-based Vital Sign Monitoring"
     meta = "First Author | Monash University | 2024-2025"
-    tagline = "Hybrid CNN-Transformer framework for real-time SpO2 and heart rate estimation from smartphone rPPG video. Lightweight architecture (<10M parameters) optimized for mobile deployment with clinically acceptable accuracy."
+    tagline = "Hybrid CNN-Transformer framework (<10M params) for real-time SpO2 and heart rate estimation from smartphone rPPG video achieving 95%+ HR accuracy. Built full CV pipeline (face detection → tracking → RGB extraction → filtering → inference) using OpenCV, MediaPipe. Optimized inference via CUDA (A40 GPU) + quantization (40% latency reduction)."
 
     [[params.projects.list]]
     title = "Non-invasive Blood Pressure Estimation"
     meta = "Co-Author | Monash University | 2023-2025"
-    tagline = "Deep learning models achieving MAE < 5 mmHg for blood pressure estimation from smartphone video using rPPG technology. Published in Journal of Medical Systems (IF: 4.8) and under review at npj Digital Medicine (Nature Portfolio, IF: 12.4)."
+    tagline = "Designed UNet + cross-attention BP estimation model achieving MAE < 5 mmHg from smartphone video using rPPG technology. Implemented filtering, detrending, ICA/PCA, motion conditioning, temporal smoothing. Built evaluation suite with bootstrap CI, Bland-Altman plots, correlation metrics. Published in Journal of Medical Systems (IF: 4.8)."
 
     [[params.projects.list]]
     title = "LLM-based Civic Engagement Platform"
-    meta = "Monash University | 2024"
-    tagline = "Full-stack email generation tool using OpenRouter LLM API with safety filters and advanced prompt engineering. Deployed with Flask backend and React frontend."
+    meta = "Industry Project | Monash University | 2024"
+    tagline = "Built LLM-based civic engagement platform using Flask, React, OpenRouter API with safety filters, templates, and real-time email generation. Reduced drafting time and enabled consistent messaging across stakeholders through advanced prompt engineering."
+
+    [[params.projects.list]]
+    title = "Predictive Maintenance for Railway Infrastructure"
+    meta = "CRIS, New Delhi | 2022"
+    tagline = "Built ML-based anomaly detection using Python + XGBoost achieving 94% accuracy in predicting asset failures 48 hours in advance. Deployed predictive maintenance models on 200+ railway assets, reducing workshop downtime by 18%. Executed complex SQL queries against WISE database to extract rolling stock maintenance history."
+
+    [[params.projects.list]]
+    title = "Data Flow Synchronicity Checker"
+    meta = "AMD (Xilinx) | 2021"
+    tagline = "Designed custom 4D dictionary structure (file → module → stage → timestamp) for workflow modeling. Built production-grade timing analysis tool in Python for file-hash verification between Head and Artifactory directories. Automated nightly checks using Bash cron jobs + SMTP notifications. Tool adopted by 25+ engineers, automated 1000+ file checks/day, improved workflow efficiency by 30%."
+
+    [[params.projects.list]]
+    title = "ML Forecasting & Automation Infrastructure"
+    meta = "Aglow Engineers | 2022-2023"
+    tagline = "Migrated manual logs to SQL-based infrastructure using relational schemas. Built Python automation to generate diff-based comparisons + SMTP email summaries. Developed Random Forest & LSTM forecasting models (89% accuracy), reducing system downtime by 22% and improving data reliability by 85%."
 
     [[params.projects.list]]
     title = "Monte Carlo Simulations on Ising Models"
     meta = "M.Sc. Thesis | BITS Pilani | 2021-2022"
-    tagline = "Conducted simulations on 2D/3D Ising models to analyze phase transitions and critical exponents. Optimized simulation runtime by 40% through vectorization and multiprocessing techniques."
+    tagline = "Conducted Monte Carlo simulations on 2D/3D Ising models to analyze phase transitions and critical exponents. Achieved 40% runtime reduction via vectorization and multiprocessing techniques. Validated results against theoretical predictions."
 
 [params.information]
     enable = true
