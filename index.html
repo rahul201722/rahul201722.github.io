@@ -740,12 +740,13 @@
                     <div class="card-title">Software Development Intern</div>
                     <div class="card-meta">Aug - Dec 2021</div>
                 </div>
-                <div class="card-subtitle">Xilinx (now AMD), Hyderabad</div>
+                <div class="card-subtitle">Xilinx (now AMD), Hyderabad | Timing Team, Device Capture Group</div>
                 <div class="card-description">
-                    Owned development and deployment of critical workflow validation tool used by 25+ design verification engineers. 
-                    Collaborated with cross-functional teams (design, verification, build) to understand pain points and design automated solutions. 
-                    Built and maintained production infrastructure with nightly automated checks (1000+ file validations/day). 
-                    Communicated tool updates and failure reports via automated notifications, improving team workflow efficiency 30%.
+                    Owned development and deployment of Data Flow Synchronicity Checker tool used by 25+ design verification engineers across FPGA development teams. 
+                    Collaborated with cross-functional stakeholders (design, verification, build teams) to understand workflow pain points and design automated verification solutions. 
+                    Built and maintained production infrastructure with nightly automated checks (1000+ file validations/day) using cron-scheduled jobs. 
+                    Communicated tool updates, mismatch reports, and failure notifications via automated SMTP emails, improving team workflow efficiency 30%. 
+                    Managed code reviews through Helix Swarm and version control via Perforce Helix Core.
                 </div>
             </div>
         </div>
@@ -796,16 +797,18 @@
                     <div class="card-title">Data Flow Synchronicity Checker</div>
                     <div class="card-meta">2021</div>
                 </div>
-                <div class="card-subtitle">AMD (Xilinx)</div>
+                <div class="card-subtitle">AMD (Xilinx) | FPGA Design Verification Tool</div>
                 <div class="card-description">
-                    <strong>Architecture:</strong> Custom 4D dictionary structure (file → module → build_stage → timestamp) for tracking design verification workflows. 
-                    Implemented SHA-256 hash-based file integrity checking with differential analysis between build stages.
+                    <strong>Architecture:</strong> Built 3D nested dictionary structure (Type → Key → [file_metadata]) for tracking design verification workflows across FPGA development stages. 
+                    Implemented SHA-256 hash-based file integrity verification comparing HEAD versions against Artifactory repositories and Perforce version control.
                     <br><br>
-                    <strong>Technical Implementation:</strong> Pure Python solution using pathlib for file traversal, hashlib for checksums, and multiprocessing.Pool for parallel hash computation. 
-                    Built robust error handling for network file systems and implemented incremental hashing for large files (>1GB).
+                    <strong>Technical Implementation:</strong> Python-based solution using pathlib for file traversal, hashlib for checksums, CSV module for manifest parsing, and libconf for configuration management. 
+                    Developed differential analysis engine detecting version mismatches, checksum failures, and missing files across device.manifest and arch.manifest files. 
+                    Built robust error handling for network file systems with retry logic and incremental hashing for large files (>1GB).
                     <br><br>
-                    <strong>Automation & Deployment:</strong> Cron-scheduled nightly runs with configurable thresholds for mismatch detection. 
-                    Generated HTML reports with diff visualization and automated SMTP notifications to engineering teams. Deployed as centralized service on shared infrastructure.
+                    <strong>Automation & Deployment:</strong> Wrapper script orchestrating multi-directory checks with Bash cron scheduling for nightly automated runs. 
+                    Integrated SMTP-based notification system (smtplib + email modules) sending categorized mismatch reports and auto-generated update lists in CSV format. 
+                    Deployed as centralized production service on Linux infrastructure, processing 1000+ file validations/day with automated update propagation to downstream scripts.
                 </div>
             </div>
 
