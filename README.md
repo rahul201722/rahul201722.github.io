@@ -4,9 +4,6 @@ Personal portfolio website showcasing ML engineering expertise, AI research, and
 
 **Live at:** https://rahul201722.github.io/
 
-## About Me
-Machine Learning Engineer with expertise in Computer Vision and Deep Learning. Published researcher developing smartphone-based vital sign monitoring systems. Proven track record delivering ML solutions that reduced downtime by 18-22% and improved efficiency by 30% across healthcare, railway, and semiconductor domains.
-
 ## Tech Stack
 - Pure HTML/CSS/JavaScript
 - No framework dependencies
@@ -31,4 +28,3 @@ Machine Learning Engineer with expertise in Computer Vision and Deep Learning. P
 
 ## Contact
 - 💼 LinkedIn: [rahul-ranjan-b595891b1](https://linkedin.com/in/rahul-ranjan-b595891b1)
-- 💻 GitHub: [rahul201722](https://github.com/rahul201722)
