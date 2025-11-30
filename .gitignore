@@ -27,7 +27,6 @@ Thumbs.db
 # Old static site files (migrated to Hugo)
 /assets/style.css
 /assets/cv.js
-/index.html
 /robots.txt
 /cv_2.pdf
 
