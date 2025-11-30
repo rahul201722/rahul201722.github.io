@@ -33,3 +33,7 @@ Thumbs.db
 # CV files
 cv_ml.pdf
 cv_phd_research.pdf
+node_modules/
+tailwindcss*
+src/
+package-lock.json
