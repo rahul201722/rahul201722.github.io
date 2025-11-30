@@ -23,11 +23,11 @@ Machine Learning Engineer with expertise in Computer Vision and Deep Learning. P
 - 📚 Published research with full abstracts
 
 ## Sections
-1. **Experience** - 4+ years across ML research, railway systems, and semiconductor
-2. **Projects** - Featured ML/AI projects including LLM platforms and predictive maintenance
-3. **Education** - Master of AI (Monash) + Dual Degree Physics/Electronics (BITS Pilani)
-4. **Skills** - ML Frameworks, Computer Vision, Data Engineering, and more
-5. **Publications** - Published work in Journal of Medical Systems
+- **Experience**
+- **Projects**
+- **Education**
+- **Skills**
+- **Publications**
 
 ## Contact
 - 📧 Email: rahulrkm0038@gmail.com
