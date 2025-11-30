@@ -530,21 +530,53 @@
         
         /* Publications */
         .publication-type {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
             display: inline-block;
-            background: rgba(84, 182, 137, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            padding: 0.4rem 0.8rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .collapsible-abstract {
+            margin-top: 1rem;
+        }
+        
+        .abstract-toggle {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            text-decoration: underline;
+            font-size: 0.95rem;
+        }
+        
+        .abstract-toggle:hover {
+            color: var(--accent);
+        }
+        
+        .abstract-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .abstract-content.expanded {
+            max-height: 500px;
+        }
+        
+        .abstract-text {
+            padding: 1rem 0;
+            line-height: 1.8;
+            color: var(--text-light);
         }
         
         .card:hover .publication-type {
-            background: var(--primary);
-            color: white;
-            transform: translateX(5px);
+            transform: scale(1.05);
         }
         
         /* Scroll to top button */
