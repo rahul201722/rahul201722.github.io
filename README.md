@@ -30,6 +30,5 @@ Machine Learning Engineer with expertise in Computer Vision and Deep Learning. P
 - **Publications**
 
 ## Contact
-- 📧 Email: rahulrkm0038@gmail.com
 - 💼 LinkedIn: [rahul-ranjan-b595891b1](https://linkedin.com/in/rahul-ranjan-b595891b1)
 - 💻 GitHub: [rahul201722](https://github.com/rahul201722)
