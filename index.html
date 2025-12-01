@@ -1,1071 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Ranjan - ML Engineer & AI Researcher</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #54B689;
-            --primary-dark: #3d9870;
-            --accent: #45a074;
-            --text: #292929;
-            --text-light: #5a5a5a;
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f5;
-            --border: #e0e0e0;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg-secondary);
-            overflow-x: hidden;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-        
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .profile-image-container {
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.3);
-            object-fit: cover;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-            animation: float 3s ease-in-out infinite;
-            transition: transform 0.3s;
-        }
-        
-        .profile-image:hover {
-            transform: scale(1.1);
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.6s ease-out 0.1s backwards;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .hero-title {
-            font-size: 1.5rem;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.6s ease-out 0.2s backwards;
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-            line-height: 1.8;
-            animation: fadeInUp 0.6s ease-out 0.3s backwards;
-        }
-        
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-            animation: fadeInUp 0.6s ease-out 0.4s backwards;
-        }
-        
-        .stat {
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .stat:hover {
-            transform: scale(1.1);
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-            animation: countUp 2s ease-out;
-        }
-        
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.6s ease-out 0.5s backwards;
-        }
-        
-        .contact-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .contact-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .contact-btn span {
-            position: relative;
-            z-index: 1;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            animation: rise linear infinite;
-        }
-        
-        @keyframes rise {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
-        }
-        
-        /* Navigation */
-        .nav-container {
-            position: sticky;
-            top: 0;
-            background: var(--bg);
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        }
-        
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 0.5rem;
-            padding: 1rem;
-            overflow-x: auto;
-        }
-        
-        .nav-item {
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            white-space: nowrap;
-            color: var(--text);
-            font-weight: 500;
-            position: relative;
-        }
-        
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.3s, left 0.3s;
-        }
-        
-        .nav-item:hover::after {
-            width: 100%;
-            left: 0;
-        }
-        
-        .nav-item:hover {
-            background: var(--bg-secondary);
-            color: var(--primary);
-        }
-        
-        .nav-item.active {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .nav-item.active::after {
-            display: none;
-        }
-        
-        /* Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1rem;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: slideIn 0.5s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-        
-        .card {
-            background: var(--bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            margin-bottom: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid var(--primary);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInCard 0.6s ease-out forwards;
-        }
-        
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-        
-        @keyframes fadeInCard {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .card:hover {
-            box-shadow: 0 8px 24px rgba(84, 182, 137, 0.2);
-            transform: translateY(-8px) scale(1.02);
-            border-left-width: 6px;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 0.75rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text);
-            transition: color 0.3s;
-        }
-        
-        .card:hover .card-title {
-            color: var(--primary);
-        }
-        
-        .card-meta {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 500;
-            background: var(--bg-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-        
-        .card:hover .card-meta {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .card-subtitle {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .card-description {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-        
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-card {
-            background: var(--bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border-top: 3px solid var(--primary);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInCard 0.6s ease-out forwards;
-        }
-        
-        .skill-card:nth-child(1) { animation-delay: 0.1s; }
-        .skill-card:nth-child(2) { animation-delay: 0.2s; }
-        .skill-card:nth-child(3) { animation-delay: 0.3s; }
-        .skill-card:nth-child(4) { animation-delay: 0.4s; }
-        .skill-card:nth-child(5) { animation-delay: 0.5s; }
-        .skill-card:nth-child(6) { animation-delay: 0.6s; }
-        
-        .skill-card:hover {
-            transform: translateY(-12px) rotate(2deg);
-            box-shadow: 0 12px 28px rgba(84, 182, 137, 0.25);
-            border-top-width: 5px;
-        }
-        
-        .skill-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skill-card h3::before {
-            content: '●';
-            font-size: 1.5rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-        
-        .skill-list li:hover {
-            padding-left: 10px;
-            color: var(--primary);
-        }
-        
-        .skill-list li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: 700;
-            transition: transform 0.3s;
-        }
-        
-        .skill-list li:hover::before {
-            transform: scale(1.3);
-        }
-        
-        /* Publications */
-        .publication-type {
-            display: inline-block;
-            padding: 0.4rem 0.8rem;
-            background: var(--primary);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .collapsible-abstract {
-            margin-top: 1rem;
-        }
-        
-        .abstract-toggle {
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            text-decoration: underline;
-            font-size: 0.95rem;
-        }
-        
-        .abstract-toggle:hover {
-            color: var(--accent);
-        }
-        
-        .abstract-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .abstract-content.expanded {
-            max-height: 500px;
-        }
-        
-        .abstract-text {
-            padding: 1rem 0;
-            line-height: 1.8;
-            color: var(--text-light);
-        }
-        
-        .card:hover .publication-type {
-            transform: scale(1.05);
-        }
-        
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(84, 182, 137, 0.3);
-            transition: all 0.3s;
-            z-index: 1000;
-        }
-        
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(84, 182, 137, 0.4);
-        }
-        
-        .scroll-top.show {
-            display: flex;
-            animation: bounceIn 0.5s;
-        }
-        
-        @keyframes bounceIn {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-title {
-                font-size: 1.2rem;
-            }
-            
-            .hero-description {
-                font-size: 1rem;
-            }
-            
-            .hero-stats {
-                gap: 1.5rem;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .card-header {
-                flex-direction: column;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahul Ranjan - ML Engineer & AI Researcher</title>
+  <meta name="description" content="Rahul Ranjan - ML Engineer focused on clinically grounded computer vision, predictive maintenance, and applied research.">
+  <link rel="preload" as="image" href="profile.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="particles" id="particles"></div>
-        <div class="hero-content">
-            <div class="profile-image-container">
-                <img src="profile.jpg" alt="Rahul Ranjan" class="profile-image">
-            </div>
-            <h1>Rahul Ranjan</h1>
-            <div class="hero-title">Machine Learning Engineer — Computer Vision | Deep Learning | MLOps</div>
-            <div class="hero-description">
-                ML engineer specializing in Computer Vision and Deep Learning. Published researcher in medical AI with smartphone-based vital sign monitoring systems. 
-                Delivered measurable impact: 18-22% downtime reduction (railway predictive maintenance), 30% workflow efficiency gain (semiconductor FPGA tools), <5 mmHg BP estimation error (healthcare CV).
-            </div>
-            
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">&gt;95%</span>
-                    <span class="stat-label">HR Accuracy (PPG)</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">&lt;5 mmHg</span>
-                    <span class="stat-label">BP MAE</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">3+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-            </div>
-            
-            <div class="contact-links">
-                <a href="mailto:rahulrkm0038@gmail.com" class="contact-btn">
-                    <span>📧 Email</span>
-                </a>
-                <a href="tel:+917997193400" class="contact-btn">
-                    <span>📱 +91 7997193400</span>
-                </a>
-                <a href="https://linkedin.com/in/rahul-ranjan-b595891b1" target="_blank" class="contact-btn">
-                    <span>💼 LinkedIn</span>
-                </a>
-                <a href="https://github.com/rahul201722" target="_blank" class="contact-btn">
-                    <span>💻 GitHub</span>
-                </a>
-            </div>
+  <header class="hero" id="top">
+    <div class="shell">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">ML Engineer & AI Researcher</p>
+          <h1>Rahul Ranjan</h1>
+          <p class="lede">ML engineer focused on clinically grounded computer vision and evaluation pipelines. Ships production-grade models for healthcare and reliability-focused products.</p>
+          <div class="proof-points">
+            <span>95%+ HR accuracy on mobile PPG</span>
+            <span>&lt;5 mmHg BP MAE vs AAMI/BHS</span>
+            <span>3 peer-reviewed papers</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:rahulrkm0038@gmail.com">Email</a>
+            <a class="btn secondary" href="cv_ml.pdf" target="_blank" rel="noopener">Resume PDF</a>
+            <a class="btn tertiary" href="https://linkedin.com/in/rahul-ranjan-b595891b1" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <div class="quick-links">
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#publications">Publications</a>
+            <a href="https://github.com/rahul201722" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
+        <div class="hero-photo">
+          <img src="profile.jpg" alt="Rahul Ranjan portrait">
+          <div class="contact-card">
+            <p>Email: <a href="mailto:rahulrkm0038@gmail.com">rahulrkm0038@gmail.com</a></p>
+            <p>Phone: <a href="tel:+917997193400">+91 7997193400</a></p>
+            <p>Research CV: <a href="cv_phd_research.pdf" target="_blank" rel="noopener">Open</a></p>
+          </div>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- Navigation -->
-    <div class="nav-container">
-        <div class="nav">
-            <button class="nav-item active" onclick="showTab('experience')">Experience</button>
-            <button class="nav-item" onclick="showTab('projects')">Projects</button>
-            <button class="nav-item" onclick="showTab('education')">Education</button>
-            <button class="nav-item" onclick="showTab('skills')">Skills</button>
-            <button class="nav-item" onclick="showTab('publications')">Publications</button>
+  <main>
+    <section id="experience" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Experience</p>
+            <h2>Professional Experience</h2>
+            <p class="section-subtitle">Outcome-first snapshot across research and production ML.</p>
+          </div>
+          <div class="section-ctas">
+            <a class="text-link" href="mailto:rahulrkm0038@gmail.com">Email</a>
+            <a class="text-link" href="cv_ml.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
         </div>
+        <div class="card-grid">
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Graduate ML Research Engineer</h3>
+                <p class="meta">Monash University - 2025-2026</p>
+              </div>
+              <span class="badge">MedTech CV</span>
+            </header>
+            <ul class="bullet-list">
+              <li>Built smartphone-based vital sign pipeline (PPG -> vPPG/aPPG) with ResNet-50 + multi-head attention; hit 95%+ HR accuracy and &lt;5 mmHg BP MAE aligned to AAMI/BHS clinical thresholds.</li>
+              <li>Owned PyTorch training/eval on A40 GPUs, designing augmentations for motion/illumination noise and calibrating metrics against clinical baselines.</li>
+              <li>Translated findings for clinicians and industry partners; produced reproducible evaluation scripts and deployment-ready checkpoints.</li>
+            </ul>
+            <div class="meta-links">
+              <a href="cv_phd_research.pdf" target="_blank" rel="noopener">Research CV</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Information Technology Officer</h3>
+                <p class="meta">Aglow Engineers - Jun 2022-Feb 2023</p>
+              </div>
+              <span class="badge">Predictive Maintenance</span>
+            </header>
+            <ul class="bullet-list">
+              <li>Migrated manual Excel logs to automated SQL reporting for 50+ stakeholders; standardized telemetry and alerting.</li>
+              <li>Shipped predictive maintenance models that reduced equipment downtime 22% and automated SMTP updates that sped decisions 85%.</li>
+              <li>Partnered with ops/management to prioritize failure modes, align thresholds, and ship retraining cadence.</li>
+            </ul>
+            <div class="meta-links">
+              <a href="mailto:rahulrkm0038@gmail.com">Email Rahul</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Software Intern</h3>
+                <p class="meta">Centre for Railway Information Systems - Feb-May 2022</p>
+              </div>
+              <span class="badge">ML Ops</span>
+            </header>
+            <ul class="bullet-list">
+              <li>Delivered anomaly detection for 200+ rail assets with 94% accuracy and 48-hour early failure predictions, driving 18% fewer unplanned outages.</li>
+              <li>Built the full data pipeline: feature engineering, labeling workflows with workshop managers, and validation with field engineers.</li>
+              <li>Operationalized retraining and monitoring across the existing WISE database stack.</li>
+            </ul>
+            <div class="meta-links">
+              <a href="cv_ml.pdf" target="_blank" rel="noopener">Resume</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Software Development Intern</h3>
+                <p class="meta">AMD (Xilinx) - Jun-Dec 2021</p>
+              </div>
+              <span class="badge">Tooling</span>
+            </header>
+            <ul class="bullet-list">
+              <li>Built the Data Flow Synchronicity Checker used by 25+ verification engineers; processed 1000+ file validations/day with automated mismatch reports.</li>
+              <li>Implemented SHA-256 integrity checks vs Artifactory/Perforce, differential analysis, and cron-scheduled nightly runs.</li>
+              <li>Improved verification workflow efficiency ~30% via automated notifications and update lists.</li>
+            </ul>
+            <div class="meta-links">
+              <a href="mailto:rahulrkm0038@gmail.com">Email Rahul</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section alt">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2>Selected Projects</h2>
+            <p class="section-subtitle">Evidence-first highlights with stack and outcomes.</p>
+          </div>
+          <div class="section-ctas">
+            <a class="text-link" href="https://github.com/rahul201722" target="_blank" rel="noopener">GitHub</a>
+            <a class="text-link" href="mailto:rahulrkm0038@gmail.com">Contact</a>
+          </div>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Vital Sign Monitoring (Mobile)</h3>
+                <p class="meta">Computer Vision | PyTorch | ResNet + Attention</p>
+              </div>
+              <span class="badge">MedTech</span>
+            </header>
+            <p class="card-copy">Converted single-sensor PPG into visual representations (PPG, vPPG, aPPG) and trained ResNet-50 with multi-head attention to estimate HR/BP on-device; aligned outputs to clinical AAMI/BHS standards.</p>
+            <div class="meta-links">
+              <a href="cv_phd_research.pdf" target="_blank" rel="noopener">Research CV</a>
+              <a href="https://link.springer.com/article/10.1007/s10916-025-02228-6" target="_blank" rel="noopener">Journal paper</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Predictive Maintenance for Rail</h3>
+                <p class="meta">XGBoost | Time-series features | SQL</p>
+              </div>
+              <span class="badge">Reliability</span>
+            </header>
+            <p class="card-copy">Engineered rolling/lag features and deployed XGBoost models with drift checks and retraining cadence; reduced unplanned downtime 18-22% and delivered 48-hour lead time on failures.</p>
+            <div class="meta-links">
+              <a href="mailto:rahulrkm0038@gmail.com">Discuss deployment</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Data Flow Synchronicity Checker</h3>
+                <p class="meta">Python | Hashing | Automation</p>
+              </div>
+              <span class="badge">Tooling</span>
+            </header>
+            <p class="card-copy">Automated file integrity checks across multi-repo FPGA verification flows using SHA-256, manifest diffs, and cron-based scheduling; shipped email digests for mismatches to keep teams in sync.</p>
+            <div class="meta-links">
+              <a href="cv_ml.pdf" target="_blank" rel="noopener">Resume</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Education</p>
+            <h2>Academic Background</h2>
+            <p class="section-subtitle">Foundations across AI, physics, and instrumentation.</p>
+          </div>
+          <div class="section-ctas">
+            <a class="text-link" href="cv_ml.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+        </div>
+        <div class="card-grid two-col">
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>Master of Artificial Intelligence</h3>
+                <p class="meta">Monash University - 2023-2025</p>
+              </div>
+              <span class="badge">AI</span>
+            </header>
+            <p class="card-copy">Coursework: Deep Learning, Intelligent Image & Video Analysis, Foundations of Data Science, Project Management & Professional Practice.</p>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3>M.Sc. Physics & B.E. Electronics</h3>
+                <p class="meta">BITS Pilani - 2017-2022</p>
+              </div>
+              <span class="badge">Dual Degree</span>
+            </header>
+            <p class="card-copy">Thesis: Monte Carlo simulations of phase transitions in Ising models; explored disorder impacts on critical exponents.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section alt">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Skills</p>
+            <h2>Technical Stack</h2>
+            <p class="section-subtitle">What I reach for to ship production ML.</p>
+          </div>
+          <div class="section-ctas">
+            <a class="text-link" href="mailto:rahulrkm0038@gmail.com">Email</a>
+          </div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>ML Engineering</h3>
+            <ul>
+              <li>PyTorch, TensorFlow, scikit-learn, XGBoost</li>
+              <li>CNNs, Transformers, attention for CV</li>
+              <li>Quantization, optimization, GPU acceleration</li>
+              <li>Evaluation design for clinical/production metrics</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Data & MLOps</h3>
+            <ul>
+              <li>Feature engineering for time-series & vision</li>
+              <li>SQL, ETL pipelines, drift detection & retraining</li>
+              <li>Docker, REST (Flask), cron orchestration</li>
+              <li>Monitoring, alerting, and reporting via SMTP</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Tooling & Languages</h3>
+            <ul>
+              <li>Python (expert), Bash, C++, MATLAB</li>
+              <li>Git/Perforce, Helix Swarm, Artifactory</li>
+              <li>OpenCV, MediaPipe, NumPy/Pandas</li>
+              <li>Hugging Face Transformers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Publications</p>
+            <h2>Selected Research</h2>
+            <p class="section-subtitle">Focused on biomedical signal processing and CV.</p>
+          </div>
+          <div class="section-ctas">
+            <a class="text-link" href="cv_phd_research.pdf" target="_blank" rel="noopener">Research CV</a>
+          </div>
+        </div>
+        <div class="pub-list">
+          <article class="pub-item">
+            <div>
+              <h3>Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models</h3>
+              <p class="meta">Journal of Medical Systems, 2025</p>
+              <p class="card-copy">Single-sensor PPG framework with ResNet-50 + multi-head cross-attention meeting AAMI/BHS standards across three datasets; removes multi-site sensor dependency.</p>
+            </div>
+            <div class="meta-links">
+              <a href="https://link.springer.com/article/10.1007/s10916-025-02228-6" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Let's build something</h2>
+            <p class="section-subtitle">Available for ML Engineer / Applied Scientist roles.</p>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:rahulrkm0038@gmail.com">Email Rahul</a>
+            <a class="btn secondary" href="cv_ml.pdf" target="_blank" rel="noopener">Resume PDF</a>
+            <a class="btn tertiary" href="https://linkedin.com/in/rahul-ranjan-b595891b1" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <p class="small-print">Prefer async? Include role, timeline, and domain; I'll respond within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <p>(c) Rahul Ranjan - ML Engineer & AI Researcher</p>
+      <a href="#top">Back to top</a>
     </div>
-
-    <!-- Content -->
-    <div class="container">
-        <!-- Experience Tab -->
-        <div id="experience" class="tab-content active">
-            <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">Building impactful ML solutions across multiple domains</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Graduate ML Research Engineer</div>
-                    <div class="card-meta">2025 - 2026</div>
-                </div>
-                <div class="card-subtitle">Monash University, Melbourne, Australia</div>
-                <div class="card-description">
-                    Led end-to-end research project developing smartphone-based vital sign monitoring system. Owned complete ML infrastructure from data pipeline to model deployment. 
-                    Built and maintained PyTorch training pipelines on A40 GPUs, achieving 95%+ HR accuracy with hybrid CNN-Transformer architecture. 
-                    Collaborated with medical researchers to validate models against clinical standards (AAMI, BHS). 
-                    Presented findings to academic and industry stakeholders, translating technical metrics into clinical impact.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Information Technology Officer</div>
-                    <div class="card-meta">Jun 2022 - Feb 2023</div>
-                </div>
-                <div class="card-subtitle">Aglow Engineers, Kolkata</div>
-                <div class="card-description">
-                    Owned complete data infrastructure migration from manual Excel logs to automated SQL-based system serving 50+ stakeholders. 
-                    Led cross-functional communication between operations, management, and IT teams to define requirements and deliver automated reporting pipelines. 
-                    Built and deployed predictive maintenance models reducing equipment downtime 22%, directly impacting production schedules. 
-                    Managed daily stakeholder reporting via automated SMTP summaries, improving decision-making speed by 85%.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Software Intern</div>
-                    <div class="card-meta">Feb - May 2022</div>
-                </div>
-                <div class="card-subtitle">Centre for Railway Information Systems (CRIS), New Delhi</div>
-                <div class="card-description">
-                    Managed end-to-end ML project lifecycle for railway infrastructure monitoring across 200+ critical assets. 
-                    Owned data engineering pipeline, working with operations teams to understand failure patterns and define monitoring requirements. 
-                    Coordinated with workshop managers and field engineers to deploy and validate anomaly detection models (94% accuracy). 
-                    Reduced unplanned workshop downtime 18% through 48-hour early failure predictions, directly improving railway operations.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Software Development Intern</div>
-                    <div class="card-meta">Jun - Dec 2021</div>
-                </div>
-                <div class="card-subtitle">Xilinx (now AMD), Hyderabad | Timing Team, Device Capture Group</div>
-                <div class="card-description">
-                    Owned development and deployment of Data Flow Synchronicity Checker tool used by 25+ design verification engineers across FPGA development teams. 
-                    Collaborated with cross-functional stakeholders (design, verification, build teams) to understand workflow pain points and design automated verification solutions. 
-                    Built and maintained production infrastructure with nightly automated checks (1000+ file validations/day) using cron-scheduled jobs. 
-                    Communicated tool updates, mismatch reports, and failure notifications via automated SMTP emails, improving team workflow efficiency 30%. 
-                    Managed code reviews through Helix Swarm and version control via Perforce Helix Core.
-                </div>
-            </div>
-        </div>
-
-        <!-- Projects Tab -->
-        <div id="projects" class="tab-content">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Innovative ML solutions from research to production</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">LLM-based Civic Engagement Platform</div>
-                    <div class="card-meta">2025</div>
-                </div>
-                <div class="card-subtitle">Industry Project | Monash University</div>
-                <div class="card-description">
-                    <strong>Architecture:</strong> Full-stack application with React frontend, Flask backend, and OpenRouter API integration for multi-model LLM access (GPT-4, Claude). 
-                    Implemented custom prompt engineering pipeline with safety filters, role-based templates, and context injection for civic communication use cases.
-                    <br><br>
-                    <strong>Features:</strong> Real-time email draft generation with tone adjustment (formal/casual), multi-stakeholder templates, version control for drafts, and A/B testing framework for prompt effectiveness.
-                    <br><br>
-                    <strong>Deployment:</strong> Dockerized application deployed on cloud infrastructure with API rate limiting, caching layer (Redis), and monitoring dashboard for usage analytics.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Predictive Maintenance for Railway Infrastructure</div>
-                    <div class="card-meta">2022</div>
-                </div>
-                <div class="card-subtitle">CRIS, New Delhi</div>
-                <div class="card-description">
-                    <strong>Model Design:</strong> Gradient Boosting (XGBoost) classifier with custom feature engineering from sensor time-series data. 
-                    Features included rolling statistics (mean, std, skewness), lag features, seasonal decomposition, and failure history embeddings. 
-                    Used SMOTE for class imbalance handling and Bayesian optimization for hyperparameter tuning.
-                    <br><br>
-                    <strong>Technical Stack:</strong> Python data pipeline with Pandas/NumPy for preprocessing, SQLAlchemy for database queries, and scikit-learn for model training. 
-                    Built automated retraining pipeline triggered by data drift detection using Kolmogorov-Smirnov tests.
-                    <br><br>
-                    <strong>Deployment:</strong> Model served via REST API with 48-hour rolling predictions. Integrated with existing WISE database infrastructure and deployed monitoring dashboard for prediction confidence scores.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Data Flow Synchronicity Checker</div>
-                    <div class="card-meta">2021</div>
-                </div>
-                <div class="card-subtitle">AMD (Xilinx) | FPGA Design Verification Tool</div>
-                <div class="card-description">
-                    <strong>Architecture:</strong> Built 3D nested dictionary structure (Type → Key → [file_metadata]) for tracking design verification workflows across FPGA development stages. 
-                    Implemented SHA-256 hash-based file integrity verification comparing HEAD versions against Artifactory repositories and Perforce version control.
-                    <br><br>
-                    <strong>Technical Implementation:</strong> Python-based solution using pathlib for file traversal, hashlib for checksums, CSV module for manifest parsing, and libconf for configuration management. 
-                    Developed differential analysis engine detecting version mismatches, checksum failures, and missing files across device.manifest and arch.manifest files. 
-                    Built robust error handling for network file systems with retry logic and incremental hashing for large files (>1GB).
-                    <br><br>
-                    <strong>Automation & Deployment:</strong> Wrapper script orchestrating multi-directory checks with Bash cron scheduling for nightly automated runs. 
-                    Integrated SMTP-based notification system (smtplib + email modules) sending categorized mismatch reports and auto-generated update lists in CSV format. 
-                    Deployed as centralized production service on Linux infrastructure, processing 1000+ file validations/day with automated update propagation to downstream scripts.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Effect of Disorder on Critical Exponents in Ising Models</div>
-                    <div class="card-meta">2021-2022</div>
-                </div>
-                <div class="card-subtitle">M.Sc. Thesis | BITS Pilani | Supervisor: Prof. P. K. Thiruvikraman</div>
-                <div class="card-description">
-                    <strong>Research Objective:</strong> Investigated phase transitions in ferromagnetic materials (ferromagnetic → paramagnetic) using Monte Carlo simulations. 
-                    Studied how disorder affects critical exponents and phase transition behavior in 2D/3D Ising lattice models.
-                    <br><br>
-                    <strong>Technical Implementation:</strong> Implemented Metropolis algorithm in MATLAB for 2D/3D Ising lattice simulations with periodic boundary conditions (lattice sizes up to 128×128). 
-                    Calculated thermodynamic observables: average energy, magnetization, susceptibility, and specific heat across temperature sweeps near critical temperature (Tc).
-                    <br><br>
-                    <strong>Performance & Analysis:</strong> Achieved 40% runtime reduction through vectorization and parallel temperature sweep computations. 
-                    Extracted critical exponents (β, γ) using finite-size scaling and power-law fitting. Analyzed effect of introducing random disorder on exchange coupling (J) and its impact on transition sharpness.
-                </div>
-            </div>
-        </div>
-
-        <!-- Education Tab -->
-        <div id="education" class="tab-content">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-                <p class="section-subtitle">Academic foundation in AI, Physics and Electronics</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Master of Artificial Intelligence</div>
-                    <div class="card-meta">2023 - 2025</div>
-                </div>
-                <div class="card-subtitle">Monash University, Melbourne, Australia</div>
-                <div class="card-description">
-                    Relevant Coursework: Deep Learning, Intelligent Image And Video Analysis, Foundations Of Data Science, Project Management And Professional Practice
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">M.Sc. (Hons.) Physics, B.E. (Hons.) Electronics & Instrumentation</div>
-                    <div class="card-meta">2017 - 2022</div>
-                </div>
-                <div class="card-subtitle">Birla Institute of Technology and Science (BITS), Pilani, India</div>
-                <div class="card-description">
-                    Dual Degree Program | Thesis: Monte Carlo Simulations of Phase Transitions in Ising Models
-                </div>
-            </div>
-        </div>
-
-        <!-- Skills Tab -->
-        <div id="skills" class="tab-content">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Core competencies in ML and software engineering</p>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>🔥 Core Strengths</h3>
-                    <ul class="skill-list">
-                        <li><strong>Python</strong> (Expert)</li>
-                        <li><strong>PyTorch</strong></li>
-                        <li><strong>Computer Vision</strong> (OpenCV, MediaPipe)</li>
-                        <li><strong>SQL</strong> (Complex queries, optimization)</li>
-                        <li><strong>Deep Learning</strong> (CNNs, Transformers)</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>⚙️ ML Engineering</h3>
-                    <ul class="skill-list">
-                        <li>Model Training & Optimization</li>
-                        <li>GPU Acceleration (CUDA)</li>
-                        <li>Quantization & Compression</li>
-                        <li>Feature Engineering</li>
-                        <li>Hyperparameter Tuning</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>📊 Data & Deployment</h3>
-                    <ul class="skill-list">
-                        <li>ETL Pipelines</li>
-                        <li>Docker Containerization</li>
-                        <li>REST APIs (Flask)</li>
-                        <li>PostgreSQL / MongoDB</li>
-                        <li>Git Version Control</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🛠️ Additional Tools</h3>
-                    <ul class="skill-list">
-                        <li>TensorFlow, Scikit-learn, XGBoost</li>
-                        <li>NumPy, Pandas, Matplotlib</li>
-                        <li>React, Bash, C++, MATLAB</li>
-                        <li>Hugging Face Transformers</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Publications Tab -->
-        <div id="publications" class="tab-content">
-            <div class="section-header">
-                <h2 class="section-title">Publications</h2>
-                <p class="section-subtitle">Contributions to Biomedical AI research</p>
-            </div>
-            
-            <div class="card">
-                <div class="publication-type">✅ Published in Journal of Medical Systems (2025)</div>
-                <div class="card-description">
-                    Roha, V. S., <strong>Ranjan, R.</strong>, & Yuce, M. R. (2025). Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models. 
-                    <em>Journal of Medical Systems</em>, 49(1), 97.
-                    <br><br>
-                    <strong>Key Contribution:</strong> Developed innovative single-sensor PPG-based blood pressure estimation framework using ResNet-50 + multi-head cross-attention, 
-                    meeting AAMI/BHS clinical standards across three datasets. Eliminates need for multi-site sensors in continuous BP monitoring.
-                    <br><br>
-                    <a href="https://link.springer.com/article/10.1007/s10916-025-02228-6" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">
-                        🔗 View Full Paper
-                    </a>
-                    
-                    <div class="collapsible-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract()">📄 Show Full Abstract</button>
-                        <div class="abstract-content" id="abstractContent">
-                            <div class="abstract-text">
-                                Developed an innovative framework for non-invasive blood pressure estimation using only PPG signals from a single body site, eliminating the need for multiple sensors. 
-                                Transforms PPG signals and their derivatives (vPPG, aPPG) into visual representations, utilizing ResNet-50 for feature extraction and multi-head cross-attention (MHCA) mechanism for enhanced accuracy. 
-                                Validated on three distinct datasets, achieving superior performance compared to traditional PAT and PTT-based methods while meeting AAMI and BHS clinical standards. 
-                                Represents a significant advancement in practical, continuous BP monitoring with reduced system complexity and improved reliability.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scroll to top button -->
-    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
-
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        createParticles();
-        
-        // Tab switching with animation
-        function showTab(tabName) {
-            const contents = document.querySelectorAll('.tab-content');
-            const tabs = document.querySelectorAll('.nav-item');
-            
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollTop = document.getElementById('scrollTop');
-            if (window.pageYOffset > 300) {
-                scrollTop.classList.add('show');
-            } else {
-                scrollTop.classList.remove('show');
-            }
-        });
-        
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Toggle abstract
-        function toggleAbstract() {
-            const content = document.getElementById('abstractContent');
-            const button = event.target;
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                button.textContent = '📄 Show Full Abstract';
-            } else {
-                content.classList.add('expanded');
-                button.textContent = '📄 Hide Abstract';
-            }
-        }
-        
-        // Animate stats on scroll
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.card, .skill-card').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+  </footer>
 </body>
 </html>

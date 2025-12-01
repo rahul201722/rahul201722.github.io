@@ -37,3 +37,5 @@ node_modules/
 tailwindcss*
 src/
 package-lock.json
+index-original.html
+SUGGESTIONS.md
