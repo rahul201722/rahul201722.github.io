@@ -8,8 +8,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^4.1.17"
-  },
-  "dependencies": {
-    "html-validate": "^10.4.0"
   }
 }
