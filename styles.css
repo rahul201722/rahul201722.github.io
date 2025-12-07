@@ -4,11 +4,11 @@
   --bg: #f6f8f7;
   --card-bg: #ffffff;
   --text: #0f1b16;
-  --muted: #55625b;
+  --muted: #4a534e; /* Darkened from #55625b */
   --border: #e1e7e3;
-  --shadow-sm: 0 6px 20px rgba(15, 27, 22, 0.08);
-  --shadow: 0 12px 30px rgba(15, 27, 22, 0.08);
-  --shadow-lg: 0 12px 40px rgba(15, 27, 22, 0.08);
+  --shadow-sm: 0 3px 10px rgba(15, 27, 22, 0.05); /* Reduced from 0 6px 20px 0.08 */
+  --shadow: 0 6px 15px rgba(15, 27, 22, 0.06); /* Reduced from 0 12px 30px 0.08 */
+  --shadow-lg: 0 8px 20px rgba(15, 27, 22, 0.07); /* Reduced from 0 12px 40px 0.08 */
   --radius-sm: 0.75rem; /* 12px */
   --radius: 1rem;       /* 16px */
 }
