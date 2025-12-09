@@ -1,42 +1,5 @@
-# Hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
-.hugo_build.lock
-
-# OS
+_site/
+push.sh
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-
-# Logs
-*.log
-
-# Old static site files (migrated to Hugo)
-/assets/style.css
-/assets/cv.js
-/robots.txt
-/cv_2.pdf
-
-# CV files
-cv_ml.pdf
-cv_phd_research.pdf
 node_modules/
-tailwindcss*
-src/
-package-lock.json
-index-original.html
-SUGGESTIONS.md
-Swift-app/
+dist/
