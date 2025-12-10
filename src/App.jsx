@@ -113,10 +113,10 @@ const publications = [
     links: [{ label: 'Paper', url: 'https://link.springer.com/article/10.1007/s10916-025-02228-6' }],
   },
   {
-    title: 'Predictive maintenance for rail assets with early warning',
-    meta: 'Industry project report, 2022',
+    title: 'VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video',
+    meta: 'Ranjan, R., Roha, V. S., & Yuce, M. R. (2025). Submitted to IEEE Applied Sensing Conference.',
     copy:
-      'Built anomaly detection with rolling/lag features and drift checks, delivering 48-hour failure lead time and reducing unplanned downtime.',
+      'Hybrid rPPG pipeline (camera-based) combining signal processing and deep models to estimate SpO₂ and heart rate on smartphones.',
     links: [],
   },
 ];
