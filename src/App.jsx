@@ -162,10 +162,10 @@ export default function App() {
                 </a>
               </div>
               <nav className="quick-links" aria-label="Quick links">
+                <a href="#publications">Publications</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
-                <a href="#publications">Publications</a>
               </nav>
             </div>
             <div className="hero-photo">
@@ -190,6 +190,38 @@ export default function App() {
       </header>
 
       <main>
+        <section id="publications" className="section">
+          <div className="shell">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Publications</p>
+                <h2>Selected Papers</h2>
+                <p className="section-subtitle">Curated research highlights (manual list).</p>
+              </div>
+            </div>
+            <div className="pub-list">
+              {publications.map((pub) => (
+                <article className="pub-item" key={pub.title}>
+                  <div>
+                    <h3>{pub.title}</h3>
+                    <p className="meta">{pub.meta}</p>
+                    <p className="card-copy">{pub.copy}</p>
+                  </div>
+                  {pub.links?.length ? (
+                    <div className="meta-links">
+                      {pub.links.map((link) => (
+                        <a key={link.url} href={link.url} target="_blank" rel="noopener">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="experience" className="section">
           <div className="shell">
             <details open>
@@ -310,38 +342,6 @@ export default function App() {
                   <li>Stakeholder comms, experiment tracking, reproducibility</li>
                 </ul>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="publications" className="section alt">
-          <div className="shell">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Publications</p>
-                <h2>Selected Papers</h2>
-                <p className="section-subtitle">Curated research highlights (manual list).</p>
-              </div>
-            </div>
-            <div className="pub-list">
-              {publications.map((pub) => (
-                <article className="pub-item" key={pub.title}>
-                  <div>
-                    <h3>{pub.title}</h3>
-                    <p className="meta">{pub.meta}</p>
-                    <p className="card-copy">{pub.copy}</p>
-                  </div>
-                  {pub.links?.length ? (
-                    <div className="meta-links">
-                      {pub.links.map((link) => (
-                        <a key={link.url} href={link.url} target="_blank" rel="noopener">
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  ) : null}
-                </article>
-              ))}
             </div>
           </div>
         </section>
