@@ -1,6 +1,6 @@
 # Rahul Ranjan — Homepage (Vite + React + Bun)
 
-A single-page personal site built with React 19, Vite 5, and Bun. Includes a hero/CTA, experience & projects driven by in-file data, skills, and publication highlights. Assets (profile + CVs) live in `public/`.
+A single-page personal site built with React 19, Vite 5, and Bun. Content is data-driven from one file (`src/content.js`) for quick edits (tabs, highlights, updates, tech stack, education, publications, projects, contact, and architecture figures). Assets (profile + CVs + paper figures) live in `public/`.
 
 ## Requirements
 - Bun ≥ 1.3 (tested with 1.3.4)
@@ -14,10 +14,14 @@ A single-page personal site built with React 19, Vite 5, and Bun. Includes a her
 Push to `main`. The workflow `.github/workflows/vite.yml` installs with Bun, builds, and publishes `dist` to the `gh-pages` branch via `peaceiris/actions-gh-pages`. Set the GitHub Pages source to `gh-pages`.
 
 ## Structure
-- `src/` — React components and styles.
-- `public/` — static assets served as-is (`profile.jpg`, `cv_ml.pdf`, `cv_phd_research.pdf`).
+- `src/content.js` — the only file you edit for text/data (nav labels, highlights, updates, tech stack, education, publications, experience, projects, contact, and figure paths).
+- `src/App.jsx` — renders tabs, cards, expandable projects.
+- `src/styles.css` — layout/theme (sidebar + tabs, color accents, hover states).
+- `public/` — static assets served as-is (`profile.jpg`, `cv_ml.pdf`, `cv_phd_research.pdf`, `paper_1_architecture.jpg`, `paper_2_architecture.jpg`).
 - `dist/` — build output (generated).
 - `.github/workflows/vite.yml` — CI/CD for Pages.
 
 ## Notes
-- If the dev server fails to write temp files (sandboxed environments), run with elevated permissions or point `TMPDIR` to a writable location.
+- Projects use in-page “Read more” expanders; no outbound links needed—add detail bullets in `src/content.js`.
+- Architecture figures display from `public/paper_1_architecture.jpg` and `public/paper_2_architecture.jpg`; update paths/captions in `src/content.js`.
+- If the dev server fails to write temp files (sandboxed environments), run with elevated permissions or set `TMPDIR` to a writable location.
