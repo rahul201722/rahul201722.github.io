@@ -12,20 +12,14 @@ A single-page personal site built with React 19, Vite 5, and Bun. Content is dat
 
 ## Deploy (GitHub Pages)
 
-### Current Setup (Direct Deployment)
-The built site assets are committed directly to the root of the `main` branch. GitHub Pages will serve the site automatically from the root directory without requiring any configuration.
+The site automatically deploys via GitHub Actions when you push to the `main` branch:
 
-To update the site:
 1. Make changes to `src/content.js` or other source files
-2. Run `npm run build` (or `bun run build`)
-3. Copy the contents of `dist/` to the repository root: `cp -r dist/* .`
-4. Commit and push changes to `main`
+2. Commit and push changes to `main`
+3. The workflow `.github/workflows/vite.yml` automatically builds and deploys the site to GitHub Pages
+4. Your site will be live at `https://rahul201722.github.io` within a few minutes
 
-### Alternative Setup (Using gh-pages Branch)
-For a cleaner separation of source and built files:
-1. Push to `main`. The workflow `.github/workflows/vite.yml` builds and publishes `dist` to the `gh-pages` branch
-2. In your repository settings, set GitHub Pages source to deploy from the `gh-pages` branch
-3. Updates will be automatically built and deployed when you push to `main`
+**Note**: GitHub Pages must be configured to deploy from "GitHub Actions" (not from a branch). This is set in repository Settings → Pages → Source.
 
 ## Structure
 - `src/content.js` — the only file you edit for text/data (nav labels, highlights, updates, tech stack, education, publications, experience, projects, contact, and figure paths).
