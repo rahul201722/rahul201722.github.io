@@ -1,351 +1,267 @@
-import React from 'react';
-
-const heroMetrics = [
-  '95%+ HR accuracy on mobile PPG',
-  '<5 mmHg BP MAE vs AAMI/BHS',
-  '3 peer-reviewed papers',
-];
-
-const experience = [
-  {
-    role: 'Graduate ML Research Engineer',
-    org: 'Monash University',
-    period: '2025–2026',
-    badge: 'MedTech CV',
-    bullets: [
-      'Built smartphone vital sign pipeline (PPG → vPPG/aPPG) with ResNet-50 + multi-head attention; achieved 95%+ HR accuracy and <5 mmHg BP MAE vs AAMI/BHS.',
-      'Owned PyTorch training/eval on A40 GPUs, crafting augmentations for motion/illumination noise and aligning metrics to clinical baselines.',
-      'Produced reproducible eval scripts and deployment-ready checkpoints for clinicians and industry partners.',
-    ],
-    links: [
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/rahul-ranjan-b595891b1' },
-    ],
-  },
-  {
-    role: 'Information Technology Officer',
-    org: 'Aglow Engineers',
-    period: 'Jun 2022–Feb 2023',
-    badge: 'Predictive Maintenance',
-    bullets: [
-      'Migrated manual Excel logs to automated SQL reporting for 50+ stakeholders; standardized telemetry and alerting.',
-      'Shipped predictive maintenance models that reduced equipment downtime 22% and automated SMTP updates that sped decisions 85%.',
-      'Prioritized failure modes with ops/management and established retraining cadence.',
-    ],
-    links: [
-      { label: 'Email Rahul', url: 'mailto:rahulrkm0038@gmail.com' },
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/rahul-ranjan-b595891b1' },
-    ],
-  },
-  {
-    role: 'Software Intern',
-    org: 'Centre for Railway Information Systems',
-    period: 'Feb–May 2022',
-    badge: 'ML Ops',
-    bullets: [
-      'Delivered anomaly detection for 200+ rail assets with 94% accuracy and 48-hour early failure predictions.',
-      'Built full data pipeline: feature engineering, labeling workflows with workshop managers, validation with field engineers.',
-      'Operationalized retraining and monitoring across the existing WISE database stack.',
-    ],
-    links: [
-      { label: 'Email Rahul', url: 'mailto:rahulrkm0038@gmail.com' },
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/rahul-ranjan-b595891b1' },
-    ],
-  },
-  {
-    role: 'Software Development Intern',
-    org: 'AMD (Xilinx)',
-    period: 'Jun–Dec 2021',
-    badge: 'Tooling',
-    bullets: [
-      'Built a Data Flow Synchronicity Checker used by 25+ verification engineers; automated 1000+ file validations/day with mismatch reports.',
-      'Implemented SHA-256 integrity checks vs Artifactory/Perforce, differential analysis, and cron-scheduled nightly runs.',
-      'Improved verification workflow efficiency ~30% via automated notifications and update lists.',
-    ],
-    links: [{ label: 'Email Rahul', url: 'mailto:rahulrkm0038@gmail.com' }],
-  },
-];
-
-const projects = [
-  {
-    title: 'Vital Sign Monitoring (Mobile)',
-    subtitle: 'Computer Vision | PyTorch | ResNet + Attention',
-    badge: 'MedTech',
-    copy:
-      'Converted single-sensor PPG into visual representations (PPG, vPPG, aPPG) and trained ResNet-50 with multi-head attention to estimate HR/BP on-device; aligned outputs to clinical AAMI/BHS standards.',
-    links: [
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/rahul-ranjan-b595891b1' },
-      {
-        label: 'Journal paper',
-        url: 'https://link.springer.com/article/10.1007/s10916-025-02228-6',
-      },
-    ],
-  },
-  {
-    title: 'Predictive Maintenance for Rail',
-    subtitle: 'XGBoost | Time-series features | SQL',
-    badge: 'Reliability',
-    copy:
-      'Engineered rolling/lag features and deployed XGBoost models with drift checks and retraining cadence; reduced unplanned downtime 18–22% and delivered 48-hour lead time on failures.',
-    links: [
-      { label: 'Discuss deployment', url: 'mailto:rahulrkm0038@gmail.com' },
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/rahul-ranjan-b595891b1' },
-    ],
-  },
-  {
-    title: 'Data Flow Synchronicity Checker',
-    subtitle: 'Python | Hashing | Automation',
-    badge: 'Tooling',
-    copy:
-      'Automated file integrity checks across multi-repo FPGA verification flows using SHA-256, manifest diffs, and cron-based scheduling; shipped email digests for mismatches to keep teams in sync.',
-    links: [
-      { label: 'Email Rahul', url: 'mailto:rahulrkm0038@gmail.com' },
-      { label: 'LinkedIn', url: 'https://linkedin.com/in/rahul-ranjan-b595891b1' },
-    ],
-  },
-];
-
-const publications = [
-  {
-    title: 'Vital sign estimation from single-sensor PPG with visual representations',
-    meta: 'Journal of Medical Systems, 2025 (Springer)',
-    copy:
-      'Transforms raw PPG into vPPG/aPPG representations and leverages ResNet + attention for HR/BP estimation aligned to clinical thresholds.',
-    links: [{ label: 'Paper', url: 'https://link.springer.com/article/10.1007/s10916-025-02228-6' }],
-  },
-  {
-    title: 'VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video',
-    meta: 'Ranjan, R., Roha, V. S., & Yuce, M. R. (2025). Submitted to IEEE Applied Sensing Conference.',
-    copy:
-      'Hybrid rPPG pipeline (camera-based) combining signal processing and deep models to estimate SpO₂ and heart rate on smartphones.',
-    links: [],
-  },
-];
+import React, { useState } from 'react';
+import content from './content.js';
 
 export default function App() {
-  return (
-    <>
-      <header className="hero" id="top">
-        <div className="shell">
-          <div className="hero-grid">
-            <div className="hero-text">
-              <p className="eyebrow">ML Engineer &amp; AI Researcher</p>
-              <h1>Rahul Ranjan</h1>
-              <p className="lede">
-                ML engineer focused on clinically grounded computer vision and evaluation pipelines. Ships
-                production-grade models for healthcare and reliability-focused products.
-              </p>
-              <div className="proof-points">
-                {heroMetrics.map((m) => (
-                  <span key={m}>{m}</span>
-                ))}
-              </div>
-              <div className="cta-row">
-                <a className="btn primary" href="mailto:rahulrkm0038@gmail.com">
-                  Email
-                </a>
-                <a
-                  className="btn secondary"
-                  href="https://linkedin.com/in/rahul-ranjan-b595891b1"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  LinkedIn
-                </a>
-                <a className="btn tertiary" href="https://github.com/rahul201722" target="_blank" rel="noopener">
-                  GitHub
-                </a>
-                <a className="btn secondary" href="/cv_ml.pdf" target="_blank" rel="noopener">
-                  CV (ML)
-                </a>
-                <a className="btn secondary" href="/cv_phd_research.pdf" target="_blank" rel="noopener">
-                  CV (Research)
-                </a>
-              </div>
-              <nav className="quick-links" aria-label="Quick links">
-                <a href="#publications">Publications</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-              </nav>
-            </div>
-            <div className="hero-photo">
-              <img src="/profile.jpg" alt="Rahul Ranjan portrait" />
-              <div className="contact-card">
-                <p>
-                  Email: <a href="mailto:rahulrkm0038@gmail.com">rahulrkm0038@gmail.com</a>
-                </p>
-                <p>
-                  Phone: <a href="tel:+917997193400">+91&nbsp;79971&nbsp;93400</a>
-                </p>
-                <p>
-                  LinkedIn:{' '}
-                  <a href="https://linkedin.com/in/rahul-ranjan-b595891b1" target="_blank" rel="noopener">
-                    Connect
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+  const [activeTab, setActiveTab] = useState('about');
+  const [expandedProjects, setExpandedProjects] = useState({});
 
-      <main>
-        <section id="publications" className="section">
-          <div className="shell">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Publications</p>
-                <h2>Selected Papers</h2>
-                <p className="section-subtitle">Curated research highlights (manual list).</p>
-              </div>
-            </div>
-            <div className="pub-list">
-              {publications.map((pub) => (
-                <article className="pub-item" key={pub.title}>
-                  <div>
-                    <h3>{pub.title}</h3>
-                    <p className="meta">{pub.meta}</p>
-                    <p className="card-copy">{pub.copy}</p>
-                  </div>
-                  {pub.links?.length ? (
-                    <div className="meta-links">
-                      {pub.links.map((link) => (
-                        <a key={link.url} href={link.url} target="_blank" rel="noopener">
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  ) : null}
-                </article>
+  const sectionOrder = [
+    'about',
+    'research',
+    'experience',
+    'projects',
+  ];
+
+  const sectionContent = {
+    about: (
+      <section id="about" className="section">
+        <h2>About</h2>
+        <p>
+          {content.about.blurb}
+        </p>
+        {content.about.highlights?.length ? (
+          <div className="highlights" aria-label="Highlights">
+            {content.about.highlights.map((h) => (
+              <span key={h} className="pill">
+                {h}
+              </span>
+            ))}
+          </div>
+        ) : null}
+        {content.about.updates?.length ? (
+          <article className="card">
+            <h3>Recent Updates</h3>
+            <ul className="updates">
+              {content.about.updates.map((u) => (
+                <li key={`${u.date}-${u.text}`}>
+                  <span className="update-date">{u.date}</span>
+                  <span className="update-text">{u.text}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ) : null}
+        {content.about.techStack?.length ? (
+          <article className="card">
+            <h3>Tech Stack</h3>
+            <div className="tech-grid">
+              {content.about.techStack.map((group) => (
+                <div key={group.title} className="tech-group">
+                  <h4>{group.title}</h4>
+                  <ul className="bullet">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
+          </article>
+        ) : null}
+        <article className="card contact-card">
+          <h3>Contact</h3>
+          <p className="meta">
+            Email:{' '}
+            <a href={`mailto:${content.profile.contacts.email}`} className="accent">
+              {content.profile.contacts.email}
+            </a>
+            <br />
+            Phone: <a href={`tel:${content.profile.contacts.phone}`}>{content.profile.contacts.phone}</a>
+            <br />
+            LinkedIn:{' '}
+            <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener">
+              {content.profile.contacts.linkedin.replace('https://', '')}
+            </a>
+          </p>
+        </article>
+        {content.about.education?.length ? (
+          <article className="card">
+            <h3>Education</h3>
+            <ul className="bullet">
+              {content.about.education.map((edu) => (
+                <li key={edu.degree}>
+                  <strong>{edu.degree}</strong>, {edu.school} ({edu.years}){edu.note ? ` — ${edu.note}` : ''}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ) : null}
+      </section>
+    ),
+    research: (
+      <section id="research" className="section">
+        <h2>Research &amp; Publications</h2>
+        <div className="stack">
+          <article className="card">
+            <h3>Research Interests</h3>
+            <ul className="bullet">
+              {content.researchInterests.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
 
-        <section id="experience" className="section">
-          <div className="shell">
-            <details open>
-              <summary className="section-heading">
-                <div>
-                  <p className="eyebrow">Experience</p>
-                  <h2>Professional Experience</h2>
-                  <p className="section-subtitle">Outcome-first snapshot across research and production ML.</p>
-                </div>
-                <div className="section-ctas">
-                  <a className="text-link" href="mailto:rahulrkm0038@gmail.com">
-                    Email
-                  </a>
-                  <a
-                    className="text-link"
-                    href="https://linkedin.com/in/rahul-ranjan-b595891b1"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    LinkedIn
-                  </a>
-                </div>
-              </summary>
-              <div className="card-grid">
-                {experience.map((item) => (
-                  <article className="card" key={item.role}>
-                    <header className="card-header">
-                      <div>
-                        <h3>{item.role}</h3>
-                        <p className="meta">
-                          {item.org} - {item.period}
-                        </p>
-                      </div>
-                      <span className="badge">{item.badge}</span>
-                    </header>
-                    <ul className="bullet-list">
-                      {item.bullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
-                    {item.links?.length ? (
-                      <div className="meta-links">
-                        {item.links.map((link) => (
-                          <a key={link.url} href={link.url} target="_blank" rel="noopener">
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    ) : null}
-                  </article>
+          <div>
+            <h3>Selected Publications</h3>
+            {content.publications.map((pub) => (
+              <article key={pub.title} className="card">
+                <h4>{pub.title}</h4>
+                <p className="meta">{pub.venue}</p>
+                <p>{pub.blurb}</p>
+                {pub.link ? (
+                  <p className="meta">
+                    <a href={pub.link} target="_blank" rel="noopener">
+                      View paper
+                    </a>
+                  </p>
+                ) : null}
+              </article>
+            ))}
+            {content.researchFigures?.length ? (
+              <div className="figure-grid">
+                {content.researchFigures.map((fig) => (
+                  <figure key={fig.src} className="card figure-card">
+                    <img src={fig.src} alt={fig.alt} />
+                    <figcaption className="meta">{fig.caption}</figcaption>
+                  </figure>
                 ))}
               </div>
-            </details>
+            ) : null}
           </div>
-        </section>
-
-        <section id="projects" className="section alt">
-          <div className="shell">
-            <details open>
-              <summary className="section-heading">
-                <div>
-                  <p className="eyebrow">Projects</p>
-                  <h2>Selected Projects</h2>
-                  <p className="section-subtitle">Evidence-first highlights with stack and outcomes.</p>
-                </div>
-                <div className="section-ctas">
-                  <a className="text-link" href="https://github.com/rahul201722" target="_blank" rel="noopener">
-                    GitHub
-                  </a>
-                  <a className="text-link" href="mailto:rahulrkm0038@gmail.com">
-                    Contact
-                  </a>
-                </div>
-              </summary>
-              <div className="card-grid">
-                {projects.map((project) => (
-                  <article className="card" key={project.title}>
-                    <header className="card-header">
-                      <div>
-                        <h3>{project.title}</h3>
-                        <p className="meta">{project.subtitle}</p>
-                      </div>
-                      <span className="badge">{project.badge}</span>
-                    </header>
-                    <p className="card-copy">{project.copy}</p>
-                    {project.links?.length ? (
-                      <div className="meta-links">
-                        {project.links.map((link) => (
-                          <a key={link.url} href={link.url} target="_blank" rel="noopener">
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    ) : null}
-                  </article>
-                ))}
+        </div>
+      </section>
+    ),
+    experience: (
+      <section id="experience" className="section">
+        <h2>Experience</h2>
+        {content.experience.map((item) => (
+          <article key={item.role} className="card">
+            <div className="card-header">
+              <div>
+                <h3>{item.role}</h3>
+                <p className="meta">
+                  {item.org} · {item.period}
+                </p>
               </div>
-            </details>
-          </div>
-        </section>
-
-        <section id="skills" className="section">
-          <div className="shell">
-            <div className="card-grid two-col">
-              <article className="skill-card">
-                <h3>ML &amp; CV</h3>
-                <ul>
-                  <li>PPG/vPPG/aPPG, vital signs, clinical evaluation</li>
-                  <li>ResNet, attention, XGBoost, time-series features</li>
-                  <li>PyTorch training/eval, augmentations, metrics</li>
-                </ul>
-              </article>
-              <article className="skill-card">
-                <h3>Systems &amp; Ops</h3>
-                <ul>
-                  <li>SQL reporting, data pipelines, telemetry standardization</li>
-                  <li>Automation, hash-based integrity checks, cron workflows</li>
-                  <li>Stakeholder comms, experiment tracking, reproducibility</li>
-                </ul>
-              </article>
             </div>
+            <ul className="bullet">
+              {item.details.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </section>
+    ),
+    projects: (
+      <section id="projects" className="section">
+        <h2>Projects</h2>
+        {content.projects.map((proj) => (
+          <article key={proj.title} className="card">
+            <h3>{proj.title}</h3>
+            <p className="meta">{proj.subtitle}</p>
+            <p>{proj.summary}</p>
+            {proj.details && expandedProjects[proj.title] ? (
+              <ul className="bullet">
+                {proj.details.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            ) : null}
+            {proj.details ? (
+              <button
+                type="button"
+                className="text-button"
+                onClick={() =>
+                  setExpandedProjects((prev) => ({ ...prev, [proj.title]: !prev[proj.title] }))
+                }
+                aria-expanded={!!expandedProjects[proj.title]}
+              >
+                {expandedProjects[proj.title] ? 'Show less' : 'Read more'}
+              </button>
+            ) : null}
+          </article>
+        ))}
+      </section>
+    ),
+  };
+
+  return (
+    <div className="layout">
+      <aside className="sidebar" id="top">
+        <div className="portrait">
+          <img src={content.profile.portrait} alt={`Portrait of ${content.profile.name}`} />
+        </div>
+        <h1 className="name">{content.profile.name}</h1>
+        <p className="title">{content.profile.title}</p>
+        <p className="affiliation">
+          {content.profile.affiliationLine1}
+          <br />
+          {content.profile.affiliationLine2}
+        </p>
+        <div className="sidebar-links">
+          <a href={`mailto:${content.profile.contacts.email}`}>Email</a>
+          <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+          <a href={content.profile.contacts.github} target="_blank" rel="noopener">
+            GitHub
+          </a>
+          <a href={content.profile.contacts.cvMl} target="_blank" rel="noopener">
+            CV (ML)
+          </a>
+          <a href={content.profile.contacts.cvResearch} target="_blank" rel="noopener">
+            CV (Research)
+          </a>
+        </div>
+        <nav className="side-nav" aria-label="Section navigation">
+          {content.navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveTab(link.href.replace('#', ''));
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </aside>
+
+      <main className="content">
+        <div className="tabs" role="tablist" aria-label="Profile sections">
+          {content.navLinks.map((link) => {
+            const id = link.href.replace('#', '');
+            const active = activeTab === id;
+            return (
+              <button
+                key={link.href}
+                className={`tab ${active ? 'active' : ''}`}
+                role="tab"
+                aria-selected={active}
+                aria-controls={id}
+                onClick={() => setActiveTab(id)}
+              >
+                {link.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {sectionOrder.map((id) => (
+          <div
+            key={id}
+            role="tabpanel"
+            id={id}
+            aria-hidden={activeTab !== id}
+            className={activeTab === id ? 'tab-panel active' : 'tab-panel'}
+          >
+            {sectionContent[id]}
           </div>
-        </section>
+        ))}
       </main>
-    </>
+    </div>
   );
 }
