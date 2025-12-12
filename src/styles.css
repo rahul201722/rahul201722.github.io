@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 :root {
-  --bg: #f6f8fc;
-  --panel: #ffffff;
-  --text: #1f2933;
-  --muted: #4b5563;
-  --accent: #1b7fd0;
-  --accent-soft: #e6f0fb;
-  --accent-warm: #f45c43;
-  --accent-warm-soft: #ffe7e1;
-  --border: #dde5f0;
-  --shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --bg: #0f1729;
+  --bg-soft: #10192f;
+  --panel: #0f1729;
+  --panel-alt: #111d33;
+  --text: #e8edf7;
+  --muted: #c2c9d6;
+  --accent: #57c4ff;
+  --accent-strong: #3aa9ff;
+  --accent-soft: rgba(87, 196, 255, 0.14);
+  --accent-warm: #ff7a5f;
+  --accent-warm-soft: rgba(255, 122, 95, 0.12);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -20,7 +23,9 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 18% 20%, #eaf3ff 0, #f6f8fc 38%, #f6f8fc 100%);
+  background: radial-gradient(circle at 18% 18%, rgba(87, 196, 255, 0.16) 0, rgba(15, 23, 41, 0.92) 34%, #0a1020 70%),
+    radial-gradient(circle at 82% 12%, rgba(255, 122, 95, 0.18) 0, rgba(15, 23, 41, 0.9) 36%, #0a1020 75%),
+    #0a1020;
   color: var(--text);
   font-family: "Source Sans Pro", "Segoe UI", system-ui, -apple-system, sans-serif;
   font-size: 17px;
@@ -32,7 +37,7 @@ h1,
 h2,
 h3 {
   font-family: "Merriweather", "Georgia", serif;
-  color: #1a1f2b;
+  color: #f5f7ff;
   margin: 0 0 0.4em;
 }
 
@@ -74,7 +79,7 @@ img {
 }
 
 .sidebar {
-  background: var(--panel);
+  background: linear-gradient(160deg, rgba(87, 196, 255, 0.12), rgba(15, 23, 41, 0.92));
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.5rem 1.25rem;
@@ -117,7 +122,7 @@ img {
 }
 
 .sidebar-links a {
-  color: var(--text);
+  color: #f9fbff;
   font-weight: 700;
 }
 
@@ -133,12 +138,15 @@ img {
   color: var(--accent);
   font-weight: 700;
 }
+.side-nav a:hover {
+  color: #fff;
+}
 
 .content {
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(17, 29, 51, 0.9), rgba(15, 23, 41, 0.9));
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem 1.75rem 2rem;
+  border-radius: 16px;
+  padding: 1.75rem 2rem 2.25rem;
   box-shadow: var(--shadow);
 }
 
@@ -157,9 +165,9 @@ img {
 }
 
 .pill {
-  background: var(--accent-warm-soft);
-  color: #3d1b12;
-  border: 1px solid rgba(244, 92, 67, 0.35);
+  background: var(--accent-soft);
+  color: #dcefff;
+  border: 1px solid rgba(87, 196, 255, 0.45);
   border-radius: 999px;
   padding: 0.35rem 0.75rem;
   font-weight: 700;
@@ -192,7 +200,7 @@ img {
 
 .tab {
   border: 1px solid var(--border);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 10px;
   padding: 0.6rem 1.15rem;
   font-weight: 700;
@@ -210,10 +218,10 @@ img {
 }
 
 .tab.active {
-  background: linear-gradient(135deg, var(--accent), #0f6ab8);
-  color: #fff;
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
+  background: linear-gradient(135deg, #4bc4ff, #6b8cff);
+  color: #0a1020;
+  border-color: rgba(107, 140, 255, 0.8);
+  box-shadow: 0 12px 26px rgba(75, 196, 255, 0.35);
 }
 
 .tab-panel {
@@ -259,7 +267,7 @@ img {
   border-radius: 10px;
   padding: 1rem 1.1rem;
   box-shadow: var(--shadow-soft);
-  background: #fff;
+  background: var(--panel-alt);
   margin-bottom: 0.9rem;
   transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
 }
@@ -267,7 +275,7 @@ img {
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
-  border-color: rgba(27, 127, 208, 0.35);
+  border-color: rgba(87, 196, 255, 0.35);
 }
 
 .stack {
