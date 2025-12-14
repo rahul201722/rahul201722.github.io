@@ -1,188 +1,205 @@
 import React, { useState } from 'react';
 import content from './content.js';
 
-export default function App() {
-  const [activeTab, setActiveTab] = useState('about');
-  const [expandedProjects, setExpandedProjects] = useState({});
-
-  const sectionOrder = [
-    'about',
-    'research',
-    'experience',
-    'projects',
-  ];
-
-  const sectionContent = {
-    about: (
-      <section id="about" className="section">
-        <h2>About</h2>
-        <p>
-          {content.about.blurb}
-        </p>
-        {content.about.highlights?.length ? (
-          <div className="highlights" aria-label="Highlights">
-            {content.about.highlights.map((h) => (
-              <span key={h} className="pill">
-                {h}
-              </span>
-            ))}
-          </div>
-        ) : null}
-        {content.about.updates?.length ? (
-          <article className="card">
-            <h3>Recent Updates</h3>
-            <ul className="updates">
-              {content.about.updates.map((u) => (
-                <li key={`${u.date}-${u.text}`}>
-                  <span className="update-date">{u.date}</span>
-                  <span className="update-text">{u.text}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ) : null}
-        {content.about.techStack?.length ? (
-          <article className="card">
-            <h3>Tech Stack</h3>
-            <div className="tech-grid">
-              {content.about.techStack.map((group) => (
-                <div key={group.title} className="tech-group">
-                  <h4>{group.title}</h4>
-                  <ul className="bullet">
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </article>
-        ) : null}
-        <article className="card contact-card">
-          <h3>Contact</h3>
-          <p className="meta">
-            Email:{' '}
-            <a href={`mailto:${content.profile.contacts.email}`} className="accent">
-              {content.profile.contacts.email}
-            </a>
-            <br />
-            Phone: <a href={`tel:${content.profile.contacts.phone}`}>{content.profile.contacts.phone}</a>
-            <br />
-            LinkedIn:{' '}
-            <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener">
-              {content.profile.contacts.linkedin.replace('https://', '')}
-            </a>
-          </p>
-        </article>
-        {content.about.education?.length ? (
-          <article className="card">
-            <h3>Education</h3>
-            <ul className="bullet">
-              {content.about.education.map((edu) => (
-                <li key={edu.degree}>
-                  <strong>{edu.degree}</strong>, {edu.school} ({edu.years}){edu.note ? ` — ${edu.note}` : ''}
-                </li>
-              ))}
-            </ul>
-          </article>
-        ) : null}
-      </section>
-    ),
-    research: (
-      <section id="research" className="section">
-        <h2>Research &amp; Publications</h2>
-        <div className="stack">
-          <article className="card">
-            <h3>Research Interests</h3>
-            <ul className="bullet">
-              {content.researchInterests.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-
-          <div>
-            <h3>Selected Publications</h3>
-            {content.publications.map((pub) => (
-              <article key={pub.title} className="card">
-                <h4>{pub.title}</h4>
-                <p className="meta">{pub.venue}</p>
-                <p>{pub.blurb}</p>
-                {pub.link ? (
-                  <p className="meta">
-                    <a href={pub.link} target="_blank" rel="noopener">
-                      View paper
-                    </a>
-                  </p>
-                ) : null}
-              </article>
-            ))}
-            {content.researchFigures?.length ? (
-              <div className="figure-grid">
-                {content.researchFigures.map((fig) => (
-                  <figure key={fig.src} className="card figure-card">
-                    <img src={fig.src} alt={fig.alt} />
-                    <figcaption className="meta">{fig.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            ) : null}
-          </div>
+function AboutSection() {
+  return (
+    <section id="about" className="section">
+      <h2>About</h2>
+      <p>{content.about.blurb}</p>
+      {content.about.highlights?.length ? (
+        <div className="highlights" aria-label="Highlights">
+          {content.about.highlights.map((h) => (
+            <span key={h} className="pill">
+              {h}
+            </span>
+          ))}
         </div>
-      </section>
-    ),
-    experience: (
-      <section id="experience" className="section">
-        <h2>Experience</h2>
-        {content.experience.map((item) => (
-          <article key={item.role} className="card">
-            <div className="card-header">
-              <div>
-                <h3>{item.role}</h3>
-                <p className="meta">
-                  {item.org} · {item.period}
-                </p>
+      ) : null}
+      {content.about.updates?.length ? (
+        <article className="card">
+          <h3>Recent Updates</h3>
+          <ul className="updates">
+            {content.about.updates.map((u) => (
+              <li key={`${u.date}-${u.text}`}>
+                <span className="update-date">{u.date}</span>
+                <span className="update-text">{u.text}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ) : null}
+      {content.about.techStack?.length ? (
+        <article className="card">
+          <h3>Tech Stack</h3>
+          <div className="tech-grid">
+            {content.about.techStack.map((group) => (
+              <div key={group.title} className="tech-group">
+                <h4>{group.title}</h4>
+                <ul className="bullet">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
+            ))}
+          </div>
+        </article>
+      ) : null}
+      <article className="card contact-card">
+        <h3>Contact</h3>
+        <p className="meta">
+          Email:{' '}
+          <a href={`mailto:${content.profile.contacts.email}`} className="accent">
+            {content.profile.contacts.email}
+          </a>
+          <br />
+          Phone: <a href={`tel:${content.profile.contacts.phone}`}>{content.profile.contacts.phone}</a>
+          <br />
+          LinkedIn:{' '}
+          <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener">
+            {content.profile.contacts.linkedin.replace('https://', '')}
+          </a>
+        </p>
+      </article>
+      {content.about.education?.length ? (
+        <article className="card">
+          <h3>Education</h3>
+          <ul className="bullet">
+            {content.about.education.map((edu) => (
+              <li key={edu.degree}>
+                <strong>{edu.degree}</strong>, {edu.school} ({edu.years}){edu.note ? ` — ${edu.note}` : ''}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ) : null}
+    </section>
+  );
+}
+
+function ResearchSection() {
+  return (
+    <section id="research" className="section">
+      <h2>Research &amp; Publications</h2>
+      <div className="stack">
+        <article className="card">
+          <h3>Research Interests</h3>
+          <ul className="bullet">
+            {content.researchInterests.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+
+        <div>
+          <h3>Selected Publications</h3>
+          {content.publications.map((pub) => (
+            <article key={pub.title} className="card">
+              <h4>{pub.title}</h4>
+              <p className="meta">{pub.venue}</p>
+              <p>{pub.blurb}</p>
+              {pub.link ? (
+                <p className="meta">
+                  <a href={pub.link} target="_blank" rel="noopener">
+                    View paper
+                  </a>
+                </p>
+              ) : null}
+            </article>
+          ))}
+          {content.researchFigures?.length ? (
+            <div className="figure-grid">
+              {content.researchFigures.map((fig) => (
+                <figure key={fig.src} className="card figure-card">
+                  <img src={fig.src} alt={fig.alt} />
+                  <figcaption className="meta">{fig.caption}</figcaption>
+                </figure>
+              ))}
             </div>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceSection() {
+  return (
+    <section id="experience" className="section">
+      <h2>Experience</h2>
+      {content.experience.map((item) => (
+        <article key={item.role} className="card">
+          <div className="card-header">
+            <div>
+              <h3>{item.role}</h3>
+              <p className="meta">
+                {item.org} · {item.period}
+              </p>
+            </div>
+          </div>
+          <ul className="bullet">
+            {item.details.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
+  );
+}
+
+function ProjectsSection({ expandedProjects, onToggle }) {
+  return (
+    <section id="projects" className="section">
+      <h2>Projects</h2>
+      {content.projects.map((proj) => (
+        <article key={proj.title} className="card">
+          <h3>{proj.title}</h3>
+          <p className="meta">{proj.subtitle}</p>
+          <p>{proj.summary}</p>
+          {proj.details && expandedProjects[proj.title] ? (
             <ul className="bullet">
-              {item.details.map((d) => (
+              {proj.details.map((d) => (
                 <li key={d}>{d}</li>
               ))}
             </ul>
-          </article>
-        ))}
-      </section>
-    ),
+          ) : null}
+          {proj.details ? (
+            <button
+              type="button"
+              className="text-button"
+              onClick={() => onToggle(proj.title)}
+              aria-expanded={!!expandedProjects[proj.title]}
+            >
+              {expandedProjects[proj.title] ? 'Show less' : 'Read more'}
+            </button>
+          ) : null}
+        </article>
+      ))}
+    </section>
+  );
+}
+
+export default function App() {
+  const tabs = content.navLinks.map((link) => ({
+    id: link.href.replace('#', ''),
+    label: link.label,
+  }));
+
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? 'about');
+  const [expandedProjects, setExpandedProjects] = useState({});
+
+  const sections = {
+    about: <AboutSection />,
+    research: <ResearchSection />,
+    experience: <ExperienceSection />,
     projects: (
-      <section id="projects" className="section">
-        <h2>Projects</h2>
-        {content.projects.map((proj) => (
-          <article key={proj.title} className="card">
-            <h3>{proj.title}</h3>
-            <p className="meta">{proj.subtitle}</p>
-            <p>{proj.summary}</p>
-            {proj.details && expandedProjects[proj.title] ? (
-              <ul className="bullet">
-                {proj.details.map((d) => (
-                  <li key={d}>{d}</li>
-                ))}
-              </ul>
-            ) : null}
-            {proj.details ? (
-              <button
-                type="button"
-                className="text-button"
-                onClick={() =>
-                  setExpandedProjects((prev) => ({ ...prev, [proj.title]: !prev[proj.title] }))
-                }
-                aria-expanded={!!expandedProjects[proj.title]}
-              >
-                {expandedProjects[proj.title] ? 'Show less' : 'Read more'}
-              </button>
-            ) : null}
-          </article>
-        ))}
-      </section>
+      <ProjectsSection
+        expandedProjects={expandedProjects}
+        onToggle={(title) =>
+          setExpandedProjects((prev) => ({ ...prev, [title]: !prev[title] }))
+        }
+      />
     ),
   };
 
@@ -215,50 +232,48 @@ export default function App() {
           </a>
         </div>
         <nav className="side-nav" aria-label="Section navigation">
-          {content.navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveTab(link.href.replace('#', ''));
-              }}
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              className="text-button"
+              onClick={() => setActiveTab(tab.id)}
+              aria-pressed={activeTab === tab.id}
             >
-              {link.label}
-            </a>
+              {tab.label}
+            </button>
           ))}
         </nav>
       </aside>
 
       <main className="content">
         <div className="tabs" role="tablist" aria-label="Profile sections">
-          {content.navLinks.map((link) => {
-            const id = link.href.replace('#', '');
-            const active = activeTab === id;
+          {tabs.map((tab) => {
+            const active = activeTab === tab.id;
             return (
               <button
-                key={link.href}
+                key={tab.id}
                 className={`tab ${active ? 'active' : ''}`}
                 role="tab"
                 aria-selected={active}
-                aria-controls={id}
-                onClick={() => setActiveTab(id)}
+                aria-controls={tab.id}
+                onClick={() => setActiveTab(tab.id)}
               >
-                {link.label}
+                {tab.label}
               </button>
             );
           })}
         </div>
 
-        {sectionOrder.map((id) => (
+        {tabs.map((tab) => (
           <div
-            key={id}
+            key={tab.id}
             role="tabpanel"
-            id={id}
-            aria-hidden={activeTab !== id}
-            className={activeTab === id ? 'tab-panel active' : 'tab-panel'}
+            id={tab.id}
+            aria-hidden={activeTab !== tab.id}
+            className={activeTab === tab.id ? 'tab-panel active' : 'tab-panel'}
           >
-            {sectionContent[id]}
+            {sections[tab.id]}
           </div>
         ))}
       </main>
