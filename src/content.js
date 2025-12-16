@@ -87,15 +87,17 @@ const content = {
   ],
   publications: [
     {
-      title: 'Vital sign estimation from single-sensor PPG with visual representations',
-      venue: 'Journal of Medical Systems, 2025 (Springer)',
+      title: 'Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models',
+      authors: 'Roha, V. S., Ranjan, R., & Yuce, M. R.',
+      venue: 'Journal of Medical Systems, 49(1), 97 (2025)',
       link: 'https://link.springer.com/article/10.1007/s10916-025-02228-6',
       blurb:
         'Transforms raw PPG into vPPG/aPPG representations and leverages ResNet + attention for HR/BP estimation aligned to clinical thresholds.',
     },
     {
       title: 'VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video',
-      venue: 'Submitted to IEEE Applied Sensing Conference, 2025',
+      authors: 'Ranjan, R., Roha, V. S., & Yuce, M. R.',
+      venue: 'Accepted in IEEE Applied Sensing Conference (2025)',
       link: '',
       blurb: 'Hybrid rPPG pipeline combining signal processing and deep models to estimate SpO₂ and heart rate on smartphones.',
     },

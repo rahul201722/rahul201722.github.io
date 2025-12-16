@@ -96,6 +96,7 @@ function ResearchSection() {
           {content.publications.map((pub) => (
             <article key={pub.title} className="card">
               <h4>{pub.title}</h4>
+              <p className="meta">{pub.authors}</p>
               <p className="meta">{pub.venue}</p>
               <p>{pub.blurb}</p>
               {pub.link ? (
