@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import content from './content.js';
 
 function AboutSection() {
@@ -187,8 +187,26 @@ export default function App() {
     label: link.label,
   }));
 
-  const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? 'about');
+  const getHashTab = () => {
+    const hash = window.location.hash.replace('#', '');
+    return tabs.find((t) => t.id === hash)?.id || tabs[0]?.id || 'about';
+  };
+
+  const [activeTab, setActiveTab] = useState(getHashTab);
   const [expandedProjects, setExpandedProjects] = useState({});
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveTab(getHashTab());
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleTabClick = (id) => {
+    setActiveTab(id);
+    window.location.hash = id;
+  };
 
   const sections = {
     about: <AboutSection />,
@@ -238,7 +256,7 @@ export default function App() {
               key={tab.id}
               type="button"
               className="text-button"
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabClick(tab.id)}
               aria-pressed={activeTab === tab.id}
             >
               {tab.label}
@@ -258,7 +276,7 @@ export default function App() {
                 role="tab"
                 aria-selected={active}
                 aria-controls={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
               >
                 {tab.label}
               </button>
