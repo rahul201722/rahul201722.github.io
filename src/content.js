@@ -1,13 +1,13 @@
 const content = {
   profile: {
     name: 'Rahul Ranjan',
-    title: 'ML Engineer & AI Researcher',
-    affiliationLine1: 'Graduate ML Research Engineer',
+    title: 'AI Researcher',
+    affiliationLine1: 'PhD Candidate (ECSE)',
     affiliationLine2: 'Monash University',
     portrait: '/profile.jpg',
     contacts: {
       email: 'rahulrkm0038@gmail.com',
-      phone: '+91 79971 93400',
+      phone: '+91 7997193400',
       linkedin: 'https://linkedin.com/in/rahul-ranjan-b595891b1',
       github: 'https://github.com/rahul201722',
       cvMl: '/cv_ml.pdf',
@@ -22,31 +22,35 @@ const content = {
   ],
   about: {
     blurb:
-      'I build clinically grounded computer vision systems for mobile sensing, now as a Graduate ML Research Engineer at Monash. Background spans healthcare ML, predictive maintenance, and verification tooling across rail, semiconductor, and industrial contexts. Current focus: PPG / rPPG pipelines, attention-backed architectures, and reproducible evaluation aligned with AAMI/BHS standards. I also do solid, production-grade data engineering—pipelines, telemetry, and reporting that stay reliable in the real world.',
+      'I am a PhD candidate in Electrical & Computer Systems Engineering at Monash University, specializing in biomedical signal processing, machine learning, and computer vision for mobile health sensing. My research focuses on remote photoplethysmography (rPPG), cuffless blood pressure estimation, and smartphone-based vital sign measurement (SpO₂, HR). I have achieved 95%+ accuracy in HR/SpO₂/BP estimation through end-to-end smartphone video vital-sign pipelines using CNN/Transformer models. My work combines robust signal processing with deep learning to create clinically grounded systems aligned with AAMI/BHS standards.',
     highlights: [
-      '95%+ HR accuracy on mobile PPG',
-      '<5 mmHg BP MAE vs AAMI/BHS',
-      '3 peer-reviewed papers',
-      '22% reduction in equipment downtime',
+      '95%+ HR/SpO₂ accuracy via smartphone rPPG',
+      'MAE <5 mmHg contactless BP estimation',
+      '2 published papers + 1 accepted',
+      'Monash Research & FEIPRS Scholar',
     ],
     updates: [
-      // { date: 'Jan 2026', text: 'Started PhD in Electrical & Computer Systems Engineering at Monash University.' },
+      { date: 'January 2026', text: 'Started PhD in Electrical & Computer Systems Engineering at Monash University.' },
       { date: 'November 2025', text: 'VITAL Net paper accepted at IEEE Applied Sensing Conference.' },
       { date: 'September 2025', text: 'Submitted VITAL Net paper to IEEE Applied Sensing Conference.' },
-      { date: 'May 2025', text: 'Published journal paper on PPG-based vital sign estimation in Journal of Medical Systems.' },
+      { date: 'May 2025', text: 'Published journal paper on blood pressure estimation in Journal of Medical Systems.' },
     ],
     techStack: [
       {
-        title: 'ML / CV',
-        items: ['PyTorch', 'ResNet/attention', 'rPPG/vPPG/aPPG', 'XGBoost', 'Time-series features'],
+        title: 'Research Areas',
+        items: ['Biomedical Signal Processing', 'Remote Photoplethysmography (rPPG)', 'Mobile Health (mHealth)', 'Computer Vision'],
       },
       {
-        title: 'Data / Pipelines',
-        items: ['SQL & reporting', 'Telemetry standardization', 'ETL & monitoring', 'Airflow-style scheduling'],
+        title: 'Deep Learning',
+        items: ['PyTorch', 'CNNs', 'Transformers', 'Gated Attention Networks', 'Generative Models'],
       },
       {
-        title: 'Systems / Ops',
-        items: ['Automation (cron, hashing, CI)', 'Docker', 'GitHub Actions', 'Reproducible eval scripts'],
+        title: 'Machine Learning & Statistics',
+        items: ['Scikit-learn', 'Ordinal Regression', 'Ensemble Methods', 'Statistical Analysis', 'Biosignal Filtering'],
+      },
+      {
+        title: 'Development',
+        items: ['Python (Advanced)', 'Swift (iOS Vision Framework)', 'MATLAB', 'LaTeX', 'Git'],
       },
     ],
     education: [
@@ -64,14 +68,19 @@ const content = {
         degree: 'M.Sc. (Hons.) Physics; B.E. (Hons.) Electronics & Instrumentation',
         school: 'Birla Institute of Technology and Science (BITS), Pilani, India',
         years: '2017–2022',
+        thesis: 'Monte Carlo Simulations of Phase Transitions in Ising Models',
       },
+    ],
+    scholarships: [
+      'Monash Research Scholarship (Electrical and Computer Systems Engineering)',
+      'Faculty of Engineering International Postgraduate Research Scholarship (FEIPRS)',
     ],
   },
   researchInterests: [
-    'Physiological signal processing (PPG / rPPG / vPPG)',
+    'Biomedical signal processing, machine learning, and computer vision for mobile health sensing',
+    'Remote photoplethysmography (rPPG) and cuffless blood pressure estimation',
+    'Smartphone-based vital sign measurement (SpO₂, HR)',
     'Clinical-grade model evaluation & reproducibility',
-    'Computer vision for mobile sensing',
-    'Time-series ML for reliability and maintenance',
   ],
   researchFigures: [
     {
@@ -104,40 +113,42 @@ const content = {
   ],
   experience: [
     {
-      role: 'Graduate ML Research Engineer',
+      role: 'Graduate Researcher (AI & Mobile Health)',
       org: 'Monash University',
-      period: '2025–2026',
+      period: '2024–2025',
       details: [
-        'Built smartphone vital sign pipeline (PPG → vPPG/aPPG) with ResNet-50 + multi-head attention; achieved 95%+ HR accuracy and <5 mmHg BP MAE vs AAMI/BHS.',
-        'Owned PyTorch training/eval on A40 GPUs with augmentations for motion/illumination noise and aligned metrics to clinical baselines.',
-        'Produced reproducible eval scripts and deployment-ready checkpoints for clinicians and industry partners.',
+        'Achieved 95%+ accuracy in HR/SpO₂/BP estimation by building an end-to-end smartphone video vital-sign pipeline and training CNN/Transformer models.',
+        'Improved rPPG robustness across diverse subjects by implementing color transforms, bandpass filtering, and self-attention mechanisms, designed with cross-subject evaluation.',
+        'Attained MAE <5 mmHg in contactless blood pressure estimation by processing and analyzing 5000 video samples across multiple datasets.',
+        'Published novel research as a hybrid framework (VITAL Net) in IEEE Applied Sensing Conference by leading the development of SpO₂ and HR estimation models.',
       ],
     },
     {
       role: 'Information Technology Officer',
-      org: 'Aglow Engineers',
+      org: 'Aglow Engineers, Kolkata',
       period: 'Jun 2022–Feb 2023',
       details: [
-        'Migrated manual Excel logs to automated SQL reporting for 50+ stakeholders; standardized telemetry and alerting.',
-        'Shipped predictive maintenance models that reduced equipment downtime 22% and automated SMTP updates that sped decisions 85%.',
+        'Established the company\'s first centralized data infrastructure by migrating manual entry systems to SQL, creating a robust, queryable database for all operational logs.',
+        'Accelerated stakeholder decision-making by developing Python Automation scripts that reduced technical interpretation time through automatically emailed plain-English summaries.',
+        'Reduced system downtime by 22% and achieved 89% prediction accuracy in vulnerability detection by building proactive forecasting models using Random Forest & LSTM.',
       ],
     },
     {
       role: 'Software Intern',
-      org: 'Centre for Railway Information Systems',
-      period: 'Feb–May 2022',
+      org: 'Centre for Railway Information Systems (CRIS), New Delhi',
+      period: 'Jan 2022–May 2022',
       details: [
-        'Delivered anomaly detection for 200+ rail assets with 94% accuracy and 48-hour early failure predictions.',
-        'Built full data pipeline: feature engineering, labeling workflows with workshop managers, validation with field engineers.',
+        'Predicted asset failures 48 hours in advance with 94% accuracy by implementing Anomaly Detection within WISE modules using Python and XGBoost.',
+        'Reduced workshop downtime by 18% by deploying Predictive Maintenance models across 200+ railway assets.',
       ],
     },
     {
       role: 'Software Development Intern',
-      org: 'AMD (Xilinx)',
-      period: 'Jun–Dec 2021',
+      org: 'Xilinx (now AMD), Hyderabad — Timing Team, Device Capture Group',
+      period: 'Aug 2021–Dec 2021',
       details: [
-        'Built a Data Flow Synchronicity Checker used by 25+ verification engineers; automated 1000+ file validations/day with mismatch reports.',
-        'Implemented SHA-256 integrity checks vs Artifactory/Perforce, differential analysis, and cron-scheduled nightly runs.',
+        'Streamlined file-hash verification for 25+ design engineers by developing and deploying the "Data Flow Synchronicity Checker" tool across FPGA teams.',
+        'Improved team workflow efficiency by 30% by building production infrastructure with nightly automated checks (1000+ file validations/day) using cron-scheduled Bash jobs.',
       ],
     },
   ],
