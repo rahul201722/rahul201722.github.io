@@ -243,12 +243,6 @@ export default function App() {
           <a href={content.profile.contacts.github} target="_blank" rel="noopener">
             GitHub
           </a>
-          <a href={content.profile.contacts.cvMl} target="_blank" rel="noopener">
-            CV (ML)
-          </a>
-          <a href={content.profile.contacts.cvResearch} target="_blank" rel="noopener">
-            CV (Research)
-          </a>
         </div>
         <nav className="side-nav" aria-label="Section navigation">
           {tabs.map((tab) => (
