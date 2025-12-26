@@ -22,7 +22,7 @@ const content = {
   ],
   about: {
     blurb:
-      'I build clinical-grade AI that runs on smartphones, not server farms. My PhD research tackles the hardest problem in mobile health: extracting accurate vital signs (heart rate, SpO₂, blood pressure) from noisy camera video in real-world conditions—motion artifacts, poor lighting, diverse skin tones. I\'ve achieved 95%+ accuracy and less than 5 mmHg BP error by combining robust signal processing (bandpass filtering, color-space transforms) with efficient deep learning architectures optimized for edge deployment. This isn\'t lab-bench AI—it\'s real-time, battery-conscious, clinically validated (AAMI/BHS) health monitoring that works in your pocket.',
+      'I build clinical-grade AI that runs on smartphones, not server farms. My PhD research tackles the hardest problem in mobile health: extracting accurate vital signs (heart rate, SpO₂, blood pressure) from noisy camera video in real-world conditions—motion artifacts, poor lighting, diverse skin tones. I\'ve achieved 95%+ accuracy and less than 5 mmHg BP error by combining robust signal processing (bandpass filtering, noise reduction) with efficient deep learning architectures optimized for edge deployment. This isn\'t lab-bench AI—it\'s real-time, clinically validated (AAMI/BHS) health monitoring that works in your pocket.',
     highlights: [
       'Contactless vitals from smartphone camera (no wearables)',
       'Robust to motion artifacts & poor lighting',
@@ -38,11 +38,11 @@ const content = {
     techStack: [
       {
         title: 'Edge AI & Mobile',
-        items: ['Swift (iOS Vision Framework)', 'CoreML', 'Real-time Inference', 'Model Optimization', 'Battery-Aware Computing'],
+        items: ['Swift (iOS Vision Framework)', 'CoreML', 'ONNX', 'Model Optimization', 'Real-time Inference'],
       },
       {
         title: 'Signal Processing & CV',
-        items: ['rPPG/PPG Analysis', 'Noise Filtering', 'Color-Space Transforms', 'OpenCV', 'Motion Artifact Rejection'],
+        items: ['rPPG/PPG Analysis', 'Bandpass Filtering', 'Noise Reduction', 'OpenCV', 'Motion Artifact Rejection'],
       },
       {
         title: 'Deep Learning',
