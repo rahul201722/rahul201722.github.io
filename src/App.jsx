@@ -41,11 +41,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen text-text">
       <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
       
       <div id="hero">
-        <Hero profile={content.profile} />
+        <Hero profile={content.profile} highlights={content.about.highlights} />
       </div>
       
       <About about={content.about} contacts={content.profile.contacts} />

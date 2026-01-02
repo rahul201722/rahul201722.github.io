@@ -11,15 +11,18 @@ export default function Projects({ projects }) {
   };
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50">
+    <section id="projects" className="py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface-soft">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">Research Projects</h2>
+        <div className="mb-6">
+          <p className="text-xs uppercase tracking-[0.3em] text-secondary/60 mb-3">Projects</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-primary">Research Projects</h2>
+        </div>
         
-        <div className="space-y-6">
+        <div className="space-y-5">
           {projects.map((project, idx) => (
             <div 
               key={idx}
-              className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm hover:shadow-md transition-shadow duration-200"
+              className="bg-surface rounded-2xl p-5 md:p-7 border border-border/80 shadow-sm hover:shadow-md transition-shadow duration-200"
             >
               <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2">
                 {project.title}
@@ -47,7 +50,7 @@ export default function Projects({ projects }) {
               {project.details && (
                 <button
                   onClick={() => toggleProject(project.title)}
-                  className="text-accent hover:text-blue-700 font-medium transition-colors duration-200 cursor-pointer"
+                  className="text-accent hover:text-blue-700 font-medium transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
                   aria-expanded={!!expandedProjects[project.title]}
                 >
                   {expandedProjects[project.title] ? 'Show less' : 'Read more'}

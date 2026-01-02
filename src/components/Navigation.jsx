@@ -10,8 +10,8 @@ export default function Navigation({ activeSection, onNavigate }) {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md border border-border rounded-full px-6 py-3 shadow-lg">
-      <ul className="flex gap-1 md:gap-2">
+    <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-4xl bg-white/85 backdrop-blur-md border border-border/80 rounded-full px-4 py-2 shadow-md">
+      <ul className="flex flex-wrap justify-center gap-1 md:gap-2">
         {navItems.map((item) => (
           <li key={item.id}>
             <a
@@ -20,7 +20,8 @@ export default function Navigation({ activeSection, onNavigate }) {
                 e.preventDefault();
                 onNavigate(item.id);
               }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+              aria-current={activeSection === item.id ? 'page' : undefined}
+              className={`px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 ${
                 activeSection === item.id
                   ? 'bg-accent text-white'
                   : 'text-secondary hover:bg-accent/10 hover:text-accent'

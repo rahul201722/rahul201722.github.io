@@ -4,13 +4,15 @@ const content = {
     title: 'PhD Candidate | Edge AI & Mobile Health',
     affiliationLine1: 'Robust Biosignal Processing on Mobile Devices',
     affiliationLine2: 'Monash University',
-    portrait: '/profile.jpg',
+    portrait: '/profile.avif',
     contacts: {
       email: 'rahulrkm0038@gmail.com',
       phone: '+917997193400',
       phoneDisplay: '+91 79971 93400',
       linkedin: 'https://linkedin.com/in/rahul-ranjan-b595891b1',
       github: 'https://github.com/rahul201722',
+      scholar: 'https://scholar.google.com.au/citations?view_op=list_works&hl=en&user=19aEdVcAAAAJ',
+      cv: 'https://drive.google.com/file/d/1BQuyW1_InR_Q_mkfimzVvL_2L16CO0fu/view?usp=sharing',
       researchSummary: '',
     },
   },
@@ -112,14 +114,18 @@ const content = {
   ],
   researchFigures: [
     {
-      src: '/paper_1_architecture.jpg',
+      src: '/paper_1_architecture.avif',
       alt: 'Architecture diagram for Paper 1',
       caption: 'Paper 1 architecture: PPG → vPPG/aPPG, ResNet-50 backbone with multi-head attention for HR/BP outputs.',
+      width: 1600,
+      height: 750,
     },
     {
-      src: '/paper_2_architecture.jpg',
+      src: '/paper_2_architecture.avif',
       alt: 'Architecture diagram for Paper 2',
       caption: 'Paper 2 architecture: rPPG video pipeline with hybrid signal processing + deep model heads for SpO₂ and heart rate.',
+      width: 1600,
+      height: 436,
     },
   ],
   publications: [

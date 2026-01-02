@@ -4,3 +4,7 @@ push.sh
 node_modules/
 dist/
 .shared/
+.claude/
+assets/originals/
+/my webite.jpg
+/website.jpg

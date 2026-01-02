@@ -2,13 +2,16 @@ import React from 'react';
 
 export default function About({ about, contacts }) {
   return (
-    <section id="about" className="py-20 px-6 bg-white">
+    <section id="about" className="-mt-6 pt-0 pb-14 md:pb-16 px-4 sm:px-6 lg:px-8 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">About & Contact</h2>
+        <div className="mb-6">
+          <p className="text-xs uppercase tracking-[0.3em] text-secondary/60 mb-3">About</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-primary">About & Contact</h2>
+        </div>
         
         {/* Blurb */}
         {Array.isArray(about.blurb) ? (
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 mb-7">
             {about.blurb.map((paragraph, idx) => (
               <p key={idx} className="text-lg text-secondary/90 leading-relaxed">
                 {paragraph}
@@ -16,18 +19,18 @@ export default function About({ about, contacts }) {
             ))}
           </div>
         ) : (
-          <p className="text-lg text-secondary/90 leading-relaxed mb-8">
+          <p className="text-lg text-secondary/90 leading-relaxed mb-7">
             {about.blurb}
           </p>
         )}
 
         {/* Highlights */}
         {about.highlights?.length > 0 && (
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex flex-wrap gap-3 mb-9">
             {about.highlights.map((highlight, idx) => (
               <span 
                 key={idx}
-                className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20"
+                className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold border border-accent/20"
               >
                 {highlight}
               </span>
@@ -37,7 +40,7 @@ export default function About({ about, contacts }) {
 
         {/* Recent Updates */}
         {about.updates?.length > 0 && (
-          <div className="bg-gray-50 rounded-xl p-6 md:p-8 mb-8 border border-border">
+          <div className="bg-surface-soft rounded-2xl p-5 md:p-7 mb-7 border border-border/80 shadow-sm">
             <h3 className="text-2xl font-semibold text-primary mb-6">Recent Updates</h3>
             <ul className="space-y-4">
               {about.updates.map((update, idx) => (
@@ -56,7 +59,7 @@ export default function About({ about, contacts }) {
 
         {/* Tech Stack */}
         {about.techStack?.length > 0 && (
-          <div className="bg-white rounded-xl p-6 md:p-8 mb-8 border border-border shadow-sm">
+          <div className="bg-surface rounded-2xl p-5 md:p-7 mb-7 border border-border/80 shadow-sm">
             <h3 className="text-2xl font-semibold text-primary mb-6">Tech Stack</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {about.techStack.map((group, idx) => (
@@ -81,14 +84,14 @@ export default function About({ about, contacts }) {
         )}
 
         {/* Contact */}
-        <div className="bg-gradient-to-br from-accent/5 to-blue-50 rounded-xl p-6 md:p-8 mb-8 border border-accent/20">
+        <div className="bg-gradient-to-br from-accent/10 to-surface-soft rounded-2xl p-5 md:p-7 mb-7 border border-accent/20 shadow-sm">
           <h3 className="text-2xl font-semibold text-primary mb-4">Contact</h3>
           <div className="space-y-2 text-secondary/90">
             <p>
               <span className="font-semibold text-primary">Email:</span>{' '}
               <a 
                 href={`mailto:${contacts.email}`} 
-                className="text-accent hover:text-blue-700 transition-colors duration-200"
+                className="text-accent hover:text-blue-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
               >
                 {contacts.email}
               </a>
@@ -97,7 +100,7 @@ export default function About({ about, contacts }) {
               <span className="font-semibold text-primary">Phone:</span>{' '}
               <a 
                 href={`tel:${contacts.phone}`}
-                className="text-accent hover:text-blue-700 transition-colors duration-200"
+                className="text-accent hover:text-blue-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
               >
                 {contacts.phoneDisplay ?? contacts.phone}
               </a>
@@ -108,17 +111,43 @@ export default function About({ about, contacts }) {
                 href={contacts.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-accent hover:text-blue-700 transition-colors duration-200"
+                className="text-accent hover:text-blue-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
               >
                 {contacts.linkedin.replace('https://', '')}
               </a>
             </p>
+            {contacts.scholar && (
+              <p>
+                <span className="font-semibold text-primary">Google Scholar:</span>{' '}
+                <a
+                  href={contacts.scholar}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:text-blue-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                >
+                  scholar.google.com.au
+                </a>
+              </p>
+            )}
+            {contacts.cv && (
+              <p>
+                <span className="font-semibold text-primary">CV:</span>{' '}
+                <a
+                  href={contacts.cv}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:text-blue-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                >
+                  PDF on Google Drive
+                </a>
+              </p>
+            )}
           </div>
         </div>
 
         {/* Education */}
         {about.education?.length > 0 && (
-          <div className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm">
+          <div className="bg-surface rounded-2xl p-5 md:p-7 border border-border/80 shadow-sm">
             <h3 className="text-2xl font-semibold text-primary mb-6">Education</h3>
             <ul className="space-y-4">
               {about.education.map((edu, idx) => (
@@ -138,9 +167,9 @@ export default function About({ about, contacts }) {
 
         {/* Collaboration */}
         {(about.collaboration || about.fundingReady) && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-7">
             {about.collaboration && (
-              <div className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm">
+              <div className="bg-surface rounded-2xl p-5 md:p-7 border border-border/80 shadow-sm">
                 <h3 className="text-2xl font-semibold text-primary mb-4">Collaboration</h3>
                 {about.collaboration.goals?.length > 0 && (
                   <>
@@ -179,7 +208,7 @@ export default function About({ about, contacts }) {
             )}
 
             {about.fundingReady && (
-              <div className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm">
+              <div className="bg-surface rounded-2xl p-5 md:p-7 border border-border/80 shadow-sm">
                 <h3 className="text-2xl font-semibold text-primary mb-4">Funding-ready Profile</h3>
                 {about.fundingReady.outcomes?.length > 0 && (
                   <>

@@ -4,7 +4,7 @@ export default function Footer({ profile }) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white py-12 px-6">
+    <footer className="bg-primary text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
@@ -20,22 +20,22 @@ export default function Footer({ profile }) {
             <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#about" className="text-white/70 hover:text-white transition-colors duration-200">
+                <a href="#about" className="text-white/70 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
                   About
                 </a>
               </li>
               <li>
-                <a href="#research" className="text-white/70 hover:text-white transition-colors duration-200">
+                <a href="#research" className="text-white/70 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
                   Research
                 </a>
               </li>
               <li>
-                <a href="#experience" className="text-white/70 hover:text-white transition-colors duration-200">
+                <a href="#experience" className="text-white/70 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
                   Experience
                 </a>
               </li>
               <li>
-                <a href="#projects" className="text-white/70 hover:text-white transition-colors duration-200">
+                <a href="#projects" className="text-white/70 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
                   Projects
                 </a>
               </li>
@@ -48,7 +48,7 @@ export default function Footer({ profile }) {
             <div className="flex gap-4">
               <a 
                 href={`mailto:${profile.contacts.email}`}
-                className="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer"
+                className="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 aria-label="Email"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ export default function Footer({ profile }) {
                 href={profile.contacts.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer"
+                className="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export default function Footer({ profile }) {
                 href={profile.contacts.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer"
+                className="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 aria-label="GitHub"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
