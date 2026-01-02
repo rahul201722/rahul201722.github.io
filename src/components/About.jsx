@@ -7,9 +7,19 @@ export default function About({ about, contacts }) {
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">About & Contact</h2>
         
         {/* Blurb */}
-        <p className="text-lg text-secondary/90 leading-relaxed mb-8">
-          {about.blurb}
-        </p>
+        {Array.isArray(about.blurb) ? (
+          <div className="space-y-4 mb-8">
+            {about.blurb.map((paragraph, idx) => (
+              <p key={idx} className="text-lg text-secondary/90 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <p className="text-lg text-secondary/90 leading-relaxed mb-8">
+            {about.blurb}
+          </p>
+        )}
 
         {/* Highlights */}
         {about.highlights?.length > 0 && (
@@ -89,7 +99,7 @@ export default function About({ about, contacts }) {
                 href={`tel:${contacts.phone}`}
                 className="text-accent hover:text-blue-700 transition-colors duration-200"
               >
-                {contacts.phone}
+                {contacts.phoneDisplay ?? contacts.phone}
               </a>
             </p>
             <p>
@@ -118,11 +128,91 @@ export default function About({ about, contacts }) {
                   </p>
                   <p className="text-secondary/90">
                     {edu.school} ({edu.years})
-                    {edu.note && ` — ${edu.note}`}
+                    {(edu.note || edu.thesis) && ` — ${edu.note ?? edu.thesis}`}
                   </p>
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* Collaboration */}
+        {(about.collaboration || about.fundingReady) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            {about.collaboration && (
+              <div className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Collaboration</h3>
+                {about.collaboration.goals?.length > 0 && (
+                  <>
+                    <p className="text-sm font-semibold text-secondary/70 mb-2">Looking for</p>
+                    <ul className="space-y-2 mb-4">
+                      {about.collaboration.goals.map((goal, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <svg className="w-4 h-4 mr-2 mt-0.5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-secondary/90">{goal}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                {about.collaboration.offerings?.length > 0 && (
+                  <>
+                    <p className="text-sm font-semibold text-secondary/70 mb-2">What I bring</p>
+                    <ul className="space-y-2 mb-4">
+                      {about.collaboration.offerings.map((offering, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <svg className="w-4 h-4 mr-2 mt-0.5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-secondary/90">{offering}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                {about.collaboration.availability && (
+                  <p className="text-sm text-secondary/70">{about.collaboration.availability}</p>
+                )}
+              </div>
+            )}
+
+            {about.fundingReady && (
+              <div className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Funding-ready Profile</h3>
+                {about.fundingReady.outcomes?.length > 0 && (
+                  <>
+                    <p className="text-sm font-semibold text-secondary/70 mb-2">Outcomes</p>
+                    <ul className="space-y-2 mb-4">
+                      {about.fundingReady.outcomes.map((outcome, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <svg className="w-4 h-4 mr-2 mt-0.5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-secondary/90">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                {about.fundingReady.capabilities?.length > 0 && (
+                  <>
+                    <p className="text-sm font-semibold text-secondary/70 mb-2">Capabilities</p>
+                    <ul className="space-y-2">
+                      {about.fundingReady.capabilities.map((capability, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <svg className="w-4 h-4 mr-2 mt-0.5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-secondary/90">{capability}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         )}
       </div>

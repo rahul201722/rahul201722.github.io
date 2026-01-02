@@ -62,6 +62,17 @@ export default function Hero({ profile }) {
             </svg>
             GitHub
           </a>
+          
+          {profile.contacts.researchSummary && (
+            <a 
+              href={profile.contacts.researchSummary}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 border-2 border-secondary text-secondary font-semibold rounded-lg hover:bg-secondary hover:text-white transition-colors duration-200 cursor-pointer"
+            >
+              One-page Summary
+            </a>
+          )}
         </div>
 
         {/* Scroll Indicator */}

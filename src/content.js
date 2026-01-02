@@ -7,11 +7,11 @@ const content = {
     portrait: '/profile.jpg',
     contacts: {
       email: 'rahulrkm0038@gmail.com',
-      phone: '+91 7997193400',
+      phone: '+917997193400',
+      phoneDisplay: '+91 79971 93400',
       linkedin: 'https://linkedin.com/in/rahul-ranjan-b595891b1',
       github: 'https://github.com/rahul201722',
-      cvMl: '/cv_ml.pdf',
-      cvResearch: '/cv_phd_research.pdf',
+      researchSummary: '',
     },
   },
   navLinks: [
@@ -21,8 +21,11 @@ const content = {
     { label: 'Projects', href: '#projects' },
   ],
   about: {
-    blurb:
-      'I build clinical-grade AI that runs on smartphones, not server farms. My PhD research solves the hardest problem in mobile health: extracting accurate vital signs (HR, SpO₂, BP) from noisy video in the wild—motion artifacts, poor lighting, diverse skin tones. My approach combines deep neural signal enhancement using Encoder-Decoder architectures (Autoencoders/U-Nets) to reconstruct clean physiological waveforms from corrupted data, with edge-native optimization through model distillation and quantization for real-time deployment on mobile NPUs (CoreML/ONNX). The result: 95%+ accuracy and less than 5 mmHg BP error, clinically validated (AAMI/BHS), running in your pocket.',
+    blurb: [
+      'I build clinical-grade AI that runs on smartphones, not server farms.',
+      'My PhD research solves the hardest problem in mobile health: extracting accurate vital signs (HR, SpO₂, BP) from noisy video in the wild—motion artifacts, poor lighting, diverse skin tones.',
+      'My approach combines deep neural signal enhancement using Encoder-Decoder architectures (Autoencoders/U-Nets) to reconstruct clean physiological waveforms from corrupted data, with edge-native optimization through model distillation and quantization for real-time deployment on mobile NPUs (CoreML/ONNX). The result: 95%+ accuracy and less than 5 mmHg BP error, clinically validated (AAMI/BHS), running in your pocket.',
+    ],
     highlights: [
       'Contactless vitals from smartphone camera (no wearables)',
       'Robust to motion artifacts & poor lighting',
@@ -75,6 +78,31 @@ const content = {
       'Monash Research Scholarship (Electrical and Computer Systems Engineering)',
       'Faculty of Engineering International Postgraduate Research Scholarship (FEIPRS)',
     ],
+    collaboration: {
+      goals: [
+        'Clinical and translational partnerships for mobile vital sign validation',
+        'Industry collaborations for on-device deployment and productization',
+        'Cross-disciplinary research on robust biosignal processing',
+      ],
+      offerings: [
+        'End-to-end rPPG/PPG pipelines (data → model → evaluation)',
+        'Clinical-grade evaluation aligned to AAMI/BHS standards',
+        'Edge-optimized deployment on mobile NPUs (CoreML/ONNX)',
+      ],
+      availability: 'Open to collaborations and grant partnerships in 2026.',
+    },
+    fundingReady: {
+      outcomes: [
+        '95%+ HR accuracy on mobile rPPG in real-world conditions',
+        '<5 mmHg BP MAE aligned with AAMI/BHS criteria',
+        'Reproducible evaluation scripts and deployment-ready checkpoints',
+      ],
+      capabilities: [
+        'Robust signal processing + deep learning fusion',
+        'Edge inference optimization (quantization, distillation)',
+        'Clinical validation pipeline and reporting',
+      ],
+    },
   },
   researchInterests: [
     'Contactless vital sign monitoring from smartphone cameras (rPPG)',

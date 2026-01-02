@@ -37,7 +37,7 @@ export default function Research({ researchInterests, publications, researchFigu
               <p className="text-sm text-secondary/70 mb-1">{pub.authors}</p>
               <p className="text-sm text-secondary/70 mb-4">{pub.venue}</p>
               <p className="text-secondary/90 mb-4">{pub.blurb}</p>
-              {pub.link && (
+              {pub.link ? (
                 <a 
                   href={pub.link} 
                   target="_blank" 
@@ -49,6 +49,10 @@ export default function Research({ researchInterests, publications, researchFigu
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
+              ) : (
+                <span className="inline-flex items-center text-sm text-secondary/70">
+                  PDF available on request
+                </span>
               )}
             </div>
           ))}
@@ -65,6 +69,8 @@ export default function Research({ researchInterests, publications, researchFigu
                 <img 
                   src={fig.src} 
                   alt={fig.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto rounded-lg mb-3"
                 />
                 <figcaption className="text-sm text-secondary/70">
