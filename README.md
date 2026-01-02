@@ -1,14 +1,14 @@
-# Rahul Ranjan — Homepage (Vite + React + Bun)
+# Rahul Ranjan — Homepage (Vite + React + npm)
 
-A single-page personal site built with React 19, Vite 5, and Bun. Content is data-driven from one file (`src/content.js`) for quick edits (tabs, highlights, updates, tech stack, education, publications, projects, contact, and architecture figures). Assets (profile + CVs + paper figures) live in `public/`.
+A single-page personal site built with React 19 and Vite. Content is data-driven from one file (`src/content.js`) for quick edits (tabs, highlights, updates, tech stack, education, publications, projects, contact, and architecture figures). Assets (profile + CVs + paper figures) live in `public/`.
 
 ## Requirements
-- Bun ≥ 1.3 (tested with 1.3.4)
+- Node.js + npm
 
 ## Scripts
-- `bun run dev` — start dev server (defaults to port 5173; use `-- --host --port 4173` if needed).
-- `bun run build` — production build to `dist/`.
-- `bun run preview` — preview the built site locally.
+- `npm run dev` — start dev server (defaults to port 5173; use `-- --host --port 4173` if needed).
+- `npm run build` — production build to `dist/`.
+- `npm run preview` — preview the built site locally.
 
 ## Deploy (GitHub Pages)
 
