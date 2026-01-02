@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Reference</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { margin-bottom: 2rem; color: #18181B; }
+    h2 { margin: 2rem 0 1rem; color: #3F3F46; }
+    
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .color-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .color-sample {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .color-info {
+      padding: 1rem;
+    }
+    .color-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #18181B;
+    }
+    .color-hex {
+      font-family: monospace;
+      color: #3F3F46;
+      font-size: 0.875rem;
+    }
+    
+    .font-sample {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .poppins { font-family: 'Poppins', sans-serif; }
+    .open-sans { font-family: 'Open Sans', sans-serif; }
+    
+    .component-sample {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      transition: all 200ms;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      border: 2px solid #2563EB;
+      color: #2563EB;
+      background: white;
+    }
+    .btn-secondary:hover {
+      background: #2563EB;
+      color: white;
+    }
+    
+    .card-demo {
+      background: #F9FAFB;
+      padding: 1.5rem;
+      border: 1px solid #E4E4E7;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    .card-demo:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Portfolio Design System Reference</h1>
+    
+    <h2>Color Palette</h2>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-sample" style="background: #18181B;">Primary</div>
+        <div class="color-info">
+          <div class="color-name">Primary</div>
+          <div class="color-hex">#18181B</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin-top: 0.5rem;">
+            Headings, dark text
+          </div>
+        </div>
+      </div>
+      
+      <div class="color-card">
+        <div class="color-sample" style="background: #3F3F46;">Secondary</div>
+        <div class="color-info">
+          <div class="color-name">Secondary</div>
+          <div class="color-hex">#3F3F46</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin-top: 0.5rem;">
+            Subtext, muted content
+          </div>
+        </div>
+      </div>
+      
+      <div class="color-card">
+        <div class="color-sample" style="background: #2563EB;">Accent</div>
+        <div class="color-info">
+          <div class="color-name">Accent</div>
+          <div class="color-hex">#2563EB</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin-top: 0.5rem;">
+            CTAs, links, highlights
+          </div>
+        </div>
+      </div>
+      
+      <div class="color-card">
+        <div class="color-sample" style="background: #FAFAFA; color: #18181B;">Background</div>
+        <div class="color-info">
+          <div class="color-name">Background</div>
+          <div class="color-hex">#FAFAFA</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin-top: 0.5rem;">
+            Page background
+          </div>
+        </div>
+      </div>
+      
+      <div class="color-card">
+        <div class="color-sample" style="background: #09090B;">Text</div>
+        <div class="color-info">
+          <div class="color-name">Text</div>
+          <div class="color-hex">#09090B</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin-top: 0.5rem;">
+            Body text
+          </div>
+        </div>
+      </div>
+      
+      <div class="color-card">
+        <div class="color-sample" style="background: #E4E4E7; color: #18181B;">Border</div>
+        <div class="color-info">
+          <div class="color-name">Border</div>
+          <div class="color-hex">#E4E4E7</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin-top: 0.5rem;">
+            Borders, dividers
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2>Typography</h2>
+    <div class="font-sample poppins">
+      <h3 style="margin-bottom: 0.5rem;">Poppins - Headings</h3>
+      <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 1rem;">
+        Modern, professional, geometric sans-serif
+      </p>
+      <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">
+        The quick brown fox
+      </div>
+      <div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">
+        The quick brown fox
+      </div>
+      <div style="font-size: 1.125rem; font-weight: 500;">
+        The quick brown fox jumps over the lazy dog
+      </div>
+    </div>
+    
+    <div class="font-sample open-sans">
+      <h3 style="margin-bottom: 0.5rem;">Open Sans - Body</h3>
+      <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 1rem;">
+        Highly readable, humanist sans-serif
+      </p>
+      <div style="font-size: 1rem; line-height: 1.6;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+      </div>
+    </div>
+    
+    <h2>Buttons</h2>
+    <div class="component-sample">
+      <a href="#" class="btn btn-primary">Primary Button</a>
+      <a href="#" class="btn btn-secondary">Secondary Button</a>
+    </div>
+    
+    <h2>Cards</h2>
+    <div class="component-sample">
+      <div class="card-demo">
+        <h4 style="margin-bottom: 0.5rem; color: #18181B;">Card Title</h4>
+        <p style="color: #3F3F46; margin-bottom: 1rem;">
+          This is a sample card with hover effect. Cards are used throughout the site for content organization.
+        </p>
+        <a href="#" style="color: #2563EB; text-decoration: none;">Learn more →</a>
+      </div>
+    </div>
+    
+    <h2>Spacing Scale</h2>
+    <div class="component-sample">
+      <div style="display: grid; gap: 1rem;">
+        <div style="display: flex; align-items: center;">
+          <div style="width: 200px; font-family: monospace; font-size: 0.875rem;">0.25rem (1)</div>
+          <div style="height: 2px; width: 4px; background: #2563EB;"></div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <div style="width: 200px; font-family: monospace; font-size: 0.875rem;">0.5rem (2)</div>
+          <div style="height: 2px; width: 8px; background: #2563EB;"></div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <div style="width: 200px; font-family: monospace; font-size: 0.875rem;">0.75rem (3)</div>
+          <div style="height: 2px; width: 12px; background: #2563EB;"></div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <div style="width: 200px; font-family: monospace; font-size: 0.875rem;">1rem (4)</div>
+          <div style="height: 2px; width: 16px; background: #2563EB;"></div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <div style="width: 200px; font-family: monospace; font-size: 0.875rem;">1.5rem (6)</div>
+          <div style="height: 2px; width: 24px; background: #2563EB;"></div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <div style="width: 200px; font-family: monospace; font-size: 0.875rem;">2rem (8)</div>
+          <div style="height: 2px; width: 32px; background: #2563EB;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
