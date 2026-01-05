@@ -42,7 +42,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-text">
-      <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
+      <Navigation
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+        resumeUrl={content.profile.contacts.cv}
+      />
       
       <div id="hero">
         <Hero profile={content.profile} highlights={content.about.highlights} />

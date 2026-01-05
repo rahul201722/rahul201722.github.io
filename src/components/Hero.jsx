@@ -1,31 +1,64 @@
 import React from 'react';
 
 export default function Hero({ profile, highlights = [] }) {
+  const quickFacts = profile.quickFacts ?? [];
   return (
     <section className="relative min-h-[70vh] lg:min-h-[75vh] overflow-hidden">
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl motion-safe:animate-float-slow" />
       <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-black/5 blur-3xl motion-safe:animate-float-slow" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0 grid items-center gap-8 lg:gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-0 grid items-center gap-8 lg:gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-5 text-center lg:text-left">
           <span className="inline-flex items-center justify-center lg:justify-start text-sm uppercase tracking-[0.35em] text-secondary/70">
             Research Portfolio
           </span>
 
-          <h1 className="text-6xl md:text-8xl lg:text-[6rem] xl:text-[6.5rem] font-semibold text-primary leading-[0.95] tracking-tight motion-safe:animate-fade-up">
+          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-semibold text-primary leading-[0.95] tracking-tight motion-safe:animate-fade-up">
             {profile.name}
           </h1>
 
-          <p className="text-3xl md:text-4xl text-secondary font-semibold motion-safe:animate-fade-up-slow motion-safe:[animation-delay:120ms]">
+          <p className="text-2xl md:text-3xl text-secondary font-semibold motion-safe:animate-fade-up-slow motion-safe:[animation-delay:120ms]">
             {profile.title}
           </p>
 
-          <div className="text-lg md:text-xl text-secondary/80 space-y-1 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:200ms]">
+          <div className="text-base md:text-lg text-secondary/80 space-y-1 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:200ms]">
             <p>{profile.affiliationLine1}</p>
             <p>{profile.affiliationLine2}</p>
           </div>
 
+          {quickFacts.length > 0 && (
+            <div className="grid gap-3 sm:grid-cols-3 pt-2">
+              {quickFacts.map((fact, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-border/80 bg-white/70 px-4 py-3 text-left shadow-sm"
+                >
+                  <p className="text-xs uppercase tracking-[0.2em] text-secondary/60">
+                    {fact.label}
+                  </p>
+                  <p className="text-lg font-semibold text-primary">{fact.value}</p>
+                  {fact.detail && (
+                    <p className="text-sm text-secondary/80">{fact.detail}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
+            {profile.contacts.cv && (
+              <a
+                href={profile.contacts.cv}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 text-base bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors duration-200 cursor-pointer shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6M7 4h7l3 3v13a1 1 0 01-1 1H7a1 1 0 01-1-1V5a1 1 0 011-1z" />
+                </svg>
+                Resume (PDF)
+              </a>
+            )}
             <a
               href={`mailto:${profile.contacts.email}`}
               className="inline-flex items-center px-6 py-3 text-base bg-accent text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-200 cursor-pointer shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
@@ -47,19 +80,6 @@ export default function Hero({ profile, highlights = [] }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9v9a2 2 0 002 2h14a2 2 0 002-2V9" />
                 </svg>
                 Scholar
-              </a>
-            )}
-            {profile.contacts.cv && (
-              <a
-                href={profile.contacts.cv}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 text-base border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6M7 4h7l3 3v13a1 1 0 01-1 1H7a1 1 0 01-1-1V5a1 1 0 011-1z" />
-                </svg>
-                CV
               </a>
             )}
             <a

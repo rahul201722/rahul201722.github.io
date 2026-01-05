@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function About({ about, contacts }) {
   return (
-    <section id="about" className="-mt-6 pt-0 pb-14 md:pb-16 px-4 sm:px-6 lg:px-8 bg-surface">
+    <section id="about" className="pt-10 pb-14 md:pt-12 md:pb-16 px-4 sm:px-6 lg:px-8 bg-surface">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6">
           <p className="text-xs uppercase tracking-[0.3em] text-secondary/60 mb-3">About</p>
