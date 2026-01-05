@@ -4,6 +4,7 @@ const content = {
     title: "PhD Candidate | Edge AI & Mobile Health",
     affiliationLine1: "Robust Biosignal Processing on Mobile Devices",
     affiliationLine2: "Monash University",
+    lastUpdated: "January 2026",
     quickFacts: [
       {
         label: "Focus",

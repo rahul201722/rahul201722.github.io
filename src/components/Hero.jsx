@@ -120,7 +120,11 @@ export default function Hero({ profile, highlights = [] }) {
 
         <div className="relative lg:justify-self-end w-full max-w-xl self-stretch">
           <div className="bg-white/95 border border-white/60 shadow-lg rounded-3xl p-6 md:p-9 backdrop-blur h-full flex flex-col gap-6">
-            <div className="flex items-center gap-5 mb-6">
+            <div className="relative mb-6 rounded-2xl border border-dashed border-border/80 bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:16px_16px] p-4">
+              <span className="absolute -top-3 right-4 rounded-full border border-primary/20 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary shadow-sm">
+                Lab Note · Updated {profile.lastUpdated}
+              </span>
+              <div className="flex items-center gap-5">
               <div className="w-[40vw] h-[40vw] max-w-[140px] max-h-[140px] sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border shadow-sm">
                 <img
                   src={profile.portrait}
@@ -134,6 +138,7 @@ export default function Hero({ profile, highlights = [] }) {
                 <p className="text-xs uppercase tracking-[0.25em] text-secondary/60 mb-2">Research Snapshot</p>
                 <p className="text-xl font-semibold text-primary">Edge AI + Mobile Health</p>
                 <p className="text-base text-secondary/70">Clinical-grade, on-device vitals</p>
+              </div>
               </div>
             </div>
             {highlights.length > 0 && (
