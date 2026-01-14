@@ -2,21 +2,21 @@ import React from 'react';
 
 export default function Experience({ experience }) {
   return (
-    <section id="experience" className="py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface">
+    <section id="experience" className="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-secondary/60 mb-3">Experience</p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-primary">Experience</h2>
+        <div className="mb-4">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Experience</p>
+          <h2 className="text-2xl md:text-3xl font-semibold text-primary">Experience</h2>
         </div>
         
-        <div className="space-y-5">
+        <div className="space-y-4">
           {experience.map((item, idx) => (
             <div 
               key={idx}
-              className="bg-surface-soft rounded-2xl p-5 md:p-7 border border-border/80 hover:border-accent/30 transition-colors duration-200"
+              className="bg-surface-soft rounded-2xl p-4 md:p-5 border border-border/80 hover:border-accent/30 transition-colors duration-200"
             >
               <div className="mb-4">
-                <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-primary mb-2">
                   {item.role}
                 </h3>
                 <p className="text-secondary/90 font-medium">

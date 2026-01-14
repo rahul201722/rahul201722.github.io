@@ -2,24 +2,24 @@ import React from 'react';
 
 export default function Research({ researchInterests, publications, researchFigures }) {
   return (
-    <section id="research" className="py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface-soft">
+    <section id="research" className="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface-soft">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-secondary/60 mb-3">Research</p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-primary">
+        <div className="mb-4">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Research</p>
+          <h2 className="text-2xl md:text-3xl font-semibold text-primary">
             Research & Publications
           </h2>
         </div>
 
         {/* Publications */}
-        <h3 className="text-2xl font-semibold text-primary mb-5">Selected Publications</h3>
-        <div className="space-y-5">
+        <h3 className="text-xl font-semibold text-primary mb-4">Selected Publications</h3>
+        <div className="space-y-4">
           {publications.map((pub, idx) => (
             <div 
               key={idx}
-              className="bg-surface rounded-2xl p-5 md:p-7 border border-border/80 shadow-sm hover:shadow-md transition-shadow duration-200"
+              className="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200"
             >
-              <h4 className="text-xl font-semibold text-primary mb-2">
+              <h4 className="text-lg md:text-xl font-semibold text-primary mb-2">
                 {pub.title}
               </h4>
               <p className="text-sm text-secondary/70 mb-1">{pub.authors}</p>
@@ -30,7 +30,7 @@ export default function Research({ researchInterests, publications, researchFigu
                   href={pub.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-accent hover:text-blue-700 font-medium transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                  className="inline-flex items-center text-accent hover:text-accent/90 font-medium transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
                 >
                   View paper
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,8 +47,8 @@ export default function Research({ researchInterests, publications, researchFigu
         </div>
 
         {/* Research Interests */}
-        <div className="bg-surface rounded-2xl p-5 md:p-7 mt-7 border border-border/80 shadow-sm">
-          <h3 className="text-2xl font-semibold text-primary mb-4">Research Interests</h3>
+        <div className="bg-surface rounded-2xl p-4 md:p-5 mt-5 border border-border/80 shadow-sm">
+          <h3 className="text-xl font-semibold text-primary mb-3">Research Interests</h3>
           <ul className="space-y-3">
             {researchInterests.map((interest, idx) => (
               <li key={idx} className="flex items-start">
@@ -63,7 +63,7 @@ export default function Research({ researchInterests, publications, researchFigu
 
         {/* Research Figures */}
         {researchFigures?.length > 0 && (
-          <div className="mt-7 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
             {researchFigures.map((fig, idx) => (
               <figure 
                 key={idx}

@@ -7,18 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#18181B',
-        secondary: '#3F3F46',
-        accent: '#2563EB',
-        background: '#FAFAFA',
-        text: '#09090B',
-        border: '#E4E4E7',
-        surface: '#FFFFFF',
-        'surface-soft': '#F4F6FA',
+        primary: '#191614',
+        secondary: '#5A534C',
+        accent: '#0F766E',
+        background: '#F7F2EA',
+        text: '#141210',
+        border: '#E4DDD1',
+        surface: '#FFFBF4',
+        'surface-soft': '#F2EDE4',
       },
       fontFamily: {
-        heading: ['"Crimson Pro"', 'serif'],
-        body: ['"Atkinson Hyperlegible"', 'sans-serif'],
+        heading: ['"Fraunces"', 'serif'],
+        body: ['"Space Grotesk"', 'sans-serif'],
       },
       keyframes: {
         'fade-up': {
