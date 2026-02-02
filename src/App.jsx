@@ -5,15 +5,16 @@ import Navigation from './components/Navigation.jsx';
 import About from './components/About.jsx';
 import Research from './components/Research.jsx';
 import Experience from './components/Experience.jsx';
-import Projects from './components/Projects.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollProgress from './components/ScrollProgress.jsx';
+import BackToTop from './components/BackToTop.jsx';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'research', 'experience', 'projects'];
+      const sections = ['hero', 'about', 'research', 'experience'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -42,6 +43,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-text">
+      {/* Skip to main content for accessibility */}
+      <a 
+        href="#about" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
+      >
+        Skip to main content
+      </a>
+      
+      <ScrollProgress />
+      <BackToTop />
       <Navigation
         activeSection={activeSection}
         onNavigate={handleNavigate}
@@ -61,8 +72,6 @@ export default function App() {
       />
       
       <Experience experience={content.experience} />
-      
-      <Projects projects={content.projects} />
       
       <Footer profile={content.profile} />
     </div>

@@ -1,10 +1,10 @@
 const content = {
   profile: {
     name: "Rahul Ranjan",
-    title: "PhD Candidate | Edge AI & Mobile Health",
-    affiliationLine1: "Robust Biosignal Processing on Mobile Devices",
+    title: "Incoming PhD Student | Edge AI & Mobile Health",
+    affiliationLine1: "Robust Biomedical Signal Processing on Mobile Devices",
     affiliationLine2: "Monash University",
-    lastUpdated: "January 2026",
+    lastUpdated: "February 2026",
     quickFacts: [
       {
         label: "Focus",
@@ -12,16 +12,21 @@ const content = {
         detail: "On-device clinical vitals",
       },
       {
+        label: "Funding",
+        value: "2 Competitive Scholarships",
+        detail: "Fully funded PhD",
+      },
+      {
         label: "Publications",
         value: "2 Peer-Reviewed",
-        detail: "2025 IEEE + Journal",
+        detail: "Springer Nature + IEEE",
       },
     ],
     portrait: "/profile.avif",
     contacts: {
       email: "rahulrkm0038@gmail.com",
-      phone: "+917997193400",
-      phoneDisplay: "+91 79971 93400",
+      phone: "+61435844977",
+      phoneDisplay: "+61 435 844 977",
       linkedin: "https://linkedin.com/in/rahul-ranjan-b595891b1",
       github: "https://github.com/rahul201722",
       scholar:
@@ -34,7 +39,6 @@ const content = {
     { label: "About & Contact", href: "#about" },
     { label: "Research & Publications", href: "#research" },
     { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
   ],
   about: {
     blurb: [
@@ -50,16 +54,16 @@ const content = {
     ],
     updates: [
       {
-        date: "January 2026",
+        date: "February 2026",
         text: "Started PhD in Electrical & Computer Systems Engineering at Monash University.",
       },
       {
-        date: "November 2025",
-        text: "VITAL Net paper accepted at IEEE Applied Sensing Conference.",
+        date: "December 2025",
+        text: "Completed Master of Artificial Intelligence at Monash University.",
       },
       {
-        date: "September 2025",
-        text: "Submitted VITAL Net paper to IEEE Applied Sensing Conference.",
+        date: "November 2025",
+        text: "VITAL Net paper accepted at IEEE Applied Sensing Conference 2026.",
       },
       {
         date: "May 2025",
@@ -68,45 +72,62 @@ const content = {
     ],
     techStack: [
       {
-        title: "Edge AI & Mobile Deployment",
+        title: "Programming Languages",
+        items: [
+          "Python",
+          "C++",
+          "MATLAB",
+          "R",
+          "Java",
+        ],
+      },
+      {
+        title: "ML/Deep Learning",
+        items: [
+          "PyTorch",
+          "TensorFlow",
+          "Scikit-learn",
+          "Keras",
+          "XGBoost",
+        ],
+      },
+      {
+        title: "Computer Vision & Signal",
+        items: [
+          "OpenCV",
+          "rPPG",
+          "Self-Attention",
+          "Spectral Filtering",
+          "Anomaly Detection",
+        ],
+      },
+      {
+        title: "Data & Visualization",
+        items: [
+          "NumPy",
+          "Pandas",
+          "Matplotlib",
+          "Seaborn",
+          "Plotly",
+        ],
+      },
+      {
+        title: "Edge AI & Mobile",
         items: [
           "CoreML",
           "ONNX",
           "TensorFlow Lite",
           "Model Quantization",
-          "Swift (iOS Vision Framework)",
-          "Real-time Inference on NPUs",
+          "Swift",
         ],
       },
       {
-        title: "Deep Learning & Signal Processing",
+        title: "Tools & Infrastructure",
         items: [
-          "PyTorch",
-          "Encoder-Decoder Architectures",
-          "Autoencoders",
-          "U-Nets",
-          "CNNs",
-          "Transformers",
-          "Attention Mechanisms",
-        ],
-      },
-      {
-        title: "Physiological Signal Analysis",
-        items: [
-          "rPPG/PPG Extraction",
-          "Bandpass Filtering",
-          "Noise Reduction",
-          "Motion Artifact Rejection",
-          "Waveform Reconstruction",
-        ],
-      },
-      {
-        title: "Research & Validation",
-        items: [
-          "Python",
-          "Statistical Analysis",
-          "Clinical Validation (AAMI/BHS)",
-          "OpenCV",
+          "PostgreSQL",
+          "Docker",
+          "Git",
+          "LaTeX",
         ],
       },
     ],
@@ -130,15 +151,28 @@ const content = {
         thesis: "Monte Carlo Simulations of Phase Transitions in Ising Models",
       },
     ],
-    scholarships: [
-      "Monash Research Scholarship (Electrical and Computer Systems Engineering)",
-      "Faculty of Engineering International Postgraduate Research Scholarship (FEIPRS)",
+    awards: [
+      {
+        title: "Monash Research Scholarship",
+        detail: "Electrical and Computer Systems Engineering — Fully funded PhD",
+        year: "2026–2029",
+      },
+      {
+        title: "Faculty of Engineering International Postgraduate Research Scholarship",
+        detail: "FEIPRS — Competitive international award",
+        year: "2026–2029",
+      },
+      {
+        title: "The Duke of Edinburgh's International Award",
+        detail: "Silver",
+        year: "2015",
+      },
     ],
     collaboration: {
       goals: [
         "Clinical and translational partnerships for mobile vital sign validation",
         "Industry collaborations for on-device deployment and productization",
-        "Cross-disciplinary research on robust biosignal processing",
+        "Cross-disciplinary research on robust biomedical signal processing",
       ],
       offerings: [
         "End-to-end rPPG/PPG pipelines (data → model → evaluation)",
@@ -189,31 +223,67 @@ const content = {
       title:
         "Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models",
       authors: "Roha, V. S., Ranjan, R., & Yuce, M. R.",
-      venue: "Journal of Medical Systems, 49(1), 97 (2025)",
+      venue: "Journal of Medical Systems, Springer Nature, 49(1), 97 (2025)",
+      doi: "10.1007/s10916-025-02228-6",
       link: "https://link.springer.com/article/10.1007/s10916-025-02228-6",
+      publisher: "Springer Nature",
       blurb:
-        "Transforms raw PPG into vPPG/aPPG representations and leverages ResNet + attention for HR/BP estimation aligned to clinical thresholds.",
+        "Transforms raw PPG into vPPG/aPPG representations and leverages ResNet + attention for HR/BP estimation aligned to clinical thresholds. Achieved MAE <5 mmHg meeting AAMI/BHS standards. Published in Springer Nature.",
+      citationBibtex: `@article{roha2025evolving,
+  title={Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models},
+  author={Roha, Venkat Sai and Ranjan, Rahul and Yuce, Mehmet Rasit},
+  journal={Journal of Medical Systems},
+  volume={49},
+  number={1},
+  pages={97},
+  year={2025},
+  publisher={Springer Nature},
+  doi={10.1007/s10916-025-02228-6}
+}`,
     },
     {
       title:
         "VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video",
       authors: "Ranjan, R., Roha, V. S., & Yuce, M. R.",
-      venue: "Accepted in IEEE Applied Sensing Conference (2025)",
+      venue: "IEEE Applied Sensing Conference (2026)",
+      doi: "",
       link: "",
+      arxiv: "",
+      availableOnRequest: true,
       blurb:
-        "Hybrid rPPG pipeline combining signal processing and deep models to estimate SpO₂ and heart rate on smartphones.",
+        "Hybrid rPPG pipeline combining signal processing and deep models to estimate SpO₂ and heart rate on smartphones. Achieves 95%+ accuracy in real-world conditions with motion artifacts.",
+      citationBibtex: `@inproceedings{ranjan2026vital,
+  title={VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video},
+  author={Ranjan, Rahul and Roha, Venkat Sai and Yuce, Mehmet Rasit},
+  booktitle={IEEE Applied Sensing Conference},
+  year={2026}
+}`,
     },
   ],
   experience: [
     {
-      role: "Graduate Researcher (AI & Mobile Health)",
-      org: "Monash University",
+      role: "Unpaid Research Assistant (Cross-Faculty Collaboration)",
+      org: "Faculty of Engineering, Monash University",
       period: "2024–2025",
+      context: "During Master of Artificial Intelligence (Faculty of IT)",
+      supervisor: "Prof. Mehmet Rasit Yuce",
       details: [
-        "Achieved 95%+ accuracy in HR/SpO₂/BP estimation by building an end-to-end smartphone video vital-sign pipeline and training CNN/Transformer models.",
-        "Improved rPPG robustness across diverse subjects by implementing color transforms, bandpass filtering, and self-attention mechanisms, designed with cross-subject evaluation.",
+        "Built an end-to-end smartphone video vital-sign pipeline (face ROI, rPPG, preprocessing) and trained CNN/Transformer models for HR/SpO₂/BP estimation achieving 95%+ accuracy.",
+        "Improved rPPG robustness across diverse subjects via color transforms, bandpass filtering, and self-attention mechanisms; designed cross-subject evaluation.",
         "Attained MAE <5 mmHg in contactless blood pressure estimation by processing and analyzing 5000 video samples across multiple datasets.",
-        "Published novel research as a hybrid framework (VITAL Net) in IEEE Applied Sensing Conference by leading the development of SpO₂ and HR estimation models.",
+        "Led development of SpO₂ and HR estimation models for VITAL Net, accepted at IEEE Applied Sensing Conference.",
+      ],
+    },
+    {
+      role: "Master's Thesis (Computational Physics)",
+      org: "Department of Physics, BITS Pilani",
+      period: "2021–2022",
+      context: "During Bachelor's Degree",
+      supervisor: "Prof. P K Thiruvikraman",
+      details: [
+        "Investigated phase transitions in ferromagnetic materials using Monte Carlo simulations (Metropolis algorithm) on 2D/3D Ising lattice models with periodic boundary conditions.",
+        "Calculated thermodynamic observables (energy, magnetization, susceptibility, specific heat) across temperature sweeps; achieved 40% runtime reduction via vectorization.",
+        "Extracted critical exponents (β, γ) using finite-size scaling and power-law fitting; analyzed impact of disorder on transition sharpness.",
       ],
     },
     {

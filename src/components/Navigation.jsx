@@ -6,7 +6,6 @@ export default function Navigation({ activeSection, onNavigate, resumeUrl }) {
     { id: 'about', label: 'About' },
     { id: 'research', label: 'Research' },
     { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
   ];
 
   return (

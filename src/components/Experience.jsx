@@ -6,7 +6,7 @@ export default function Experience({ experience }) {
       <div className="max-w-6xl mx-auto">
         <div className="mb-4">
           <p className="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Experience</p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-primary">Experience</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-primary">Research & Professional Experience</h2>
         </div>
         
         <div className="space-y-4">
@@ -19,9 +19,19 @@ export default function Experience({ experience }) {
                 <h3 className="text-lg md:text-xl font-semibold text-primary mb-2">
                   {item.role}
                 </h3>
-                <p className="text-secondary/90 font-medium">
+                <p className="text-secondary/90 font-medium mb-1">
                   {item.org} · {item.period}
                 </p>
+                {item.context && (
+                  <p className="text-sm text-accent/90 italic">
+                    {item.context}
+                  </p>
+                )}
+                {item.supervisor && (
+                  <p className="text-sm text-secondary/70">
+                    Supervisor: {item.supervisor}
+                  </p>
+                )}
               </div>
               
               <ul className="space-y-3">

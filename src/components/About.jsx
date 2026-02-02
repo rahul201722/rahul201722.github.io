@@ -9,7 +9,7 @@ export default function About({ about, contacts }) {
           <h2 className="text-2xl md:text-3xl font-semibold text-primary">About & Contact</h2>
         </div>
         
-        {/* Blurb */}
+        {/* Blurb with CTA */}
         {Array.isArray(about.blurb) ? (
           <div className="space-y-3 mb-5">
             {about.blurb.map((paragraph, idx) => (
@@ -22,6 +22,36 @@ export default function About({ about, contacts }) {
           <p className="text-base md:text-lg text-secondary/90 leading-relaxed mb-5">
             {about.blurb}
           </p>
+        )}
+
+        {/* Open to Collaboration Banner */}
+        {about.openToCollaboration?.enabled && (
+          <div className="bg-gradient-to-r from-accent/15 to-primary/15 border-2 border-accent/30 rounded-2xl p-5 mb-5 shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold text-primary mb-2">
+                  {about.openToCollaboration.title}
+                </h3>
+                <p className="text-secondary/90 mb-3">
+                  {about.openToCollaboration.description}
+                </p>
+                <a
+                  href={`mailto:${contacts.email}`}
+                  className="inline-flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 font-medium transition-colors duration-200"
+                >
+                  Get in Touch
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         )}
 
         {/* Highlights */}
@@ -60,23 +90,23 @@ export default function About({ about, contacts }) {
         {/* Tech Stack */}
         {about.techStack?.length > 0 && (
           <div className="bg-surface rounded-2xl p-4 md:p-5 mb-5 border border-border/80 shadow-sm">
-            <h3 className="text-xl font-semibold text-primary mb-4">Tech Stack</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <h3 className="text-xl font-semibold text-primary mb-4">Technical Skills</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {about.techStack.map((group, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h4 className="text-base font-semibold text-primary">
+                <div key={idx} className="bg-surface-soft rounded-xl p-3 border border-border/50">
+                  <h4 className="text-sm font-semibold text-accent mb-2 uppercase tracking-wide">
                     {group.title}
                   </h4>
-                  <ul className="space-y-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start">
-                        <svg className="w-5 h-5 mr-2 mt-0.5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span className="text-secondary/90">{item}</span>
-                      </li>
+                      <span 
+                        key={itemIdx}
+                        className="px-2 py-1 bg-surface text-secondary/80 text-xs rounded border border-border/40 hover:border-accent/30 hover:text-primary transition-colors duration-150"
+                      >
+                        {item}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               ))}
             </div>
@@ -145,25 +175,45 @@ export default function About({ about, contacts }) {
           </div>
         </div>
 
-        {/* Education */}
-        {about.education?.length > 0 && (
-          <div className="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
-            <h3 className="text-xl font-semibold text-primary mb-4">Education</h3>
-            <ul className="space-y-4">
-              {about.education.map((edu, idx) => (
-                <li key={idx}>
-                  <p className="text-base md:text-lg font-semibold text-primary">
-                    {edu.degree}
-                  </p>
-                  <p className="text-secondary/90">
-                    {edu.school} ({edu.years})
-                    {(edu.note || edu.thesis) && ` — ${edu.note ?? edu.thesis}`}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* Education & Awards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {about.education?.length > 0 && (
+            <div className="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+              <h3 className="text-xl font-semibold text-primary mb-4">Education</h3>
+              <ul className="space-y-4">
+                {about.education.map((edu, idx) => (
+                  <li key={idx}>
+                    <p className="text-base md:text-lg font-semibold text-primary">
+                      {edu.degree}
+                    </p>
+                    <p className="text-secondary/90">
+                      {edu.school} ({edu.years})
+                      {(edu.note || edu.thesis) && ` — ${edu.note ?? edu.thesis}`}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {about.awards?.length > 0 && (
+            <div className="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+              <h3 className="text-xl font-semibold text-primary mb-4">Awards & Funding</h3>
+              <ul className="space-y-4">
+                {about.awards.map((award, idx) => (
+                  <li key={idx}>
+                    <p className="text-base md:text-lg font-semibold text-primary">
+                      {award.title}
+                    </p>
+                    <p className="text-secondary/90">
+                      {award.detail} ({award.year})
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
 
         {/* Collaboration */}
         {(about.collaboration || about.fundingReady) && (

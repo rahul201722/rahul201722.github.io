@@ -46,6 +46,15 @@ export default function Hero({ profile, highlights = [] }) {
           )}
 
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
+            <a
+              href={`mailto:${profile.contacts.email}`}
+              className="inline-flex items-center px-5 py-2.5 text-sm bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors duration-200 cursor-pointer shadow-[0_12px_24px_rgba(15,118,110,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Contact Me
+            </a>
             {profile.contacts.cv && (
               <a
                 href={profile.contacts.cv}
@@ -56,30 +65,7 @@ export default function Hero({ profile, highlights = [] }) {
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6M7 4h7l3 3v13a1 1 0 01-1 1H7a1 1 0 01-1-1V5a1 1 0 011-1z" />
                 </svg>
-                Resume (PDF)
-              </a>
-            )}
-            <a
-              href={`mailto:${profile.contacts.email}`}
-              className="inline-flex items-center px-5 py-2.5 text-sm bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors duration-200 cursor-pointer shadow-[0_12px_24px_rgba(15,118,110,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              Contact
-            </a>
-            {profile.contacts.scholar && (
-              <a
-                href={profile.contacts.scholar}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
-              >
-                <svg className="w-7 h-7 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3l9 6-9 6-9-6 9-6z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9v9a2 2 0 002 2h14a2 2 0 002-2V9" />
-                </svg>
-                Scholar
+                Resume
               </a>
             )}
             <a
@@ -104,17 +90,6 @@ export default function Hero({ profile, highlights = [] }) {
               </svg>
               GitHub
             </a>
-
-            {profile.contacts.researchSummary && (
-              <a
-                href={profile.contacts.researchSummary}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
-              >
-                One-page Summary
-              </a>
-            )}
           </div>
         </div>
 
