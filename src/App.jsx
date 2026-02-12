@@ -4,6 +4,7 @@ import Hero from './components/Hero.jsx';
 import Navigation from './components/Navigation.jsx';
 import About from './components/About.jsx';
 import Research from './components/Research.jsx';
+import Projects from './components/Projects.jsx';
 import Experience from './components/Experience.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
@@ -14,7 +15,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'research', 'experience'];
+      const sections = ['hero', 'about', 'research', 'projects', 'experience'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -45,7 +46,7 @@ export default function App() {
     <div className="min-h-screen text-text">
       {/* Skip to main content for accessibility */}
       <a 
-        href="#about" 
+        href="#main-content" 
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
       >
         Skip to main content
@@ -59,20 +60,25 @@ export default function App() {
         resumeUrl={content.profile.contacts.cv}
       />
       
-      <div id="hero">
-        <Hero profile={content.profile} highlights={content.about.highlights} />
-      </div>
-      
-      <About about={content.about} contacts={content.profile.contacts} />
-      
-      <Research 
-        researchInterests={content.researchInterests}
-        publications={content.publications}
-        researchFigures={content.researchFigures}
-      />
-      
-      <Experience experience={content.experience} />
-      
+      <main id="main-content">
+        <div id="hero">
+          <Hero profile={content.profile} highlights={content.about.highlights} />
+        </div>
+        
+        <About about={content.about} contacts={content.profile.contacts} />
+        
+        <Research 
+          caseStudies={content.caseStudies}
+          researchInterests={content.researchInterests}
+          publications={content.publications}
+          researchFigures={content.researchFigures}
+        />
+
+        <Projects projects={content.projects} />
+        
+        <Experience experience={content.experience} />
+      </main>
+
       <Footer profile={content.profile} />
     </div>
   );

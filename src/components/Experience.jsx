@@ -9,18 +9,25 @@ export default function Experience({ experience }) {
           <h2 className="text-2xl md:text-3xl font-semibold text-primary">Research & Professional Experience</h2>
         </div>
         
-        <div className="space-y-4">
+        <div className="relative space-y-4 before:hidden md:before:block md:before:absolute md:before:left-[124px] md:before:top-3 md:before:bottom-3 md:before:w-px md:before:bg-border/80">
           {experience.map((item, idx) => (
             <div 
               key={idx}
-              className="bg-surface-soft rounded-2xl p-4 md:p-5 border border-border/80 hover:border-accent/30 transition-colors duration-200"
+              className="card-lift md:grid md:grid-cols-[112px_1fr] md:gap-4 items-start bg-surface-soft rounded-2xl p-4 md:p-5 border border-border/80 hover:border-accent/30 transition-colors duration-200"
             >
+              <div className="mb-3 md:mb-0">
+                <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+                  {item.period}
+                </span>
+              </div>
+
+              <div>
               <div className="mb-4">
                 <h3 className="text-lg md:text-xl font-semibold text-primary mb-2">
                   {item.role}
                 </h3>
                 <p className="text-secondary/90 font-medium mb-1">
-                  {item.org} · {item.period}
+                  {item.org}
                 </p>
                 {item.context && (
                   <p className="text-sm text-accent/90 italic">
@@ -44,6 +51,7 @@ export default function Experience({ experience }) {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           ))}
         </div>

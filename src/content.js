@@ -228,7 +228,14 @@ const content = {
       link: "https://link.springer.com/article/10.1007/s10916-025-02228-6",
       publisher: "Springer Nature",
       blurb:
-        "Transforms raw PPG into vPPG/aPPG representations and leverages ResNet + attention for HR/BP estimation aligned to clinical thresholds. Achieved MAE <5 mmHg meeting AAMI/BHS standards. Published in Springer Nature.",
+        "Introduces IMCA-PPG, an image-based multimodal framework that converts single-site PPG into PPG/vPPG/aPPG visual streams, extracts embeddings with ResNet-50, and fuses them with multi-head cross-attention for cuffless BP estimation.",
+      plainLanguageImpact:
+        "Reliable cuffless BP estimation from one sensor makes continuous cardiovascular monitoring more practical for mobile and remote care.",
+      keyResults: [
+        "Validated across three datasets (PTT-PPG, Cabrini, MIMIC-II) with strong cross-dataset generalization.",
+        "Meets AAMI requirements (mean error <=5 mmHg, standard deviation <=8 mmHg).",
+        "Achieves BHS Grade A performance across key evaluations, supporting clinical viability.",
+      ],
       citationBibtex: `@article{roha2025evolving,
   title={Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models},
   author={Roha, Venkat Sai and Ranjan, Rahul and Yuce, Mehmet Rasit},
@@ -251,7 +258,14 @@ const content = {
       arxiv: "",
       availableOnRequest: true,
       blurb:
-        "Hybrid rPPG pipeline combining signal processing and deep models to estimate SpO₂ and heart rate on smartphones. Achieves 95%+ accuracy in real-world conditions with motion artifacts.",
+        "Presents a unified smartphone-video pipeline for contactless SpO₂ and HR estimation by combining physiology-aware Ratio-of-Ratios features with hybrid ensemble and CNN modeling.",
+      plainLanguageImpact:
+        "Turns a standard smartphone camera into a low-cost vital-sign monitor for settings where wearables or clinical devices are not always available.",
+      keyResults: [
+        "On contactless facial video: correlation 0.80 for SpO₂ and 0.92 for HR; RMSE 0.76 (SpO₂) and 4.25 (HR).",
+        "Custom dataset: 11 participants, 4 activity phases (baseline, cycling, handgrip, breath-hold), with synchronized clinical ground truth.",
+        "Fast inference for edge use: ~4.33 ms/sample for SpO₂ and ~6 ms/sample for HR.",
+      ],
       citationBibtex: `@inproceedings{ranjan2026vital,
   title={VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video},
   author={Ranjan, Rahul and Roha, Venkat Sai and Yuce, Mehmet Rasit},
@@ -260,20 +274,54 @@ const content = {
 }`,
     },
   ],
-  experience: [
+  caseStudies: [
     {
-      role: "Unpaid Research Assistant (Cross-Faculty Collaboration)",
-      org: "Faculty of Engineering, Monash University",
-      period: "2024–2025",
-      context: "During Master of Artificial Intelligence (Faculty of IT)",
-      supervisor: "Prof. Mehmet Rasit Yuce",
-      details: [
-        "Built an end-to-end smartphone video vital-sign pipeline (face ROI, rPPG, preprocessing) and trained CNN/Transformer models for HR/SpO₂/BP estimation achieving 95%+ accuracy.",
-        "Improved rPPG robustness across diverse subjects via color transforms, bandpass filtering, and self-attention mechanisms; designed cross-subject evaluation.",
-        "Attained MAE <5 mmHg in contactless blood pressure estimation by processing and analyzing 5000 video samples across multiple datasets.",
-        "Led development of SpO₂ and HR estimation models for VITAL Net, accepted at IEEE Applied Sensing Conference.",
+      title: "Case Study 1: Single-Site Cuffless BP Estimation (IMCA-PPG)",
+      context: "Journal of Medical Systems (Springer Nature, 2025)",
+      problem:
+        "Conventional cuffless BP methods often depend on multi-sensor setups (e.g., ECG+PPG), which increase hardware complexity and reduce robustness in real-world monitoring.",
+      approach: [
+        "Derived PPG, vPPG, and aPPG image representations from single-site PPG.",
+        "Used ResNet-50 embeddings and multi-head cross-attention fusion to capture cross-modal dependencies.",
+        "Benchmarked with strict clinical metrics and across heterogeneous datasets.",
+      ],
+      results: [
+        "Generalized across PTT-PPG, Cabrini, and MIMIC-II cohorts.",
+        "Satisfied AAMI thresholds for BP estimation error and variance.",
+        "Achieved strong BHS grading outcomes, including Grade A in core settings.",
+      ],
+      practicalImpact:
+        "Enables clinically aligned BP estimation with less hardware burden, improving scalability for remote and continuous monitoring.",
+      assets: [
+        { label: "Read Paper", href: "https://link.springer.com/article/10.1007/s10916-025-02228-6" },
+        { label: "DOI", href: "https://doi.org/10.1007/s10916-025-02228-6" },
+        { label: "Request 1-page summary", href: "mailto:rahulrkm0038@gmail.com?subject=Request%20for%201-page%20summary%20(IMCA-PPG)" },
       ],
     },
+    {
+      title: "Case Study 2: Contactless SpO₂ + HR from Smartphone Video (VITAL Net)",
+      context: "IEEE Applied Sensing Conference (2026)",
+      problem:
+        "Contact-based pulse oximeters and wearables can degrade under movement, poor contact, and long-duration use; we needed a camera-only alternative that remains practical.",
+      approach: [
+        "Extracted forehead ROI rPPG from smartphone video and applied physiological preprocessing.",
+        "Used RF+GB+RidgeCV ensemble for HR and OR+multi-channel CNN fusion for SpO₂.",
+        "Evaluated across induced physiological changes (exercise and breath-hold) with synchronized clinical references.",
+      ],
+      results: [
+        "Contactless face ROI: R=0.80 (SpO₂), R=0.92 (HR), RMSE=0.76 (SpO₂), RMSE=4.25 (HR).",
+        "Improved MAE versus prior baselines and maintained low bias in Bland-Altman analysis.",
+        "Edge-ready inference times: 4.33 ms/sample for SpO₂ and 6 ms/sample for HR.",
+      ],
+      practicalImpact:
+        "Supports affordable, contactless vital-sign screening using commodity smartphones, including in low-resource and remote contexts.",
+      assets: [
+        { label: "Request Manuscript", href: "mailto:rahulrkm0038@gmail.com?subject=Request%20for%20VITAL%20Net%20manuscript" },
+        { label: "Request 1-page summary", href: "mailto:rahulrkm0038@gmail.com?subject=Request%20for%201-page%20summary%20(VITAL%20Net)" },
+      ],
+    },
+  ],
+  experience: [
     {
       role: "Master's Thesis (Computational Physics)",
       org: "Department of Physics, BITS Pilani",

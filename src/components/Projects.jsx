@@ -18,18 +18,26 @@ export default function Projects({ projects }) {
           <h2 className="text-2xl md:text-3xl font-semibold text-primary">Research Projects</h2>
         </div>
         
-        <div className="space-y-4">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, idx) => (
             <div 
               key={idx}
-              className="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200"
+              className="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200 flex flex-col"
             >
-              <h3 className="text-lg md:text-xl font-semibold text-primary mb-2">
-                {project.title}
-              </h3>
-              <p className="text-sm text-accent font-medium mb-3">
-                {project.subtitle}
-              </p>
+              <div className="mb-4">
+                <div className="flex items-center justify-between gap-3 mb-2">
+                  <h3 className="text-lg md:text-xl font-semibold text-primary">
+                    {project.title}
+                  </h3>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-secondary/50">
+                    P{idx + 1}
+                  </span>
+                </div>
+                <p className="inline-flex text-xs text-accent font-semibold px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 mb-3">
+                  {project.subtitle}
+                </p>
+              </div>
+
               <p className="text-secondary/90 mb-4">
                 {project.summary}
               </p>
@@ -47,15 +55,17 @@ export default function Projects({ projects }) {
                 </ul>
               )}
               
+              <div className="mt-auto">
               {project.details && (
                 <button
                   onClick={() => toggleProject(project.title)}
                   className="text-accent hover:text-accent/90 font-medium transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
                   aria-expanded={!!expandedProjects[project.title]}
                 >
-                  {expandedProjects[project.title] ? 'Show less' : 'Read more'}
+                  {expandedProjects[project.title] ? 'Show less' : 'View methods'}
                 </button>
               )}
+              </div>
             </div>
           ))}
         </div>

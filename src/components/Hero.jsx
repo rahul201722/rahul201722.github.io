@@ -90,6 +90,12 @@ export default function Hero({ profile, highlights = [] }) {
               </svg>
               GitHub
             </a>
+            <a
+              href="#research-case-studies"
+              className="inline-flex items-center px-5 py-2.5 text-sm border border-accent/40 text-accent font-semibold rounded-full hover:bg-accent hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+            >
+              Recruiter 60-sec overview
+            </a>
           </div>
         </div>
 

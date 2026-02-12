@@ -23,14 +23,39 @@
     background-attachment: fixed;
     overflow-x: hidden;
   }
+
+  section[id],
+  div[id="hero"] {
+    scroll-margin-top: 7rem;
+  }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
 }
 
+@layer components {
+  .card-lift {
+    @apply transition-all duration-300;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-3px);
+  }
+}
+
 ::selection {
   background: rgba(15, 118, 110, 0.18);
+}
+
+/* Keep horizontal nav usable on small screens without visual clutter */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
