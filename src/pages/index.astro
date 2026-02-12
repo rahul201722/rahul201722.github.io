@@ -1,0 +1,595 @@
+---
+import '../index.css';
+import content from '../content.js';
+
+const publicationText = content.publications
+  .map((pub) => `${pub.title ?? ''} ${pub.venue ?? ''}`.toLowerCase())
+  .join(' ');
+
+const dedupedCaseStudies = (content.caseStudies ?? []).filter((study) => {
+  const text = `${study.title ?? ''} ${study.context ?? ''} ${study.problem ?? ''}`.toLowerCase();
+  if (!text.trim()) return true;
+
+  const keyPhrases = text
+    .replace(/[^\w\s]/g, ' ')
+    .split(/\s+/)
+    .filter((token) => token.length >= 6);
+
+  return !keyPhrases.some((phrase) => publicationText.includes(phrase));
+});
+
+const navItems = [
+  { id: 'hero', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'research', label: 'Research' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rahul Ranjan - PhD Candidate building clinical-grade AI for mobile health. Specializing in contactless vital sign monitoring from smartphone cameras using robust signal processing and edge-optimized deep learning." />
+    <meta name="keywords" content="Rahul Ranjan, Edge AI, Mobile Health, rPPG, contactless vitals, smartphone health monitoring, robust signal processing, on-device ML, Monash University" />
+    <meta name="author" content="Rahul Ranjan" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rahul201722.github.io/" />
+    <meta property="og:title" content="Rahul Ranjan | Edge AI & Mobile Health Researcher" />
+    <meta property="og:description" content="PhD Candidate building clinical-grade AI that runs on smartphones. Contactless vital signs from camera video—robust to real-world noise, optimized for edge deployment." />
+    <meta property="og:image" content="https://rahul201722.github.io/profile-og.jpg" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://rahul201722.github.io/" />
+    <meta property="twitter:title" content="Rahul Ranjan | Edge AI & Mobile Health Researcher" />
+    <meta property="twitter:description" content="PhD Candidate building clinical-grade AI that runs on smartphones. Contactless vital signs from camera video—robust to real-world noise, optimized for edge deployment." />
+    <meta property="twitter:image" content="https://rahul201722.github.io/profile-og.jpg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Rahul Ranjan',
+      jobTitle: 'PhD Candidate - Edge AI & Mobile Health',
+      url: 'https://rahul201722.github.io',
+      image: 'https://rahul201722.github.io/profile-og.jpg',
+      affiliation: { '@type': 'Organization', name: 'Monash University' },
+      sameAs: [
+        'https://linkedin.com/in/rahul-ranjan-b595891b1',
+        'https://github.com/rahul201722',
+        'https://scholar.google.com.au/citations?view_op=list_works&hl=en&user=19aEdVcAAAAJ',
+      ],
+      alumniOf: [
+        { '@type': 'CollegeOrUniversity', name: 'Monash University' },
+        { '@type': 'CollegeOrUniversity', name: 'Birla Institute of Technology and Science (BITS), Pilani' },
+      ],
+      knowsAbout: [
+        'Edge AI',
+        'Mobile Health Computing',
+        'Remote Photoplethysmography (rPPG)',
+        'Robust Signal Processing',
+        'Contactless Vital Sign Monitoring',
+        'On-Device Machine Learning',
+      ],
+    })}></script>
+
+    <title>Rahul Ranjan | Edge AI & Mobile Health Researcher</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
+    >
+      Skip to main content
+    </a>
+
+    <div class="fixed top-0 left-0 w-full h-1 bg-border/30 z-50">
+      <div id="scroll-progress-bar" class="h-full bg-gradient-to-r from-accent to-primary transition-all duration-150 ease-out" style="width:0%"></div>
+    </div>
+
+    <button
+      id="back-to-top"
+      class="hidden fixed bottom-6 right-6 z-40 p-3 bg-accent text-white rounded-full shadow-lg hover:bg-accent/90 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+      aria-label="Back to top"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+
+    <nav aria-label="Primary" class="fixed top-3 left-3 right-3 z-50 mx-auto max-w-6xl bg-surface/88 backdrop-blur-md border border-border/60 rounded-2xl px-2.5 py-1.5 shadow-[0_10px_30px_rgba(20,18,16,0.12)]">
+      <div class="flex items-center gap-2">
+        <ul class="flex-1 min-w-0 flex items-center gap-1 md:gap-2 overflow-x-auto hide-scrollbar px-1">
+          {navItems.map((item, idx) => (
+            <li>
+              <a
+                href={`#${item.id}`}
+                data-nav-link
+                data-target={item.id}
+                aria-current={idx === 0 ? 'page' : undefined}
+                class={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] md:text-xs font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 ${idx === 0 ? 'bg-accent text-white shadow-[0_8px_18px_rgba(15,118,110,0.28)]' : 'text-secondary hover:bg-accent/10 hover:text-primary'}`}
+              >
+                <span class={`h-1.5 w-1.5 rounded-full ${idx === 0 ? 'bg-white/90' : 'bg-secondary/40'}`} aria-hidden="true"></span>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        {content.profile.contacts.cv && (
+          <a
+            href={content.profile.contacts.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded-full text-[11px] md:text-xs font-semibold bg-primary text-white shadow-[0_8px_18px_rgba(20,18,16,0.18)] hover:bg-primary/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+          >
+            Resume
+          </a>
+        )}
+      </div>
+    </nav>
+
+    <main id="main-content" class="min-h-screen text-text">
+      <div id="hero">
+        <section class="relative min-h-[64vh] lg:min-h-[70vh] overflow-hidden">
+          <div class="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/12 blur-3xl motion-safe:animate-float-slow"></div>
+          <div class="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-primary/5 blur-3xl motion-safe:animate-float-slow"></div>
+          <div class="max-w-6xl mx-auto px-3 sm:px-5 lg:px-6 pt-24 pb-2 grid items-center gap-6 lg:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div class="space-y-4 text-center lg:text-left">
+              <span class="inline-flex items-center justify-center lg:justify-start text-[11px] uppercase tracking-[0.4em] text-secondary/70">Research Portfolio</span>
+              <h1 class="text-5xl md:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-semibold text-primary leading-[0.95] tracking-tight motion-safe:animate-fade-up">{content.profile.name}</h1>
+              <p class="text-xl md:text-2xl text-secondary font-semibold motion-safe:animate-fade-up-slow motion-safe:[animation-delay:120ms]">{content.profile.title}</p>
+              <div class="text-base md:text-lg text-secondary/80 space-y-1 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:200ms]">
+                <p>{content.profile.affiliationLine1}</p>
+                <p>{content.profile.affiliationLine2}</p>
+              </div>
+              {content.profile.quickFacts?.length > 0 && (
+                <div class="grid gap-3 sm:grid-cols-3 pt-1">
+                  {content.profile.quickFacts.map((fact) => (
+                    <div class="rounded-2xl border border-border/70 bg-surface/80 px-4 py-3 text-left shadow-[0_12px_24px_rgba(20,18,16,0.08)]">
+                      <p class="text-xs uppercase tracking-[0.2em] text-secondary/60">{fact.label}</p>
+                      <p class="text-lg font-semibold text-primary">{fact.value}</p>
+                      {fact.detail && <p class="text-sm text-secondary/80">{fact.detail}</p>}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
+                <a href={`mailto:${content.profile.contacts.email}`} class="inline-flex items-center px-5 py-2.5 text-sm bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors duration-200 cursor-pointer shadow-[0_12px_24px_rgba(15,118,110,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">Contact Me</a>
+                {content.profile.contacts.cv && <a href={content.profile.contacts.cv} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 text-sm bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors duration-200 cursor-pointer shadow-[0_12px_24px_rgba(20,18,16,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">Resume</a>}
+                <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">LinkedIn</a>
+                <a href={content.profile.contacts.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">GitHub</a>
+                <a href="#research-case-studies" class="inline-flex items-center px-5 py-2.5 text-sm border border-accent/40 text-accent font-semibold rounded-full hover:bg-accent hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">Recruiter 60-sec overview</a>
+              </div>
+            </div>
+
+            <div class="relative lg:justify-self-end w-full max-w-xl self-stretch">
+              <div class="bg-surface/95 border border-border/70 shadow-[0_18px_45px_rgba(20,18,16,0.16)] rounded-3xl p-5 md:p-7 backdrop-blur h-full flex flex-col gap-5">
+                <div class="relative mb-5 rounded-2xl border border-dashed border-border/80 bg-[linear-gradient(to_right,rgba(20,18,16,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(20,18,16,0.08)_1px,transparent_1px)] bg-[size:16px_16px] p-4">
+                  <div class="flex items-center gap-5">
+                    <div class="w-[40vw] h-[40vw] max-w-[140px] max-h-[140px] sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border shadow-sm">
+                      <img src={content.profile.portrait} alt={`Portrait of ${content.profile.name}`} width="800" height="828" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.25em] text-secondary/60 mb-2">Research Snapshot</p>
+                      <p class="text-xl font-semibold text-primary">Edge AI + Mobile Health</p>
+                      <p class="text-base text-secondary/70">Clinical-grade, on-device vitals</p>
+                    </div>
+                  </div>
+                </div>
+                {content.about.highlights?.length > 0 && (
+                  <ul class="grid gap-3">
+                    {content.about.highlights.map((item) => (
+                      <li class="flex items-start gap-3 rounded-2xl border border-border/80 bg-surface-soft px-4 py-3 text-base text-secondary/90">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-accent" aria-hidden="true"></span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section id="about" class="pt-8 pb-10 md:pt-10 md:pb-12 px-3 sm:px-5 lg:px-6 bg-surface">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-4">
+            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">About</p>
+            <h2 class="text-2xl md:text-3xl font-semibold text-primary">About & Contact</h2>
+          </div>
+          <div class="space-y-3 mb-5">
+            {(Array.isArray(content.about.blurb) ? content.about.blurb : [content.about.blurb]).map((paragraph) => (
+              <p class="text-base md:text-lg text-secondary/90 leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+
+          {content.about.highlights?.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {content.about.highlights.map((highlight) => (
+                <span class="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-xs font-semibold border border-accent/20">{highlight}</span>
+              ))}
+            </div>
+          )}
+
+          {content.about.updates?.length > 0 && (
+            <div class="bg-surface-soft rounded-2xl p-4 md:p-5 mb-5 border border-border/80 shadow-sm">
+              <h3 class="text-xl font-semibold text-primary mb-4">Recent Updates</h3>
+              <ul class="space-y-4">
+                {content.about.updates.map((update) => (
+                  <li class="flex flex-col md:flex-row md:items-start gap-2">
+                    <span class="text-accent font-semibold text-sm md:text-base md:min-w-[140px]">{update.date}</span>
+                    <span class="text-secondary/90">{update.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {content.about.techStack?.length > 0 && (
+            <div class="bg-surface rounded-2xl p-4 md:p-5 mb-5 border border-border/80 shadow-sm">
+              <h3 class="text-xl font-semibold text-primary mb-4">Technical Skills</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {content.about.techStack.map((group) => (
+                  <div class="bg-surface-soft rounded-xl p-3 border border-border/50">
+                    <h4 class="text-sm font-semibold text-accent mb-2 uppercase tracking-wide">{group.title}</h4>
+                    <div class="flex flex-wrap gap-1.5">
+                      {group.items.map((item) => <span class="px-2 py-1 bg-surface text-secondary/80 text-xs rounded border border-border/40">{item}</span>)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="bg-gradient-to-br from-accent/10 to-surface-soft rounded-2xl p-4 md:p-5 mb-5 border border-accent/20 shadow-sm">
+            <h3 class="text-xl font-semibold text-primary mb-3">Contact</h3>
+            <div class="space-y-2 text-secondary/90">
+              <p><span class="font-semibold text-primary">Email:</span> <a href={`mailto:${content.profile.contacts.email}`} class="text-accent hover:text-accent/90">{content.profile.contacts.email}</a></p>
+              <p><span class="font-semibold text-primary">Phone:</span> <a href={`tel:${content.profile.contacts.phone}`} class="text-accent hover:text-accent/90">{content.profile.contacts.phoneDisplay ?? content.profile.contacts.phone}</a></p>
+              <p><span class="font-semibold text-primary">LinkedIn:</span> <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/90">{content.profile.contacts.linkedin.replace('https://', '')}</a></p>
+              {content.profile.contacts.scholar && <p><span class="font-semibold text-primary">Google Scholar:</span> <a href={content.profile.contacts.scholar} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/90">scholar.google.com.au</a></p>}
+              {content.profile.contacts.cv && <p><span class="font-semibold text-primary">CV:</span> <a href={content.profile.contacts.cv} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/90">PDF on Google Drive</a></p>}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {content.about.education?.length > 0 && (
+              <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+                <h3 class="text-xl font-semibold text-primary mb-4">Education</h3>
+                <ul class="space-y-4">
+                  {content.about.education.map((edu) => (
+                    <li>
+                      <p class="text-base md:text-lg font-semibold text-primary">{edu.degree}</p>
+                      <p class="text-secondary/90">{edu.school} ({edu.years}) {(edu.note || edu.thesis) && ` — ${edu.note ?? edu.thesis}`}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {content.about.awards?.length > 0 && (
+              <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+                <h3 class="text-xl font-semibold text-primary mb-4">Awards & Funding</h3>
+                <ul class="space-y-4">
+                  {content.about.awards.map((award) => (
+                    <li>
+                      <p class="text-base md:text-lg font-semibold text-primary">{award.title}</p>
+                      <p class="text-secondary/90">{award.detail} ({award.year})</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {(content.about.collaboration || content.about.fundingReady) && (
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+              {content.about.collaboration && (
+                <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+                  <h3 class="text-xl font-semibold text-primary mb-3">Collaboration</h3>
+                  {content.about.collaboration.goals?.length > 0 && (
+                    <>
+                      <p class="text-sm font-semibold text-secondary/70 mb-2">Looking for</p>
+                      <ul class="space-y-2 mb-4">
+                        {content.about.collaboration.goals.map((goal) => <li class="text-secondary/90">{goal}</li>)}
+                      </ul>
+                    </>
+                  )}
+                  {content.about.collaboration.offerings?.length > 0 && (
+                    <>
+                      <p class="text-sm font-semibold text-secondary/70 mb-2">What I bring</p>
+                      <ul class="space-y-2 mb-4">
+                        {content.about.collaboration.offerings.map((offering) => <li class="text-secondary/90">{offering}</li>)}
+                      </ul>
+                    </>
+                  )}
+                  {content.about.collaboration.availability && <p class="text-sm text-secondary/70">{content.about.collaboration.availability}</p>}
+                </div>
+              )}
+
+              {content.about.fundingReady && (
+                <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+                  <h3 class="text-xl font-semibold text-primary mb-3">Funding-ready Profile</h3>
+                  {content.about.fundingReady.outcomes?.length > 0 && (
+                    <>
+                      <p class="text-sm font-semibold text-secondary/70 mb-2">Outcomes</p>
+                      <ul class="space-y-2 mb-4">
+                        {content.about.fundingReady.outcomes.map((outcome) => <li class="text-secondary/90">{outcome}</li>)}
+                      </ul>
+                    </>
+                  )}
+                  {content.about.fundingReady.capabilities?.length > 0 && (
+                    <>
+                      <p class="text-sm font-semibold text-secondary/70 mb-2">Capabilities</p>
+                      <ul class="space-y-2">
+                        {content.about.fundingReady.capabilities.map((capability) => <li class="text-secondary/90">{capability}</li>)}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section id="research" class="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface-soft">
+        <div class="max-w-6xl mx-auto">
+          <div id="research-case-studies" class="mb-4">
+            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Research</p>
+            <h2 class="text-2xl md:text-3xl font-semibold text-primary">Research & Publications</h2>
+          </div>
+
+          {dedupedCaseStudies.length > 0 && (
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold text-primary mb-4">Flagship Case Studies</h3>
+              <div class="space-y-4">
+                {dedupedCaseStudies.map((study) => (
+                  <article class="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
+                    <h4 class="text-lg md:text-xl font-semibold text-primary mb-2">{study.title}</h4>
+                    {study.context && <p class="text-sm text-secondary/70 mb-3">{study.context}</p>}
+                    <div class="grid gap-4 md:grid-cols-2">
+                      <div>
+                        <p class="text-xs uppercase tracking-[0.2em] text-secondary/60 mb-2">Problem</p>
+                        <p class="text-secondary/90">{study.problem}</p>
+                      </div>
+                      <div>
+                        <p class="text-xs uppercase tracking-[0.2em] text-secondary/60 mb-2">Practical Impact</p>
+                        <p class="text-secondary/90">{study.practicalImpact}</p>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <h3 class="text-xl font-semibold text-primary mb-4">Selected Publications</h3>
+          <div class="space-y-4">
+            {content.publications.map((pub, idx) => (
+              <div class="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200">
+                <h4 class="text-lg md:text-xl font-semibold text-primary mb-2">{pub.title}</h4>
+                <p class="text-sm text-secondary/70 mb-1">{pub.authors}</p>
+                <p class="text-sm text-secondary/70 mb-4">{pub.venue}</p>
+                <p class="text-secondary/90 mb-4">{pub.blurb}</p>
+                {pub.plainLanguageImpact && <p class="text-sm text-primary/90 bg-surface-soft rounded-xl px-3 py-2 mb-4"><span class="font-semibold">Why this matters:</span> {pub.plainLanguageImpact}</p>}
+                <div class="flex flex-wrap gap-2">
+                  {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 font-medium transition-colors duration-200">View Paper</a>}
+                  {pub.doi && <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-border/80 text-primary rounded-lg hover:bg-surface-soft font-medium transition-colors duration-200">DOI</a>}
+                  {pub.availableOnRequest && !pub.link && <span class="inline-flex items-center px-4 py-2 border border-border/80 text-secondary/70 rounded-lg bg-surface-soft font-medium">Available upon request</span>}
+                  {pub.citationBibtex && (
+                    <>
+                      <button type="button" data-copy-citation data-citation-id={`cite-${idx}`} class="inline-flex items-center px-4 py-2 border border-border/80 text-primary rounded-lg hover:bg-surface-soft font-medium transition-colors duration-200">Cite (BibTeX)</button>
+                      <textarea id={`cite-${idx}`} class="hidden">{pub.citationBibtex}</textarea>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="bg-surface rounded-2xl p-4 md:p-5 mt-5 border border-border/80 shadow-sm">
+            <h3 class="text-xl font-semibold text-primary mb-3">Research Interests</h3>
+            <ul class="space-y-3">
+              {content.researchInterests.map((interest) => (
+                <li class="text-secondary/90">{interest}</li>
+              ))}
+            </ul>
+          </div>
+
+          {content.researchFigures?.length > 0 && (
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {content.researchFigures.map((fig) => (
+                <a href={fig.src} target="_blank" rel="noopener noreferrer" class="bg-surface rounded-2xl p-4 border border-border/80 shadow-sm group hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-all duration-200 block">
+                  <div class="relative overflow-hidden rounded-lg mb-3">
+                    <img src={fig.src} alt={fig.alt} loading="lazy" decoding="async" width={fig.width} height={fig.height} class="w-full h-auto transform group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <figcaption class="text-sm text-secondary/70">{fig.caption}</figcaption>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section id="projects" class="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface-soft">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-4">
+            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Projects</p>
+            <h2 class="text-2xl md:text-3xl font-semibold text-primary">Research Projects</h2>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {content.projects.map((project, idx) => (
+              <div class="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200 flex flex-col">
+                <div class="mb-4">
+                  <div class="flex items-center justify-between gap-3 mb-2">
+                    <h3 class="text-lg md:text-xl font-semibold text-primary">{project.title}</h3>
+                    <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-secondary/50">P{idx + 1}</span>
+                  </div>
+                  <p class="inline-flex text-xs text-accent font-semibold px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 mb-3">{project.subtitle}</p>
+                </div>
+                <p class="text-secondary/90 mb-4">{project.summary}</p>
+                {project.details?.length > 0 && (
+                  <>
+                    <ul id={`project-details-${idx}`} class="hidden space-y-2 mb-4 pl-4 border-l-2 border-accent/30">
+                      {project.details.map((detail) => <li class="text-sm text-secondary/90">{detail}</li>)}
+                    </ul>
+                    <button type="button" data-toggle-project data-target={`project-details-${idx}`} class="mt-auto text-accent hover:text-accent/90 font-medium transition-colors duration-200">View methods</button>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-4">
+            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Experience</p>
+            <h2 class="text-2xl md:text-3xl font-semibold text-primary">Research & Professional Experience</h2>
+          </div>
+          <div class="relative space-y-4 before:hidden md:before:block md:before:absolute md:before:left-[124px] md:before:top-3 md:before:bottom-3 md:before:w-px md:before:bg-border/80">
+            {content.experience.map((item) => (
+              <div class="card-lift md:grid md:grid-cols-[112px_1fr] md:gap-4 items-start bg-surface-soft rounded-2xl p-4 md:p-5 border border-border/80 hover:border-accent/30 transition-colors duration-200">
+                <div class="mb-3 md:mb-0"><span class="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{item.period}</span></div>
+                <div>
+                  <div class="mb-4">
+                    <h3 class="text-lg md:text-xl font-semibold text-primary mb-2">{item.role}</h3>
+                    <p class="text-secondary/90 font-medium mb-1">{item.org}</p>
+                  </div>
+                  <ul class="space-y-3">
+                    {item.details.map((detail) => <li class="text-secondary/90">{detail}</li>)}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-primary text-white py-10 px-3 sm:px-5 lg:px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div>
+              <h3 class="text-base font-semibold mb-2">{content.profile.name}</h3>
+              <p class="text-white/70 text-sm">{content.profile.title}</p>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold mb-2">Quick Links</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="#about" class="text-white/70 hover:text-white">About</a></li>
+                <li><a href="#research" class="text-white/70 hover:text-white">Research</a></li>
+                <li><a href="#projects" class="text-white/70 hover:text-white">Projects</a></li>
+                <li><a href="#experience" class="text-white/70 hover:text-white">Experience</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold mb-2">Connect</h3>
+              <div class="flex gap-4">
+                <a href={`mailto:${content.profile.contacts.email}`} class="text-white/70 hover:text-white" aria-label="Email">Email</a>
+                <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white" aria-label="LinkedIn">LinkedIn</a>
+                <a href={content.profile.contacts.github} target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white" aria-label="GitHub">GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-white/20 pt-5 text-center text-sm text-white/60">
+            <p>© {currentYear} {content.profile.name}. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script is:inline>
+      const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+      const sections = ['hero', 'about', 'research', 'projects', 'experience'];
+      const progressBar = document.getElementById('scroll-progress-bar');
+      const backToTop = document.getElementById('back-to-top');
+
+      function setActiveNav(sectionId) {
+        navLinks.forEach((link) => {
+          const isActive = link.dataset.target === sectionId;
+          link.setAttribute('aria-current', isActive ? 'page' : 'false');
+          link.classList.toggle('bg-accent', isActive);
+          link.classList.toggle('text-white', isActive);
+          link.classList.toggle('shadow-[0_8px_18px_rgba(15,118,110,0.28)]', isActive);
+          link.classList.toggle('text-secondary', !isActive);
+          const dot = link.querySelector('span');
+          if (dot) {
+            dot.classList.toggle('bg-white/90', isActive);
+            dot.classList.toggle('bg-secondary/40', !isActive);
+          }
+        });
+      }
+
+      function onScroll() {
+        const scrollPx = document.documentElement.scrollTop;
+        const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = winHeightPx > 0 ? (scrollPx / winHeightPx) * 100 : 0;
+        if (progressBar) progressBar.style.width = `${scrolled}%`;
+
+        if (backToTop) backToTop.classList.toggle('hidden', window.pageYOffset <= 300);
+
+        const scrollPosition = window.scrollY + 200;
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (!element) continue;
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveNav(section);
+            break;
+          }
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      if (backToTop) {
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      document.querySelectorAll('[data-toggle-project]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = document.getElementById(btn.dataset.target || '');
+          if (!target) return;
+          const isHidden = target.classList.toggle('hidden');
+          btn.textContent = isHidden ? 'View methods' : 'Show less';
+          btn.setAttribute('aria-expanded', String(!isHidden));
+        });
+      });
+
+      document.querySelectorAll('[data-copy-citation]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const source = document.getElementById(btn.dataset.citationId || '');
+          if (!source) return;
+          const original = btn.textContent;
+          try {
+            await navigator.clipboard.writeText(source.value || source.textContent || '');
+            btn.textContent = 'Copied!';
+            setTimeout(() => (btn.textContent = original), 1500);
+          } catch {
+            btn.textContent = 'Copy failed';
+            setTimeout(() => (btn.textContent = original), 1500);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
