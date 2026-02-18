@@ -17,9 +17,8 @@ The workflow in `.github/workflows/vite.yml` installs dependencies, builds, and 
 ## Structure
 - `src/pages/index.astro` — main page template and lightweight client-side interactions (nav active state, progress bar, back-to-top, copy citation, project toggles)
 - `src/content.js` — primary content source (hero, publications, case studies, projects, experience, contact)
-- `src/index.css` — global styles and animation utilities
-- `tailwind.config.js` — Tailwind theme and scan paths
-- `astro.config.mjs` — Astro config and Tailwind integration
+- `src/index.css` — global styles, Tailwind v4 theme tokens, and animation utilities
+- `astro.config.mjs` — Astro config with Tailwind v4 Vite plugin integration
 - `public/` — static assets (`profile.avif`, `profile-og.jpg`, architecture figures, SEO files)
 
 ## Notes

@@ -1,6 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #191614;
+  --color-secondary: #5a534c;
+  --color-accent: #0f766e;
+  --color-background: #f7f2ea;
+  --color-text: #141210;
+  --color-border: #e4ddd1;
+  --color-surface: #fffbf4;
+  --color-surface-soft: #f2ede4;
+
+  --font-heading: "Fraunces", serif;
+  --font-body: "Space Grotesk", sans-serif;
+
+  --animate-fade-up: fade-up 700ms ease-out both;
+  --animate-fade-up-slow: fade-up 900ms ease-out both;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
 
 @layer base {
   html {

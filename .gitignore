@@ -3,6 +3,7 @@ push.sh
 .DS_Store
 node_modules/
 dist/
+.astro/
 .shared/
 .claude/
 assets/originals/
