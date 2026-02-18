@@ -27,15 +27,22 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Cleanup node_modules and package-lock.json
         run: |
-          rm -rf node_modules package-lock.json
-          npm install
+          rm -rf node_modules
+          rm -f package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Ensure Tailwind Oxide binding (Linux)
+        if: runner.os == 'Linux'
+        run: npm install --no-save @tailwindcss/oxide-linux-x64-gnu@4.2.0
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
       - name: Upload artifact
