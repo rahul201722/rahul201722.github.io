@@ -54,8 +54,8 @@ const content = {
     ],
     updates: [
       {
-        date: "February 2026",
-        text: "Started PhD in Electrical & Computer Systems Engineering at Monash University.",
+        date: "March 2026",
+        text: "Starting PhD in Electrical & Computer Systems Engineering at Monash University (16 March 2026).",
       },
       {
         date: "December 2025",
