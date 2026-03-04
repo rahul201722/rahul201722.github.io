@@ -31,7 +31,7 @@ const content = {
       github: "https://github.com/rahul201722",
       scholar:
         "https://scholar.google.com.au/citations?view_op=list_works&hl=en&user=19aEdVcAAAAJ",
-      cv: "https://drive.google.com/file/d/1BQuyW1_InR_Q_mkfimzVvL_2L16CO0fu/view?usp=sharing",
+      cv: "https://drive.google.com/file/d/1IZk01dcyYkiuvMesBY7EVMnEmGs3kZZK/view?usp=sharing",
       researchSummary: "",
     },
   },
