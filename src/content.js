@@ -250,11 +250,11 @@ const content = {
     },
     {
       title:
-        "VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video",
-      authors: "Ranjan, R., Roha, V. S., & Yuce, M. R.",
-      venue: "IEEE Applied Sensing Conference (2026)",
-      doi: "",
-      link: "",
+        "VITAL Net: A Hybrid Framework for SpO2 and HR Estimation Using Smartphone rPPG Video",
+      authors: "Ranjan, Rahul; Roha, Vishal Singh; Yuce, Mehmet Rasit",
+      venue: "2026 IEEE Applied Sensing Conference (APSCON), 1-4",
+      doi: "10.1109/APSCON68325.2026.11497932",
+      link: "https://doi.org/10.1109/APSCON68325.2026.11497932",
       arxiv: "",
       availableOnRequest: true,
       blurb:
@@ -266,11 +266,14 @@ const content = {
         "Custom dataset: 11 participants, 4 activity phases (baseline, cycling, handgrip, breath-hold), with synchronized clinical ground truth.",
         "Fast inference for edge use: ~4.33 ms/sample for SpO₂ and ~6 ms/sample for HR.",
       ],
-      citationBibtex: `@inproceedings{ranjan2026vital,
-  title={VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video},
-  author={Ranjan, Rahul and Roha, Venkat Sai and Yuce, Mehmet Rasit},
-  booktitle={IEEE Applied Sensing Conference},
-  year={2026}
+      citationBibtex: `@INPROCEEDINGS{11497932,
+  author={Ranjan, Rahul and Roha, Vishal Singh and Yuce, Mehmet Rasit},
+  booktitle={2026 IEEE Applied Sensing Conference (APSCON)},
+  title={VITAL Net: A Hybrid Framework for SpO2 and HR Estimation Using Smartphone rPPG Video},
+  year={2026},
+  pages={1-4},
+  keywords={Contacts;Filtering;Band-pass filters;Circuits and systems;Active filters;Central Processing Unit;Filters;MIMICs;Millimeter wave integrated circuits;Monolithic integrated circuits;Blood Oxygen Saturation;Heart Rate;Remote Photoplethysmography;Machine Learning;Smartphone Sensing},
+  doi={10.1109/APSCON68325.2026.11497932}
 }`,
     },
   ],
