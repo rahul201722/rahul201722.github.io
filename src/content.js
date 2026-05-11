@@ -254,7 +254,7 @@ const content = {
       authors: "Ranjan, Rahul; Roha, Vishal Singh; Yuce, Mehmet Rasit",
       venue: "2026 IEEE Applied Sensing Conference (APSCON), 1-4",
       doi: "10.1109/APSCON68325.2026.11497932",
-      link: "https://doi.org/10.1109/APSCON68325.2026.11497932",
+      link: "https://ieeexplore.ieee.org/abstract/document/11497932",
       arxiv: "",
       availableOnRequest: true,
       blurb:
