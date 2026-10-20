@@ -18,8 +18,8 @@ const content = {
       },
       {
         label: "Publications",
-        value: "2 Peer-Reviewed",
-        detail: "Springer Nature + IEEE",
+        value: "4 Peer-Reviewed",
+        detail: "Journal + 3 IEEE conferences",
       },
     ],
     portrait: "/profile.avif",
@@ -331,6 +331,30 @@ const content = {
   keywords={Contacts;Filtering;Band-pass filters;Circuits and systems;Active filters;Central Processing Unit;Filters;MIMICs;Millimeter wave integrated circuits;Monolithic integrated circuits;Blood Oxygen Saturation;Heart Rate;Remote Photoplethysmography;Machine Learning;Smartphone Sensing},
   doi={10.1109/APSCON68325.2026.11497932}
 }`,
+    },
+    {
+      group: "peer-reviewed",
+      title:
+        "Contactless Respiration Rate Estimation from Smartphone Facial Video Using Encoder-Decoder and rPPG-Derived Respiratory Modelling",
+      authors: "Roha, V. S., Ranjan, R., & Yuce, M. R.",
+      venue: "IEEE SENSORS (2026)",
+      blurb:
+        "Presents an encoder-decoder and rPPG-derived modelling approach for contactless respiration-rate estimation from smartphone facial video.",
+      plainLanguageImpact:
+        "Extends smartphone-based contactless sensing beyond heart rate and blood oxygen to respiratory monitoring.",
+      availableOnRequest: true,
+    },
+    {
+      group: "peer-reviewed",
+      title:
+        "A Human-Centric Transfer Learning Framework for Multi-Dataset Contactless Blood Pressure Assessment Using Smartphone Facial Video",
+      authors: "R. Ranjan, V. S. Roha, & M. R. Yuce",
+      venue: "IEEE SMC (2026)",
+      blurb:
+        "Introduces a human-centric transfer-learning framework for contactless blood-pressure assessment across multiple datasets using smartphone facial video.",
+      plainLanguageImpact:
+        "Supports more robust and transferable blood-pressure assessment across diverse datasets and users.",
+      availableOnRequest: true,
     },
   ],
   researchInProgress: [
