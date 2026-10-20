@@ -1,10 +1,10 @@
 const content = {
   profile: {
     name: "Rahul Ranjan",
-    title: "Incoming PhD Student | Edge AI & Mobile Health",
-    affiliationLine1: "Robust Biomedical Signal Processing on Mobile Devices",
+    title: "PhD Candidate in ECSE | AI & Digital Health",
+    affiliationLine1: "Machine Learning, Signal Processing & Mobile Health",
     affiliationLine2: "Monash University",
-    lastUpdated: "February 2026",
+    lastUpdated: "October 2026",
     quickFacts: [
       {
         label: "Focus",
@@ -24,10 +24,10 @@ const content = {
     ],
     portrait: "/profile.avif",
     contacts: {
-      email: "rahulrkm0038@gmail.com",
+      email: "rahul.ranjan@monash.edu",
       phone: "+61435844977",
       phoneDisplay: "+61 435 844 977",
-      linkedin: "https://linkedin.com/in/rahul-ranjan-b595891b1",
+      linkedin: "https://linkedin.com/in/rahul-ranjan-ecse",
       github: "https://github.com/rahul201722",
       scholar:
         "https://scholar.google.com.au/citations?view_op=list_works&hl=en&user=19aEdVcAAAAJ",
@@ -42,9 +42,9 @@ const content = {
   ],
   about: {
     blurb: [
-      "I build clinical-grade AI that runs on smartphones, not server farms.",
-      "My PhD research solves the hardest problem in mobile health: extracting accurate vital signs (HR, SpO₂, BP) from noisy video in the wild—motion artifacts, poor lighting, diverse skin tones.",
-      "I combine deep signal reconstruction (encoder–decoder models like U-Nets/autoencoders) with edge-first deployment (distillation + quantization) to deliver real-time inference on mobile NPUs via CoreML/ONNX—putting reliable vital-sign monitoring in your pocket.",
+      "I am a Monash PhD candidate and Master of Artificial Intelligence graduate with a strong foundation in machine learning, signal processing, and computational physics.",
+      "My research develops AI-driven mobile health solutions for extracting accurate vital signs (HR, SpO₂, and BP) from smartphone video using robust signal processing and deep learning.",
+      "Alongside academic research, I bring industry experience in software development, predictive analytics, database infrastructure, and reproducible technical workflows.",
     ],
     highlights: [
       "Contactless vitals from smartphone camera (no wearables)",
@@ -75,6 +75,8 @@ const content = {
         title: "Programming Languages",
         items: [
           "Python",
+          "SQL",
+          "Bash",
           "C++",
           "MATLAB",
           "R",
@@ -107,8 +109,6 @@ const content = {
           "NumPy",
           "Pandas",
           "Matplotlib",
-          "Seaborn",
-          "Plotly",
         ],
       },
       {
@@ -128,6 +128,10 @@ const content = {
           "Docker",
           "Git",
           "LaTeX",
+          "MongoDB",
+          "ETL Pipelines",
+          "Confluence",
+          "Jira",
         ],
       },
     ],
@@ -250,7 +254,7 @@ const content = {
     },
     {
       title:
-        "VITAL Net: A Hybrid Framework for SpO2 and HR Estimation Using Smartphone rPPG Video",
+        "VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video",
       authors: "Ranjan, Rahul; Roha, Vishal Singh; Yuce, Mehmet Rasit",
       venue: "2026 IEEE Applied Sensing Conference (APSCON), 1-4",
       doi: "10.1109/APSCON68325.2026.11497932",
@@ -275,6 +279,16 @@ const content = {
   keywords={Contacts;Filtering;Band-pass filters;Circuits and systems;Active filters;Central Processing Unit;Filters;MIMICs;Millimeter wave integrated circuits;Monolithic integrated circuits;Blood Oxygen Saturation;Heart Rate;Remote Photoplethysmography;Machine Learning;Smartphone Sensing},
   doi={10.1109/APSCON68325.2026.11497932}
 }`,
+    },
+    {
+      title: "Additional manuscripts under review",
+      authors: "Rahul Ranjan and collaborators",
+      venue: "Peer-reviewed journals and conferences",
+      blurb:
+        "Four additional manuscripts are currently under review in peer-reviewed journals and conferences.",
+      plainLanguageImpact:
+        "Ongoing work extends the research program in AI, signal processing, and mobile health.",
+      availableOnRequest: false,
     },
   ],
   caseStudies: [
@@ -326,15 +340,22 @@ const content = {
   ],
   experience: [
     {
-      role: "Master's Thesis (Computational Physics)",
-      org: "Department of Physics, BITS Pilani",
-      period: "2021–2022",
-      context: "During Bachelor's Degree",
-      supervisor: "Prof. P K Thiruvikraman",
+      role: "Teaching Assistant",
+      org: "Monash University, Melbourne, Australia",
+      period: "Semester 2, 2026",
       details: [
-        "Investigated phase transitions in ferromagnetic materials using Monte Carlo simulations (Metropolis algorithm) on 2D/3D Ising lattice models with periodic boundary conditions.",
-        "Calculated thermodynamic observables (energy, magnetization, susceptibility, specific heat) across temperature sweeps; achieved 40% runtime reduction via vectorization.",
-        "Extracted critical exponents (β, γ) using finite-size scaling and power-law fitting; analyzed impact of disorder on transition sharpness.",
+        "Teaching Assistant for ECE3122 — Engineering Electromagnetics.",
+      ],
+    },
+    {
+      role: "Graduate Researcher (AI & Mobile Health)",
+      org: "Monash University, Melbourne, Australia",
+      period: "2024–Jan 2026",
+      details: [
+        "Developed hybrid deep learning pipelines using CNNs, Transformers, and PyTorch, alongside rPPG and filtering algorithms for mobile health sensing.",
+        "Mentored junior research collaborators on deep learning environments, clean Python and PyTorch code, and reproducible ablation studies.",
+        "Authored and co-authored research papers in the Journal of Medical Systems and IEEE Applied Sensing Conference, and presented complex technical findings.",
+        "Processed and annotated 50,000+ vital-sign video samples, creating structured, documented datasets for team-wide research projects.",
       ],
     },
     {
@@ -342,9 +363,9 @@ const content = {
       org: "Aglow Engineers, Kolkata",
       period: "Jun 2022–Feb 2023",
       details: [
-        "Established the company's first centralized data infrastructure by migrating manual entry systems to SQL, creating a robust, queryable database for all operational logs.",
-        "Accelerated stakeholder decision-making by developing Python Automation scripts that reduced technical interpretation time through automatically emailed plain-English summaries.",
-        "Reduced system downtime by 22% and achieved 89% prediction accuracy in vulnerability detection by building proactive forecasting models using Random Forest & LSTM.",
+        "Migrated legacy manual operational records to centralized PostgreSQL/SQL infrastructure, designing clean relational schemas and optimized queries.",
+        "Automated operational workflows with Python scripts and created user guides and technical documentation for cross-functional stakeholders.",
+        "Developed LSTM and Random Forest models in Python to predict system vulnerabilities, reducing operational downtime by 22%.",
       ],
     },
     {
@@ -352,8 +373,8 @@ const content = {
       org: "Centre for Railway Information Systems (CRIS), New Delhi",
       period: "Jan 2022–May 2022",
       details: [
-        "Predicted asset failures 48 hours in advance with 94% accuracy by implementing Anomaly Detection within WISE modules using Python and XGBoost.",
-        "Reduced workshop downtime by 18% by deploying Predictive Maintenance models across 200+ railway assets.",
+        "Developed XGBoost anomaly-detection pipelines in Python to predict railway asset failures with 94% accuracy.",
+        "Queried, cleaned, and preprocessed large time-series sensor datasets from WISE databases, documenting ETL pipelines for long-term maintainability.",
       ],
     },
     {
@@ -361,8 +382,8 @@ const content = {
       org: "Xilinx (now AMD), Hyderabad — Timing Team, Device Capture Group",
       period: "Aug 2021–Dec 2021",
       details: [
-        'Streamlined file-hash verification for 25+ design engineers by developing and deploying the "Data Flow Synchronicity Checker" tool across FPGA teams.',
-        "Improved team workflow efficiency by 30% by building production infrastructure with nightly automated checks (1000+ file validations/day) using cron-scheduled Bash jobs.",
+        'Engineered the "Data Flow Synchronicity Checker" in Python and Bash for automated hash verification of device capture files.',
+        "Created structured Confluence documentation with collapsible tables, streamlining knowledge sharing and onboarding workflows for 25+ design engineers.",
       ],
     },
   ],
