@@ -8,8 +8,8 @@ const content = {
     quickFacts: [
       {
         label: "Focus",
-        value: "Edge AI + Mobile Health",
-        detail: "On-device clinical vitals",
+        value: "AI + Signal Intelligence",
+        detail: "Radar and mobile health sensing",
       },
       {
         label: "Funding",
@@ -43,10 +43,12 @@ const content = {
   about: {
     blurb: [
       "I am a Monash PhD candidate and Master of Artificial Intelligence graduate with a strong foundation in machine learning, signal processing, and computational physics.",
-      "My research develops AI-driven mobile health solutions for extracting accurate vital signs (HR, SpO₂, and BP) from smartphone video using robust signal processing and deep learning.",
+      "My research applies machine learning and deep learning to reconstruct and clean noisy radar and physiological signals, enabling reliable sensing in challenging real-world conditions.",
+      "I develop AI-driven mobile health solutions for extracting accurate vital signs (HR, SpO₂, and BP) from smartphone video using robust signal processing and deep learning.",
       "Alongside academic research, I bring industry experience in software development, predictive analytics, database infrastructure, and reproducible technical workflows.",
     ],
     highlights: [
+      "ML/DL-based radar signal reconstruction & cleaning",
       "Contactless vitals from smartphone camera (no wearables)",
       "Robust to motion artifacts & poor lighting",
       "Edge-optimized models (real-time inference)",
@@ -98,6 +100,9 @@ const content = {
         items: [
           "OpenCV",
           "rPPG",
+          "Radar Signal Processing",
+          "Signal Reconstruction",
+          "Noise Reduction",
           "Self-Attention",
           "Spectral Filtering",
           "Anomaly Detection",
@@ -199,6 +204,7 @@ const content = {
     },
   },
   researchInterests: [
+    "Machine learning and deep learning for radar signal reconstruction, denoising, and cleaning",
     "Contactless vital sign monitoring from smartphone cameras (rPPG)",
     "Robust signal processing for noisy, real-world physiological data",
     "Edge AI: efficient deep learning on mobile devices with limited compute",

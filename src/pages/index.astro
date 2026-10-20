@@ -34,27 +34,27 @@ const currentYear = new Date().getFullYear();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Rahul Ranjan - PhD Candidate building clinical-grade AI for mobile health. Specializing in contactless vital sign monitoring from smartphone cameras using robust signal processing and edge-optimized deep learning." />
-    <meta name="keywords" content="Rahul Ranjan, Edge AI, Mobile Health, rPPG, contactless vitals, smartphone health monitoring, robust signal processing, on-device ML, Monash University" />
+    <meta name="description" content="Rahul Ranjan - PhD Candidate applying machine learning and deep learning to radar signal reconstruction, signal cleaning, and contactless mobile health sensing." />
+    <meta name="keywords" content="Rahul Ranjan, radar signal reconstruction, radar denoising, deep learning, Edge AI, Mobile Health, rPPG, contactless vitals, robust signal processing, Monash University" />
     <meta name="author" content="Rahul Ranjan" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://rahul201722.github.io/" />
-    <meta property="og:title" content="Rahul Ranjan | Edge AI & Mobile Health Researcher" />
-    <meta property="og:description" content="PhD Candidate building clinical-grade AI that runs on smartphones. Contactless vital signs from camera video—robust to real-world noise, optimized for edge deployment." />
+    <meta property="og:title" content="Rahul Ranjan | AI, Radar Signals & Mobile Health" />
+    <meta property="og:description" content="PhD Candidate applying ML/DL to radar signal reconstruction, signal cleaning, and contactless mobile health sensing." />
     <meta property="og:image" content="https://rahul201722.github.io/profile-og.jpg" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://rahul201722.github.io/" />
-    <meta property="twitter:title" content="Rahul Ranjan | Edge AI & Mobile Health Researcher" />
-    <meta property="twitter:description" content="PhD Candidate building clinical-grade AI that runs on smartphones. Contactless vital signs from camera video—robust to real-world noise, optimized for edge deployment." />
+    <meta property="twitter:title" content="Rahul Ranjan | AI, Radar Signals & Mobile Health" />
+    <meta property="twitter:description" content="PhD Candidate applying ML/DL to radar signal reconstruction, signal cleaning, and contactless mobile health sensing." />
     <meta property="twitter:image" content="https://rahul201722.github.io/profile-og.jpg" />
 
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Rahul Ranjan',
-      jobTitle: 'PhD Candidate - Edge AI & Mobile Health',
+      jobTitle: 'PhD Candidate - AI, Radar Signals & Mobile Health',
       url: 'https://rahul201722.github.io',
       image: 'https://rahul201722.github.io/profile-og.jpg',
       affiliation: { '@type': 'Organization', name: 'Monash University' },
@@ -69,6 +69,8 @@ const currentYear = new Date().getFullYear();
       ],
       knowsAbout: [
         'Edge AI',
+        'Radar Signal Reconstruction',
+        'Radar Signal Cleaning',
         'Mobile Health Computing',
         'Remote Photoplethysmography (rPPG)',
         'Robust Signal Processing',
@@ -77,12 +79,12 @@ const currentYear = new Date().getFullYear();
       ],
     })}></script>
 
-    <title>Rahul Ranjan | Edge AI & Mobile Health Researcher</title>
+    <title>Rahul Ranjan | AI, Radar Signals & Mobile Health</title>
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -94,23 +96,27 @@ const currentYear = new Date().getFullYear();
       Skip to main content
     </a>
 
-    <div class="fixed top-0 left-0 w-full h-1 bg-border/30 z-50">
-      <div id="scroll-progress-bar" class="h-full bg-gradient-to-r from-accent to-primary transition-all duration-150 ease-out" style="width:0%"></div>
+    <!-- Scroll progress bar -->
+    <div class="fixed top-0 left-0 w-full h-[2px] bg-border/20 z-50">
+      <div id="scroll-progress-bar" class="h-full bg-gradient-to-r from-accent via-accent-light to-accent transition-all duration-150 ease-out" style="width:0%"></div>
     </div>
 
+    <!-- Back to top -->
     <button
       id="back-to-top"
       class="hidden fixed bottom-6 right-6 z-40 p-3 bg-accent text-white rounded-full shadow-lg hover:bg-accent/90 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
       aria-label="Back to top"
+      style="box-shadow: 0 8px 24px rgba(15,118,110,0.35);"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
       </svg>
     </button>
 
-    <nav aria-label="Primary" class="fixed top-3 left-3 right-3 z-50 mx-auto max-w-6xl bg-surface/88 backdrop-blur-md border border-border/60 rounded-2xl px-2.5 py-1.5 shadow-[0_10px_30px_rgba(20,18,16,0.12)]">
+    <!-- Navigation -->
+    <nav aria-label="Primary" class="fixed top-3 left-3 right-3 z-50 mx-auto max-w-6xl bg-surface/90 backdrop-blur-xl border border-border/50 rounded-2xl px-2.5 py-1.5" style="box-shadow: 0 8px 32px rgba(20,18,16,0.10), 0 1px 0 rgba(255,255,255,0.6) inset;">
       <div class="flex items-center gap-2">
-        <ul class="flex-1 min-w-0 flex items-center gap-1 md:gap-2 overflow-x-auto hide-scrollbar px-1">
+        <ul class="flex-1 min-w-0 flex items-center gap-1 md:gap-1.5 overflow-x-auto hide-scrollbar px-1">
           {navItems.map((item, idx) => (
             <li>
               <a
@@ -118,9 +124,9 @@ const currentYear = new Date().getFullYear();
                 data-nav-link
                 data-target={item.id}
                 aria-current={idx === 0 ? 'page' : undefined}
-                class={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] md:text-xs font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 ${idx === 0 ? 'bg-accent text-white shadow-[0_8px_18px_rgba(15,118,110,0.28)]' : 'text-secondary hover:bg-accent/10 hover:text-primary'}`}
+                class={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] md:text-xs font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 ${idx === 0 ? 'bg-accent text-white shadow-[0_6px_16px_rgba(15,118,110,0.32)]' : 'text-secondary hover:bg-accent/10 hover:text-primary'}`}
               >
-                <span class={`h-1.5 w-1.5 rounded-full ${idx === 0 ? 'bg-white/90' : 'bg-secondary/40'}`} aria-hidden="true"></span>
+                <span class={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${idx === 0 ? 'bg-white/80' : 'bg-secondary/30'}`} aria-hidden="true"></span>
                 {item.label}
               </a>
             </li>
@@ -131,68 +137,137 @@ const currentYear = new Date().getFullYear();
             href={content.profile.contacts.cv}
             target="_blank"
             rel="noopener noreferrer"
-            class="px-3 py-1.5 rounded-full text-[11px] md:text-xs font-semibold bg-primary text-white shadow-[0_8px_18px_rgba(20,18,16,0.18)] hover:bg-primary/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+            class="btn-shimmer px-3 py-1.5 rounded-full text-[11px] md:text-xs font-semibold bg-primary text-white hover:bg-primary/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 flex-shrink-0"
+            style="box-shadow: 0 6px 16px rgba(20,18,16,0.22);"
           >
-            Resume
+            Résumé ↗
           </a>
         )}
       </div>
     </nav>
 
     <main id="main-content" class="min-h-screen text-text">
+      <!-- Hero Section -->
       <div id="hero">
-        <section class="relative min-h-[64vh] lg:min-h-[70vh] overflow-hidden">
-          <div class="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/12 blur-3xl motion-safe:animate-float-slow"></div>
-          <div class="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-primary/5 blur-3xl motion-safe:animate-float-slow"></div>
-          <div class="max-w-6xl mx-auto px-3 sm:px-5 lg:px-6 pt-24 pb-2 grid items-center gap-6 lg:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-            <div class="space-y-4 text-center lg:text-left">
-              <span class="inline-flex items-center justify-center lg:justify-start text-[11px] uppercase tracking-[0.4em] text-secondary/70">Research Portfolio</span>
-              <h1 class="text-5xl md:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-semibold text-primary leading-[0.95] tracking-tight motion-safe:animate-fade-up">{content.profile.name}</h1>
-              <p class="text-xl md:text-2xl text-secondary font-semibold motion-safe:animate-fade-up-slow motion-safe:[animation-delay:120ms]">{content.profile.title}</p>
-              <div class="text-base md:text-lg text-secondary/80 space-y-1 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:200ms]">
-                <p>{content.profile.affiliationLine1}</p>
-                <p>{content.profile.affiliationLine2}</p>
+        <section class="relative min-h-[68vh] lg:min-h-[74vh] overflow-hidden">
+          <!-- Background orbs – multi-colour -->
+          <div class="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full blur-3xl motion-safe:animate-float-slow" style="background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, rgba(15,118,110,0.08) 50%, transparent 70%);"></div>
+          <div class="absolute -bottom-40 -left-24 h-[400px] w-[400px] rounded-full blur-3xl motion-safe:animate-float-medium" style="background: radial-gradient(circle, rgba(2,132,199,0.11) 0%, rgba(15,118,110,0.07) 55%, transparent 70%);"></div>
+          <div class="absolute top-[30%] left-[30%] h-[280px] w-[480px] rounded-full blur-3xl opacity-40" style="background: radial-gradient(ellipse, rgba(217,119,6,0.07) 0%, rgba(225,29,72,0.04) 50%, transparent 70%);"></div>
+
+          <div class="max-w-6xl mx-auto px-3 sm:px-5 lg:px-6 pt-24 pb-4 grid items-center gap-8 lg:gap-10 lg:grid-cols-[1fr_1.1fr]">
+            <!-- Left: Text content -->
+            <div class="space-y-5 text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 justify-center lg:justify-start">
+                <span class="section-label">Research Portfolio</span>
               </div>
+
+              <div class="space-y-2">
+                <h1 class="text-5xl md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] font-semibold text-primary leading-[0.92] tracking-tight motion-safe:animate-fade-up">
+                  {content.profile.name}
+                </h1>
+                <p class="text-xl md:text-2xl text-secondary font-medium motion-safe:animate-fade-up-slow motion-safe:[animation-delay:100ms]">
+                  {content.profile.title}
+                </p>
+              </div>
+
+              <div class="text-sm md:text-base text-secondary/75 space-y-0.5 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:180ms]">
+                <p>{content.profile.affiliationLine1}</p>
+                <p class="font-medium text-secondary/90">{content.profile.affiliationLine2}</p>
+              </div>
+
+              <!-- Quick facts -->
               {content.profile.quickFacts?.length > 0 && (
-                <div class="grid gap-3 sm:grid-cols-3 pt-1">
-                  {content.profile.quickFacts.map((fact) => (
-                    <div class="rounded-2xl border border-border/70 bg-surface/80 px-4 py-3 text-left shadow-[0_12px_24px_rgba(20,18,16,0.08)]">
-                      <p class="text-xs uppercase tracking-[0.2em] text-secondary/60">{fact.label}</p>
-                      <p class="text-lg font-semibold text-primary">{fact.value}</p>
-                      {fact.detail && <p class="text-sm text-secondary/80">{fact.detail}</p>}
+                <div class="grid gap-2.5 sm:grid-cols-3 pt-2 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:260ms]">
+                  {content.profile.quickFacts.map((fact, fi) => (
+                    <div class={`stat-card rounded-2xl border border-border/60 bg-surface/85 px-4 py-4 text-left backdrop-blur-sm`} style="box-shadow: 0 8px 20px rgba(20,18,16,0.07); padding-top: 1.25rem;">
+                      <p class="text-[10px] uppercase tracking-[0.22em] text-secondary/55 mb-1">{fact.label}</p>
+                      <p class="text-base font-semibold text-primary leading-tight">{fact.value}</p>
+                      {fact.detail && <p class="text-xs text-secondary/65 mt-0.5">{fact.detail}</p>}
                     </div>
                   ))}
                 </div>
               )}
 
-              <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
-                <a href={`mailto:${content.profile.contacts.email}`} class="inline-flex items-center px-5 py-2.5 text-sm bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors duration-200 cursor-pointer shadow-[0_12px_24px_rgba(15,118,110,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">Contact Me</a>
-                {content.profile.contacts.cv && <a href={content.profile.contacts.cv} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 text-sm bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors duration-200 cursor-pointer shadow-[0_12px_24px_rgba(20,18,16,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">Resume</a>}
-                <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">LinkedIn</a>
-                <a href={content.profile.contacts.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">GitHub</a>
-                <a href="#research-case-studies" class="inline-flex items-center px-5 py-2.5 text-sm border border-accent/40 text-accent font-semibold rounded-full hover:bg-accent hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2">Recruiter 60-sec overview</a>
+              <!-- CTAs -->
+              <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start pt-1 motion-safe:animate-fade-up-slow motion-safe:[animation-delay:340ms]">
+                <a
+                  href={`mailto:${content.profile.contacts.email}`}
+                  class="btn-shimmer inline-flex items-center gap-2 px-5 py-2.5 text-sm bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                  style="box-shadow: 0 10px 28px rgba(15,118,110,0.28);"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  Contact Me
+                </a>
+                {content.profile.contacts.cv && (
+                  <a
+                    href={content.profile.contacts.cv}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-shimmer inline-flex items-center gap-2 px-5 py-2.5 text-sm bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                    style="box-shadow: 0 10px 28px rgba(20,18,16,0.20);"
+                  >
+                    Résumé ↗
+                  </a>
+                )}
+                <a
+                  href={content.profile.contacts.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                >
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
+                <a
+                  href={content.profile.contacts.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-primary/20 text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                >
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                {content.profile.contacts.scholar && (
+                  <a
+                    href={content.profile.contacts.scholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-accent/35 text-accent font-semibold rounded-full hover:bg-accent hover:text-white transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
+                  >
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                    Scholar
+                  </a>
+                )}
               </div>
             </div>
 
+            <!-- Right: Profile card -->
             <div class="relative lg:justify-self-end w-full max-w-xl self-stretch">
-              <div class="bg-surface/95 border border-border/70 shadow-[0_18px_45px_rgba(20,18,16,0.16)] rounded-3xl p-5 md:p-7 backdrop-blur h-full flex flex-col gap-5">
-                <div class="relative mb-5 rounded-2xl border border-dashed border-border/80 bg-[linear-gradient(to_right,rgba(20,18,16,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(20,18,16,0.08)_1px,transparent_1px)] bg-[size:16px_16px] p-4">
-                  <div class="flex items-center gap-5">
-                    <div class="w-[40vw] h-[40vw] max-w-[140px] max-h-[140px] sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border shadow-sm">
+              <div class="relative rounded-3xl p-5 md:p-6 h-full flex flex-col gap-5 backdrop-blur-sm" style="background: rgba(255,251,244,0.92); border: 1px solid rgba(228,221,209,0.7); box-shadow: 0 20px 50px rgba(20,18,16,0.13), 0 1px 0 rgba(255,255,255,0.7) inset;">
+
+                <!-- Profile header -->
+                <div class="relative rounded-2xl p-4" style="background: linear-gradient(135deg, rgba(15,118,110,0.06), rgba(15,118,110,0.02)); border: 1px dashed rgba(15,118,110,0.2);">
+                  <!-- Subtle grid dots -->
+                  <div class="absolute inset-0 rounded-2xl opacity-40" style="background-image: radial-gradient(rgba(20,18,16,0.06) 1px, transparent 1px); background-size: 16px 16px;"></div>
+                  <div class="relative flex items-center gap-5">
+                    <div class="w-[100px] h-[100px] sm:w-[110px] sm:h-[110px] rounded-full overflow-hidden flex-shrink-0" style="border: 2.5px solid rgba(228,221,209,0.9); box-shadow: 0 8px 20px rgba(20,18,16,0.12);">
                       <img src={content.profile.portrait} alt={`Portrait of ${content.profile.name}`} width="800" height="828" class="w-full h-full object-cover" />
                     </div>
                     <div>
-                      <p class="text-xs uppercase tracking-[0.25em] text-secondary/60 mb-2">Research Snapshot</p>
-                      <p class="text-xl font-semibold text-primary">Edge AI + Mobile Health</p>
-                      <p class="text-base text-secondary/70">Clinical-grade, on-device vitals</p>
+                      <p class="text-[10px] uppercase tracking-[0.28em] text-secondary/55 mb-1.5">Research Snapshot</p>
+                      <p class="text-xl font-semibold text-primary leading-tight">Radar AI +<br/>Mobile Health</p>
+                      <p class="text-sm text-secondary/65 mt-1">Signal reconstruction and clinical sensing</p>
                     </div>
                   </div>
                 </div>
+
+                <!-- Highlights -->
                 {content.about.highlights?.length > 0 && (
-                  <ul class="grid gap-3">
+                  <ul class="grid gap-2.5">
                     {content.about.highlights.map((item) => (
-                      <li class="flex items-start gap-3 rounded-2xl border border-border/80 bg-surface-soft px-4 py-3 text-base text-secondary/90">
-                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-accent" aria-hidden="true"></span>
+                      <li class="flex items-start gap-3 rounded-xl px-4 py-3 text-sm text-secondary/85" style="background: rgba(242,237,228,0.7); border: 1px solid rgba(228,221,209,0.6);">
+                        <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" aria-hidden="true"></span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -204,138 +279,201 @@ const currentYear = new Date().getFullYear();
         </section>
       </div>
 
-      <section id="about" class="pt-8 pb-10 md:pt-10 md:pb-12 px-3 sm:px-5 lg:px-6 bg-surface">
+      <!-- Divider -->
+      <div class="section-divider mx-auto max-w-6xl"></div>
+
+      <!-- About Section -->
+      <section id="about" class="pt-10 pb-12 md:pt-12 md:pb-14 px-3 sm:px-5 lg:px-6 bg-surface">
         <div class="max-w-6xl mx-auto">
-          <div class="mb-4">
-            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">About</p>
+          <div class="mb-6 reveal">
+            <p class="section-label">Background</p>
             <h2 class="text-2xl md:text-3xl font-semibold text-primary">About & Contact</h2>
           </div>
-          <div class="space-y-3 mb-5">
-            {(Array.isArray(content.about.blurb) ? content.about.blurb : [content.about.blurb]).map((paragraph) => (
-              <p class="text-base md:text-lg text-secondary/90 leading-relaxed">{paragraph}</p>
+
+          <div class="space-y-3 mb-6 reveal">
+            {(Array.isArray(content.about.blurb) ? content.about.blurb : [content.about.blurb]).map((paragraph, i) => (
+              <p class={`leading-relaxed ${i === 0 ? 'text-lg md:text-xl text-primary/90 font-medium' : 'text-base md:text-lg text-secondary/85'}`}>{paragraph}</p>
             ))}
           </div>
 
           {content.about.highlights?.length > 0 && (
-            <div class="flex flex-wrap gap-2 mb-6">
-              {content.about.highlights.map((highlight) => (
-                <span class="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-xs font-semibold border border-accent/20">{highlight}</span>
+            <div class="flex flex-wrap gap-2 mb-8 reveal">
+              {content.about.highlights.map((highlight, hi) => (
+                <span class={`highlight-tag px-3.5 py-1.5 rounded-full text-xs font-semibold border`}>{highlight}</span>
               ))}
             </div>
           )}
 
+          <!-- Recent Updates -->
           {content.about.updates?.length > 0 && (
-            <div class="bg-surface-soft rounded-2xl p-4 md:p-5 mb-5 border border-border/80 shadow-sm">
-              <h3 class="text-xl font-semibold text-primary mb-4">Recent Updates</h3>
-              <ul class="space-y-4">
-                {content.about.updates.map((update) => (
-                  <li class="flex flex-col md:flex-row md:items-start gap-2">
-                    <span class="text-accent font-semibold text-sm md:text-base md:min-w-[140px]">{update.date}</span>
-                    <span class="text-secondary/90">{update.text}</span>
-                  </li>
-                ))}
+            <div class="rounded-2xl p-4 md:p-5 mb-6 reveal" style="background: rgba(242,237,228,0.65); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+              <h3 class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-white text-[10px]" style="background: linear-gradient(135deg,#0f766e,#7c3aed);">✦</span>
+                Recent Updates
+              </h3>
+              <ul class="space-y-3.5">
+                {content.about.updates.map((update, ui) => {
+                  const dotColors = ['#0f766e','#7c3aed','#0369a1','#d97706'];
+                  const dc = dotColors[ui % dotColors.length];
+                  return (
+                    <li class="flex flex-col sm:flex-row sm:items-start gap-2">
+                      <span class="font-semibold text-sm sm:min-w-[148px] flex-shrink-0" style={`color: ${dc};`}>{update.date}</span>
+                      <span class="text-secondary/85 text-sm leading-relaxed">{update.text}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
 
+          <!-- Tech Stack -->
           {content.about.techStack?.length > 0 && (
-            <div class="bg-surface rounded-2xl p-4 md:p-5 mb-5 border border-border/80 shadow-sm">
-              <h3 class="text-xl font-semibold text-primary mb-4">Technical Skills</h3>
+            <div class="rounded-2xl p-4 md:p-5 mb-6 reveal" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+              <h3 class="text-lg font-semibold text-primary mb-4">Technical Skills</h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {content.about.techStack.map((group) => (
-                  <div class="bg-surface-soft rounded-xl p-3 border border-border/50">
-                    <h4 class="text-sm font-semibold text-accent mb-2 uppercase tracking-wide">{group.title}</h4>
-                    <div class="flex flex-wrap gap-1.5">
-                      {group.items.map((item) => <span class="px-2 py-1 bg-surface text-secondary/80 text-xs rounded border border-border/40">{item}</span>)}
+                {content.about.techStack.map((group, gi) => {
+                  const groupColors = [
+                    { border: 'rgba(15,118,110,0.18)', label: '#0f766e', bg: 'rgba(15,118,110,0.05)' },
+                    { border: 'rgba(124,58,237,0.18)', label: '#7c3aed', bg: 'rgba(124,58,237,0.05)' },
+                    { border: 'rgba(225,29,72,0.15)',  label: '#be123c', bg: 'rgba(225,29,72,0.04)' },
+                    { border: 'rgba(217,119,6,0.18)',  label: '#b45309', bg: 'rgba(217,119,6,0.05)' },
+                    { border: 'rgba(2,132,199,0.18)',  label: '#0369a1', bg: 'rgba(2,132,199,0.05)' },
+                    { border: 'rgba(162,28,175,0.15)', label: '#86198f', bg: 'rgba(162,28,175,0.04)' },
+                  ];
+                  const gc = groupColors[gi % groupColors.length];
+                  return (
+                    <div class="rounded-xl p-3.5" style={`background: ${gc.bg}; border: 1px solid ${gc.border};`}>
+                      <h4 class="text-[10px] font-semibold mb-2.5 uppercase tracking-[0.2em]" style={`color: ${gc.label};`}>{group.title}</h4>
+                      <div class="flex flex-wrap gap-1.5">
+                        {group.items.map((item) => <span class={`tech-tag tech-cat-${gi % 6}`}>{item}</span>)}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
 
-          <div class="bg-gradient-to-br from-accent/10 to-surface-soft rounded-2xl p-4 md:p-5 mb-5 border border-accent/20 shadow-sm">
-            <h3 class="text-xl font-semibold text-primary mb-3">Contact</h3>
-            <div class="space-y-2 text-secondary/90">
-              <p><span class="font-semibold text-primary">Email:</span> <a href={`mailto:${content.profile.contacts.email}`} class="text-accent hover:text-accent/90">{content.profile.contacts.email}</a></p>
-              <p><span class="font-semibold text-primary">Phone:</span> <a href={`tel:${content.profile.contacts.phone}`} class="text-accent hover:text-accent/90">{content.profile.contacts.phoneDisplay ?? content.profile.contacts.phone}</a></p>
-              <p><span class="font-semibold text-primary">LinkedIn:</span> <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/90">{content.profile.contacts.linkedin.replace('https://', '')}</a></p>
-              {content.profile.contacts.scholar && <p><span class="font-semibold text-primary">Google Scholar:</span> <a href={content.profile.contacts.scholar} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/90">scholar.google.com.au</a></p>}
-              {content.profile.contacts.cv && <p><span class="font-semibold text-primary">CV:</span> <a href={content.profile.contacts.cv} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/90">PDF on Google Drive</a></p>}
+          <!-- Contact -->
+          <div class="rounded-2xl p-4 md:p-5 mb-6 reveal" style="background: linear-gradient(135deg, rgba(15,118,110,0.08) 0%, rgba(242,237,228,0.6) 100%); border: 1px solid rgba(15,118,110,0.18);">
+            <h3 class="text-lg font-semibold text-primary mb-3">Contact</h3>
+            <div class="grid sm:grid-cols-2 gap-2 text-sm text-secondary/85">
+              <p class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <a href={`mailto:${content.profile.contacts.email}`} class="text-accent hover:text-accent/80 transition-colors">{content.profile.contacts.email}</a>
+              </p>
+              <p class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <a href={`tel:${content.profile.contacts.phone}`} class="text-accent hover:text-accent/80 transition-colors">{content.profile.contacts.phoneDisplay ?? content.profile.contacts.phone}</a>
+              </p>
+              <p class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 transition-colors">{content.profile.contacts.linkedin.replace('https://', '')}</a>
+              </p>
+              {content.profile.contacts.scholar && (
+                <p class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                  <a href={content.profile.contacts.scholar} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 transition-colors">Google Scholar</a>
+                </p>
+              )}
+              {content.profile.contacts.cv && (
+                <p class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  <a href={content.profile.contacts.cv} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 transition-colors">Download CV (PDF)</a>
+                </p>
+              )}
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Education & Awards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
             {content.about.education?.length > 0 && (
-              <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
-                <h3 class="text-xl font-semibold text-primary mb-4">Education</h3>
+              <div class="rounded-2xl p-4 md:p-5" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+                <h3 class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+                  <span class="text-accent">🎓</span> Education
+                </h3>
                 <ul class="space-y-4">
-                  {content.about.education.map((edu) => (
-                    <li>
-                      <p class="text-base md:text-lg font-semibold text-primary">{edu.degree}</p>
-                      <p class="text-secondary/90">{edu.school} ({edu.years}) {(edu.note || edu.thesis) && ` — ${edu.note ?? edu.thesis}`}</p>
-                    </li>
-                  ))}
+                  {content.about.education.map((edu, ei) => {
+                    const edColors = ['#0f766e','#7c3aed','#0369a1'];
+                    const ec = edColors[ei % edColors.length];
+                    return (
+                      <li class="relative pl-4">
+                        <span class="absolute left-0 top-[0.55rem] w-1.5 h-1.5 rounded-full" style={`background: ${ec};`}></span>
+                        <p class="text-sm font-semibold text-primary leading-snug">{edu.degree}</p>
+                        <p class="text-xs text-secondary/75 mt-0.5">{edu.school}</p>
+                        <p class="text-xs font-medium mt-0.5" style={`color: ${ec};`}>{edu.years}{(edu.note || edu.thesis) ? ` — ${edu.note ?? edu.thesis}` : ''}</p>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
 
             {content.about.awards?.length > 0 && (
-              <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
-                <h3 class="text-xl font-semibold text-primary mb-4">Awards & Funding</h3>
+              <div class="rounded-2xl p-4 md:p-5" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+                <h3 class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+                  <span class="text-accent">🏆</span> Awards & Funding
+                </h3>
                 <ul class="space-y-4">
-                  {content.about.awards.map((award) => (
-                    <li>
-                      <p class="text-base md:text-lg font-semibold text-primary">{award.title}</p>
-                      <p class="text-secondary/90">{award.detail} ({award.year})</p>
-                    </li>
-                  ))}
+                  {content.about.awards.map((award, ai) => {
+                    const awColors = ['#0f766e','#7c3aed','#d97706'];
+                    const awc = awColors[ai % awColors.length];
+                    return (
+                      <li class="relative pl-4">
+                        <span class="absolute left-0 top-[0.55rem] w-1.5 h-1.5 rounded-full" style={`background: ${awc};`}></span>
+                        <p class="text-sm font-semibold text-primary leading-snug">{award.title}</p>
+                        <p class="text-xs text-secondary/75 mt-0.5">{award.detail}</p>
+                        <p class="text-xs font-semibold mt-0.5" style={`color: ${awc};`}>{award.year}</p>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
           </div>
 
+          <!-- Collaboration & Funding-ready -->
           {(content.about.collaboration || content.about.fundingReady) && (
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 reveal">
               {content.about.collaboration && (
-                <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
-                  <h3 class="text-xl font-semibold text-primary mb-3">Collaboration</h3>
+                <div class="rounded-2xl p-4 md:p-5" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+                  <h3 class="text-lg font-semibold text-primary mb-3">Collaboration</h3>
                   {content.about.collaboration.goals?.length > 0 && (
                     <>
-                      <p class="text-sm font-semibold text-secondary/70 mb-2">Looking for</p>
+                      <p class="text-[11px] font-semibold text-secondary/60 mb-2 uppercase tracking-widest">Looking for</p>
                       <ul class="space-y-2 mb-4">
-                        {content.about.collaboration.goals.map((goal) => <li class="text-secondary/90">{goal}</li>)}
+                        {content.about.collaboration.goals.map((goal) => <li class="text-sm text-secondary/85 pl-3 border-l-2 border-accent/30">{goal}</li>)}
                       </ul>
                     </>
                   )}
                   {content.about.collaboration.offerings?.length > 0 && (
                     <>
-                      <p class="text-sm font-semibold text-secondary/70 mb-2">What I bring</p>
+                      <p class="text-[11px] font-semibold text-secondary/60 mb-2 uppercase tracking-widest">What I bring</p>
                       <ul class="space-y-2 mb-4">
-                        {content.about.collaboration.offerings.map((offering) => <li class="text-secondary/90">{offering}</li>)}
+                        {content.about.collaboration.offerings.map((offering) => <li class="text-sm text-secondary/85 pl-3 border-l-2 border-accent/30">{offering}</li>)}
                       </ul>
                     </>
                   )}
-                  {content.about.collaboration.availability && <p class="text-sm text-secondary/70">{content.about.collaboration.availability}</p>}
+                  {content.about.collaboration.availability && <p class="text-xs text-secondary/60 italic">{content.about.collaboration.availability}</p>}
                 </div>
               )}
 
               {content.about.fundingReady && (
-                <div class="bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
-                  <h3 class="text-xl font-semibold text-primary mb-3">Funding-ready Profile</h3>
+                <div class="rounded-2xl p-4 md:p-5" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+                  <h3 class="text-lg font-semibold text-primary mb-3">Funding-ready Profile</h3>
                   {content.about.fundingReady.outcomes?.length > 0 && (
                     <>
-                      <p class="text-sm font-semibold text-secondary/70 mb-2">Outcomes</p>
+                      <p class="text-[11px] font-semibold text-secondary/60 mb-2 uppercase tracking-widest">Target outcomes</p>
                       <ul class="space-y-2 mb-4">
-                        {content.about.fundingReady.outcomes.map((outcome) => <li class="text-secondary/90">{outcome}</li>)}
+                        {content.about.fundingReady.outcomes.map((outcome) => <li class="text-sm text-secondary/85 pl-3 border-l-2 border-accent/30">{outcome}</li>)}
                       </ul>
                     </>
                   )}
                   {content.about.fundingReady.capabilities?.length > 0 && (
                     <>
-                      <p class="text-sm font-semibold text-secondary/70 mb-2">Capabilities</p>
+                      <p class="text-[11px] font-semibold text-secondary/60 mb-2 uppercase tracking-widest">Capabilities</p>
                       <ul class="space-y-2">
-                        {content.about.fundingReady.capabilities.map((capability) => <li class="text-secondary/90">{capability}</li>)}
+                        {content.about.fundingReady.capabilities.map((cap) => <li class="text-sm text-secondary/85 pl-3 border-l-2 border-accent/30">{cap}</li>)}
                       </ul>
                     </>
                   )}
@@ -346,29 +484,39 @@ const currentYear = new Date().getFullYear();
         </div>
       </section>
 
-      <section id="research" class="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface-soft">
+      <!-- Divider -->
+      <div class="section-divider mx-auto max-w-6xl rainbow-divider"></div>
+
+      <!-- Research Section -->
+      <section id="research" class="py-12 md:py-14 px-3 sm:px-5 lg:px-6 section-band-research">
         <div class="max-w-6xl mx-auto">
-          <div id="research-case-studies" class="mb-4">
-            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Research</p>
+          <div id="research-case-studies" class="mb-6 reveal">
+            <p class="section-label">Work</p>
             <h2 class="text-2xl md:text-3xl font-semibold text-primary">Research & Publications</h2>
           </div>
 
+          <!-- Case Studies -->
           {dedupedCaseStudies.length > 0 && (
-            <div class="mb-8">
-              <h3 class="text-xl font-semibold text-primary mb-4">Flagship Case Studies</h3>
+            <div class="mb-10 reveal">
+              <h3 class="text-base font-semibold text-secondary/70 uppercase tracking-[0.18em] text-[11px] mb-4">Flagship Case Studies</h3>
               <div class="space-y-4">
-                {dedupedCaseStudies.map((study) => (
-                  <article class="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm">
-                    <h4 class="text-lg md:text-xl font-semibold text-primary mb-2">{study.title}</h4>
-                    {study.context && <p class="text-sm text-secondary/70 mb-3">{study.context}</p>}
-                    <div class="grid gap-4 md:grid-cols-2">
+                {dedupedCaseStudies.map((study, csi) => (
+                  <article class="card-lift rounded-2xl p-5 md:p-6" style="background: rgba(255,251,244,0.92); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 14px rgba(20,18,16,0.07);">
+                    <div class="flex items-start gap-3 mb-4">
+                      <div class={`pub-badge mt-0.5 flex-shrink-0 proj-badge-${csi % 3}`}>CS{csi+1}</div>
                       <div>
-                        <p class="text-xs uppercase tracking-[0.2em] text-secondary/60 mb-2">Problem</p>
-                        <p class="text-secondary/90">{study.problem}</p>
+                        <h4 class="text-base md:text-lg font-semibold text-primary leading-snug">{study.title}</h4>
+                        {study.context && <p class="text-xs text-secondary/60 mt-0.5">{study.context}</p>}
                       </div>
-                      <div>
-                        <p class="text-xs uppercase tracking-[0.2em] text-secondary/60 mb-2">Practical Impact</p>
-                        <p class="text-secondary/90">{study.practicalImpact}</p>
+                    </div>
+                    <div class="grid gap-3 md:grid-cols-2 mt-4">
+                      <div class="case-problem">
+                        <span class="case-label">Problem</span>
+                        <p class="text-sm text-secondary/85 leading-relaxed">{study.problem}</p>
+                      </div>
+                      <div class="case-impact">
+                        <span class="case-label">Practical Impact</span>
+                        <p class="text-sm text-secondary/85 leading-relaxed">{study.practicalImpact}</p>
                       </div>
                     </div>
                   </article>
@@ -377,47 +525,76 @@ const currentYear = new Date().getFullYear();
             </div>
           )}
 
-          <h3 class="text-xl font-semibold text-primary mb-4">Selected Publications</h3>
-          <div class="space-y-4">
-            {content.publications.map((pub, idx) => (
-              <div class="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200">
-                <h4 class="text-lg md:text-xl font-semibold text-primary mb-2">{pub.title}</h4>
-                <p class="text-sm text-secondary/70 mb-1">{pub.authors}</p>
-                <p class="text-sm text-secondary/70 mb-4">{pub.venue}</p>
-                <p class="text-secondary/90 mb-4">{pub.blurb}</p>
-                {pub.plainLanguageImpact && <p class="text-sm text-primary/90 bg-surface-soft rounded-xl px-3 py-2 mb-4"><span class="font-semibold">Why this matters:</span> {pub.plainLanguageImpact}</p>}
-                <div class="flex flex-wrap gap-2">
-                  {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 font-medium transition-colors duration-200">View Paper</a>}
-                  {pub.doi && <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-border/80 text-primary rounded-lg hover:bg-surface-soft font-medium transition-colors duration-200">DOI</a>}
-                  {pub.availableOnRequest && !pub.link && <span class="inline-flex items-center px-4 py-2 border border-border/80 text-secondary/70 rounded-lg bg-surface-soft font-medium">Available upon request</span>}
-                  {pub.citationBibtex && (
-                    <>
-                      <button type="button" data-copy-citation data-citation-id={`cite-${idx}`} class="inline-flex items-center px-4 py-2 border border-border/80 text-primary rounded-lg hover:bg-surface-soft font-medium transition-colors duration-200">Cite (BibTeX)</button>
-                      <textarea id={`cite-${idx}`} class="hidden">{pub.citationBibtex}</textarea>
-                    </>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div class="bg-surface rounded-2xl p-4 md:p-5 mt-5 border border-border/80 shadow-sm">
-            <h3 class="text-xl font-semibold text-primary mb-3">Research Interests</h3>
-            <ul class="space-y-3">
-              {content.researchInterests.map((interest) => (
-                <li class="text-secondary/90">{interest}</li>
-              ))}
-            </ul>
-          </div>
-
-          {content.researchFigures?.length > 0 && (
-            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {content.researchFigures.map((fig) => (
-                <a href={fig.src} target="_blank" rel="noopener noreferrer" class="bg-surface rounded-2xl p-4 border border-border/80 shadow-sm group hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-all duration-200 block">
-                  <div class="relative overflow-hidden rounded-lg mb-3">
-                    <img src={fig.src} alt={fig.alt} loading="lazy" decoding="async" width={fig.width} height={fig.height} class="w-full h-auto transform group-hover:scale-105 transition-transform duration-300" />
+          <!-- Publications -->
+          <div class="reveal">
+            <h3 class="text-base font-semibold text-secondary/70 uppercase tracking-[0.18em] text-[11px] mb-4">Selected Publications</h3>
+            <div class="space-y-4">
+              {content.publications.map((pub, idx) => (
+                <div class="card-lift rounded-2xl p-5 md:p-6 hover:shadow-[0_16px_36px_rgba(20,18,16,0.12)] transition-shadow duration-300" style="background: rgba(255,251,244,0.92); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 14px rgba(20,18,16,0.07);">
+                  <div class="flex items-start gap-3.5 mb-3">
+                    <div class={`pub-badge mt-0.5 flex-shrink-0 pub-badge-${(idx % 3) + 1}`}>{idx + 1}</div>
+                    <div>
+                      <h4 class="text-base md:text-lg font-semibold text-primary leading-snug">{pub.title}</h4>
+                      <p class="text-xs text-secondary/65 mt-1">{pub.authors}</p>
+                      <p class="text-xs font-medium text-accent/80 mt-0.5">{pub.venue}</p>
+                    </div>
                   </div>
-                  <figcaption class="text-sm text-secondary/70">{fig.caption}</figcaption>
+                  <p class="text-sm text-secondary/85 leading-relaxed mb-3">{pub.blurb}</p>
+                  {pub.plainLanguageImpact && (
+                    <p class="text-xs text-primary/80 rounded-xl px-3.5 py-2.5 mb-4" style="background: rgba(15,118,110,0.07); border: 1px solid rgba(15,118,110,0.12);">
+                      <span class="font-semibold">Why this matters: </span>{pub.plainLanguageImpact}
+                    </p>
+                  )}
+                  <div class="flex flex-wrap gap-2">
+                    {pub.link && (
+                      <a href={pub.link} target="_blank" rel="noopener noreferrer" class="btn-shimmer inline-flex items-center gap-1.5 px-4 py-2 text-xs bg-accent text-white rounded-lg hover:bg-accent/90 font-semibold transition-colors duration-200" style="box-shadow: 0 4px 12px rgba(15,118,110,0.2);">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        View Paper
+                      </a>
+                    )}
+                    {pub.doi && (
+                      <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 text-xs border text-primary rounded-lg hover:bg-surface-soft font-semibold transition-colors duration-200" style="border-color: rgba(228,221,209,0.9);">
+                        DOI ↗
+                      </a>
+                    )}
+                    {pub.availableOnRequest && !pub.link && (
+                      <span class="inline-flex items-center px-4 py-2 text-xs border text-secondary/65 rounded-lg font-medium italic" style="background: rgba(242,237,228,0.7); border-color: rgba(228,221,209,0.8);">Available upon request</span>
+                    )}
+                    {pub.citationBibtex && (
+                      <>
+                        <button type="button" data-copy-citation data-citation-id={`cite-${idx}`} class="inline-flex items-center gap-1.5 px-4 py-2 text-xs border text-primary rounded-lg hover:bg-surface-soft font-semibold transition-colors duration-200" style="border-color: rgba(228,221,209,0.9);">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                          Cite (BibTeX)
+                        </button>
+                        <textarea id={`cite-${idx}`} class="hidden">{pub.citationBibtex}</textarea>
+                      </>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Research Interests -->
+          <div class="rounded-2xl p-4 md:p-5 mt-6 reveal" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.05);">
+            <h3 class="text-lg font-semibold text-primary mb-4">Research Interests</h3>
+            <div class="flex flex-wrap gap-2">
+              {content.researchInterests.map((interest) => (
+                <span class="interest-pill">{interest}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Research Figures -->
+          {content.researchFigures?.length > 0 && (
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
+              {content.researchFigures.map((fig) => (
+                <a href={fig.src} target="_blank" rel="noopener noreferrer" class="card-lift rounded-2xl p-4 group hover:shadow-[0_16px_36px_rgba(20,18,16,0.12)] transition-all duration-300 block" style="background: rgba(255,251,244,0.9); border: 1px solid rgba(228,221,209,0.8);">
+                  <div class="relative overflow-hidden rounded-xl mb-3">
+                    <img src={fig.src} alt={fig.alt} loading="lazy" decoding="async" width={fig.width} height={fig.height} class="w-full h-auto transform group-hover:scale-[1.03] transition-transform duration-400" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                  </div>
+                  <figcaption class="text-xs text-secondary/65 leading-relaxed">{fig.caption}</figcaption>
                 </a>
               ))}
             </div>
@@ -425,29 +602,54 @@ const currentYear = new Date().getFullYear();
         </div>
       </section>
 
-      <section id="projects" class="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface-soft">
+      <!-- Divider -->
+      <div class="section-divider mx-auto max-w-6xl"></div>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-12 md:py-14 px-3 sm:px-5 lg:px-6 section-band-projects">
         <div class="max-w-6xl mx-auto">
-          <div class="mb-4">
-            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Projects</p>
+          <div class="mb-6 reveal">
+            <p class="section-label">Portfolio</p>
             <h2 class="text-2xl md:text-3xl font-semibold text-primary">Research Projects</h2>
           </div>
-          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3 reveal">
             {content.projects.map((project, idx) => (
-              <div class="card-lift bg-surface rounded-2xl p-4 md:p-5 border border-border/80 shadow-sm hover:shadow-[0_14px_30px_rgba(20,18,16,0.12)] transition-shadow duration-200 flex flex-col">
+              <div class="card-lift rounded-2xl p-5 md:p-5 hover:shadow-[0_16px_36px_rgba(20,18,16,0.12)] transition-shadow duration-300 flex flex-col" style="background: rgba(255,251,244,0.92); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 14px rgba(20,18,16,0.07);">
                 <div class="mb-4">
-                  <div class="flex items-center justify-between gap-3 mb-2">
-                    <h3 class="text-lg md:text-xl font-semibold text-primary">{project.title}</h3>
-                    <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-secondary/50">P{idx + 1}</span>
+                  <div class="flex items-start justify-between gap-3 mb-3">
+                    <div class={`pub-badge flex-shrink-0 mt-0.5 proj-badge-${idx % 3}`}>P{idx + 1}</div>
+                    <h3 class="text-base md:text-lg font-semibold text-primary flex-1 leading-snug">{project.title}</h3>
                   </div>
-                  <p class="inline-flex text-xs text-accent font-semibold px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 mb-3">{project.subtitle}</p>
+                  {(() => {
+                    const subtitleColors = [
+                      { bg:'rgba(15,118,110,0.10)',color:'#0f766e',border:'rgba(15,118,110,0.20)' },
+                      { bg:'rgba(2,132,199,0.10)',color:'#0369a1',border:'rgba(2,132,199,0.20)' },
+                      { bg:'rgba(217,119,6,0.10)',color:'#b45309',border:'rgba(217,119,6,0.20)' },
+                    ];
+                    const sc = subtitleColors[idx % 3];
+                    return <p class="inline-flex text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.1em]" style={`background:${sc.bg};color:${sc.color};border:1px solid ${sc.border};`}>{project.subtitle}</p>;
+                  })()}
                 </div>
-                <p class="text-secondary/90 mb-4">{project.summary}</p>
+                <p class="text-sm text-secondary/85 leading-relaxed mb-4 flex-1">{project.summary}</p>
                 {project.details?.length > 0 && (
                   <>
-                    <ul id={`project-details-${idx}`} class="hidden space-y-2 mb-4 pl-4 border-l-2 border-accent/30">
-                      {project.details.map((detail) => <li class="text-sm text-secondary/90">{detail}</li>)}
+                    <ul id={`project-details-${idx}`} class="hidden space-y-2.5 mb-4 text-xs text-secondary/80">
+                      {project.details.map((detail) => (
+                        <li class="flex items-start gap-2">
+                          <span class="mt-1.5 inline-flex w-1 h-1 rounded-full bg-accent flex-shrink-0"></span>
+                          {detail}
+                        </li>
+                      ))}
                     </ul>
-                    <button type="button" data-toggle-project data-target={`project-details-${idx}`} class="mt-auto text-accent hover:text-accent/90 font-medium transition-colors duration-200">View methods</button>
+                    <button
+                      type="button"
+                      data-toggle-project
+                      data-target={`project-details-${idx}`}
+                      class="mt-auto text-accent hover:text-accent/80 font-semibold text-sm transition-colors duration-200 flex items-center gap-1.5 group"
+                    >
+                      <span>View methods</span>
+                      <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
                   </>
                 )}
               </div>
@@ -456,23 +658,53 @@ const currentYear = new Date().getFullYear();
         </div>
       </section>
 
-      <section id="experience" class="py-10 md:py-12 px-3 sm:px-5 lg:px-6 bg-surface">
+      <!-- Divider -->
+      <div class="section-divider mx-auto max-w-6xl"></div>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-12 md:py-14 px-3 sm:px-5 lg:px-6 section-band-experience">
         <div class="max-w-6xl mx-auto">
-          <div class="mb-4">
-            <p class="text-[11px] uppercase tracking-[0.35em] text-secondary/60 mb-2">Experience</p>
+          <div class="mb-6 reveal">
+            <p class="section-label">Career</p>
             <h2 class="text-2xl md:text-3xl font-semibold text-primary">Research & Professional Experience</h2>
           </div>
-          <div class="relative space-y-4 before:hidden md:before:block md:before:absolute md:before:left-[124px] md:before:top-3 md:before:bottom-3 md:before:w-px md:before:bg-border/80">
-            {content.experience.map((item) => (
-              <div class="card-lift md:grid md:grid-cols-[112px_1fr] md:gap-4 items-start bg-surface-soft rounded-2xl p-4 md:p-5 border border-border/80 hover:border-accent/30 transition-colors duration-200">
-                <div class="mb-3 md:mb-0"><span class="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{item.period}</span></div>
-                <div>
-                  <div class="mb-4">
-                    <h3 class="text-lg md:text-xl font-semibold text-primary mb-2">{item.role}</h3>
-                    <p class="text-secondary/90 font-medium mb-1">{item.org}</p>
+          <div class="relative space-y-4 reveal">
+            <!-- Vertical timeline line on desktop -->
+            <div class="hidden md:block absolute left-[132px] top-5 bottom-5 w-px" style="background: linear-gradient(to bottom, transparent, rgba(15,118,110,0.2) 15%, rgba(15,118,110,0.2) 85%, transparent);"></div>
+
+            {content.experience.map((item, ei) => (
+              <div class="card-lift md:grid md:grid-cols-[120px_1fr] md:gap-6 items-start rounded-2xl p-4 md:p-5 transition-all duration-300" style="background: rgba(255,251,244,0.92); border: 1px solid rgba(228,221,209,0.8); box-shadow: 0 4px 12px rgba(20,18,16,0.06);">
+                <div class="mb-3 md:mb-0 md:text-right md:pt-1">
+                  <span class={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] exp-period-${ei % 4}`}>
+                    {item.period}
+                  </span>
+                  {item.context && <p class="text-[10px] text-secondary/50 mt-1 hidden md:block">{item.context}</p>}
+                </div>
+                <div class="relative md:pl-6">
+                  <!-- Timeline dot -->
+                  <div class="hidden md:flex absolute -left-[1.5px] top-1.5 items-center justify-center">
+                    {(() => {
+                      const dotGrads = [
+                        'linear-gradient(135deg,#0f766e,#14b8a6)',
+                        'linear-gradient(135deg,#7c3aed,#a78bfa)',
+                        'linear-gradient(135deg,#0284c7,#38bdf8)',
+                        'linear-gradient(135deg,#d97706,#fbbf24)',
+                      ];
+                      return <div class="w-2.5 h-2.5 rounded-full" style={`background: ${dotGrads[ei%4]}; box-shadow: 0 0 0 3px rgba(255,251,244,0.9), 0 0 0 5px rgba(15,118,110,0.15);`}></div>;
+                    })()}
                   </div>
-                  <ul class="space-y-3">
-                    {item.details.map((detail) => <li class="text-secondary/90">{detail}</li>)}
+                  <div class="mb-3">
+                    <h3 class="text-base md:text-lg font-semibold text-primary leading-snug">{item.role}</h3>
+                    <p class="text-sm text-secondary/80 font-medium mt-0.5">{item.org}</p>
+                    {item.supervisor && <p class="text-xs text-secondary/55 mt-0.5">Supervisor: {item.supervisor}</p>}
+                  </div>
+                  <ul class="space-y-2.5">
+                    {item.details.map((detail) => (
+                      <li class="flex items-start gap-2.5 text-sm text-secondary/80 leading-relaxed">
+                        <span class="mt-1.5 inline-flex w-1 h-1 rounded-full bg-accent/60 flex-shrink-0"></span>
+                        {detail}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -481,33 +713,51 @@ const currentYear = new Date().getFullYear();
         </div>
       </section>
 
-      <footer class="bg-primary text-white py-10 px-3 sm:px-5 lg:px-6">
+      <!-- Footer -->
+      <footer class="py-12 px-3 sm:px-5 lg:px-6" style="background: #191614;">
         <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 class="text-base font-semibold mb-2">{content.profile.name}</h3>
-              <p class="text-white/70 text-sm">{content.profile.title}</p>
+              <h3 class="text-base font-semibold text-white mb-2">{content.profile.name}</h3>
+              <p class="text-white/55 text-sm leading-relaxed">{content.profile.title}</p>
+              <p class="text-white/40 text-xs mt-1">{content.profile.affiliationLine2}</p>
             </div>
             <div>
-              <h3 class="text-base font-semibold mb-2">Quick Links</h3>
+              <h3 class="text-xs font-semibold text-white/60 uppercase tracking-[0.2em] mb-3">Quick Links</h3>
               <ul class="space-y-2 text-sm">
-                <li><a href="#about" class="text-white/70 hover:text-white">About</a></li>
-                <li><a href="#research" class="text-white/70 hover:text-white">Research</a></li>
-                <li><a href="#projects" class="text-white/70 hover:text-white">Projects</a></li>
-                <li><a href="#experience" class="text-white/70 hover:text-white">Experience</a></li>
+                <li><a href="#about" class="text-white/50 hover:text-white transition-colors duration-200">About</a></li>
+                <li><a href="#research" class="text-white/50 hover:text-white transition-colors duration-200">Research</a></li>
+                <li><a href="#projects" class="text-white/50 hover:text-white transition-colors duration-200">Projects</a></li>
+                <li><a href="#experience" class="text-white/50 hover:text-white transition-colors duration-200">Experience</a></li>
               </ul>
             </div>
             <div>
-              <h3 class="text-base font-semibold mb-2">Connect</h3>
-              <div class="flex gap-4">
-                <a href={`mailto:${content.profile.contacts.email}`} class="text-white/70 hover:text-white" aria-label="Email">Email</a>
-                <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white" aria-label="LinkedIn">LinkedIn</a>
-                <a href={content.profile.contacts.github} target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white" aria-label="GitHub">GitHub</a>
+              <h3 class="text-xs font-semibold text-white/60 uppercase tracking-[0.2em] mb-3">Connect</h3>
+              <div class="flex flex-col gap-2 text-sm">
+                <a href={`mailto:${content.profile.contacts.email}`} class="text-white/50 hover:text-accent transition-colors duration-200 flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  Email
+                </a>
+                <a href={content.profile.contacts.linkedin} target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-accent transition-colors duration-200 flex items-center gap-2" aria-label="LinkedIn">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
+                <a href={content.profile.contacts.github} target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-accent transition-colors duration-200 flex items-center gap-2" aria-label="GitHub">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                {content.profile.contacts.scholar && (
+                  <a href={content.profile.contacts.scholar} target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-accent transition-colors duration-200 flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                    Google Scholar
+                  </a>
+                )}
               </div>
             </div>
           </div>
-          <div class="border-t border-white/20 pt-5 text-center text-sm text-white/60">
+          <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/35" style="border-top: 1px solid rgba(255,255,255,0.08);">
             <p>© {currentYear} {content.profile.name}. All rights reserved.</p>
+            <p>Last updated: {content.profile.lastUpdated}</p>
           </div>
         </div>
       </footer>
@@ -525,12 +775,12 @@ const currentYear = new Date().getFullYear();
           link.setAttribute('aria-current', isActive ? 'page' : 'false');
           link.classList.toggle('bg-accent', isActive);
           link.classList.toggle('text-white', isActive);
-          link.classList.toggle('shadow-[0_8px_18px_rgba(15,118,110,0.28)]', isActive);
+          link.classList.toggle('shadow-[0_6px_16px_rgba(15,118,110,0.32)]', isActive);
           link.classList.toggle('text-secondary', !isActive);
           const dot = link.querySelector('span');
           if (dot) {
-            dot.classList.toggle('bg-white/90', isActive);
-            dot.classList.toggle('bg-secondary/40', !isActive);
+            dot.classList.toggle('bg-white/80', isActive);
+            dot.classList.toggle('bg-secondary/30', !isActive);
           }
         });
       }
@@ -565,28 +815,49 @@ const currentYear = new Date().getFullYear();
         });
       }
 
+      // Scroll reveal
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      // Project toggles
       document.querySelectorAll('[data-toggle-project]').forEach((btn) => {
         btn.addEventListener('click', () => {
           const target = document.getElementById(btn.dataset.target || '');
           if (!target) return;
           const isHidden = target.classList.toggle('hidden');
-          btn.textContent = isHidden ? 'View methods' : 'Show less';
+          const span = btn.querySelector('span');
+          if (span) span.textContent = isHidden ? 'View methods' : 'Show less';
           btn.setAttribute('aria-expanded', String(!isHidden));
+          const chevron = btn.querySelector('svg');
+          if (chevron) chevron.style.transform = isHidden ? '' : 'rotate(180deg)';
         });
       });
 
+      // Citation copy
       document.querySelectorAll('[data-copy-citation]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const source = document.getElementById(btn.dataset.citationId || '');
           if (!source) return;
-          const original = btn.textContent;
+          const span = btn.querySelector('span') || btn;
+          const original = span.textContent;
           try {
             await navigator.clipboard.writeText(source.value || source.textContent || '');
-            btn.textContent = 'Copied!';
-            setTimeout(() => (btn.textContent = original), 1500);
+            span.textContent = 'Copied!';
+            setTimeout(() => (span.textContent = original), 1500);
           } catch {
-            btn.textContent = 'Copy failed';
-            setTimeout(() => (btn.textContent = original), 1500);
+            span.textContent = 'Copy failed';
+            setTimeout(() => (span.textContent = original), 1500);
           }
         });
       });
