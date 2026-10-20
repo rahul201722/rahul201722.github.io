@@ -210,6 +210,36 @@ const content = {
     "Edge AI: efficient deep learning on mobile devices with limited compute",
     "Clinical validation: meeting AAMI/BHS standards for medical-grade accuracy",
   ],
+  researchTracks: [
+    {
+      title: "Radar Signal Intelligence",
+      description:
+        "Reconstructing, denoising, and cleaning noisy or incomplete radar signals with machine learning and deep learning for more reliable sensing.",
+      tags: ["Radar sensing", "Signal reconstruction", "ML/DL denoising"],
+      accent: "violet",
+    },
+    {
+      title: "Mobile Health Sensing",
+      description:
+        "Estimating HR, SpO₂, and BP from smartphone video through robust rPPG pipelines, physiological signal processing, and edge-ready models.",
+      tags: ["rPPG", "Clinical validation", "Edge AI"],
+      accent: "teal",
+    },
+  ],
+  researchMethods: [
+    {
+      title: "Signal processing",
+      items: ["Filtering", "Denoising", "Reconstruction", "Spectral analysis"],
+    },
+    {
+      title: "Machine learning",
+      items: ["CNNs", "Transformers", "LSTM", "Random Forest", "XGBoost"],
+    },
+    {
+      title: "Sensing applications",
+      items: ["Radar sensing", "Mobile health", "Vital signs", "Predictive maintenance"],
+    },
+  ],
   researchFigures: [
     {
       src: "/paper_1_architecture.avif",
@@ -346,6 +376,7 @@ const content = {
   ],
   experience: [
     {
+      category: "Teaching",
       role: "Teaching Assistant",
       org: "Monash University, Melbourne, Australia",
       period: "Semester 2, 2026",
@@ -354,6 +385,7 @@ const content = {
       ],
     },
     {
+      category: "Academic research",
       role: "Graduate Researcher (AI & Mobile Health)",
       org: "Monash University, Melbourne, Australia",
       period: "2024–Jan 2026",
@@ -365,6 +397,7 @@ const content = {
       ],
     },
     {
+      category: "Industry",
       role: "Information Technology Officer",
       org: "Aglow Engineers, Kolkata",
       period: "Jun 2022–Feb 2023",
@@ -375,6 +408,7 @@ const content = {
       ],
     },
     {
+      category: "Industry",
       role: "Software Intern",
       org: "Centre for Railway Information Systems (CRIS), New Delhi",
       period: "Jan 2022–May 2022",
@@ -384,6 +418,7 @@ const content = {
       ],
     },
     {
+      category: "Industry",
       role: "Software Development Intern",
       org: "Xilinx (now AMD), Hyderabad — Timing Team, Device Capture Group",
       period: "Aug 2021–Dec 2021",
