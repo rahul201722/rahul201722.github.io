@@ -258,8 +258,23 @@ const content = {
       height: 436,
     },
   ],
+  researchGroups: [
+    {
+      id: "peer-reviewed",
+      label: "Peer-reviewed publications",
+      description: "Published and formally accepted research outputs.",
+      collection: "publications",
+    },
+    {
+      id: "research-in-progress",
+      label: "Research in progress",
+      description: "Manuscripts currently under peer review.",
+      collection: "researchInProgress",
+    },
+  ],
   publications: [
     {
+      group: "peer-reviewed",
       title:
         "Evolving Blood Pressure Estimation: From Feature Analysis to Image-Based Deep Learning Models",
       authors: "Roha, V. S., Ranjan, R., & Yuce, M. R.",
@@ -289,6 +304,7 @@ const content = {
 }`,
     },
     {
+      group: "peer-reviewed",
       title:
         "VITAL Net: A Hybrid Framework for SpO₂ and HR Estimation Using Smartphone rPPG Video",
       authors: "Ranjan, Rahul; Roha, Vishal Singh; Yuce, Mehmet Rasit",
@@ -316,7 +332,11 @@ const content = {
   doi={10.1109/APSCON68325.2026.11497932}
 }`,
     },
+  ],
+  researchInProgress: [
     {
+      group: "research-in-progress",
+      status: "under-review",
       title: "Additional manuscripts under review",
       authors: "Rahul Ranjan and collaborators",
       venue: "Peer-reviewed journals and conferences",
@@ -325,6 +345,18 @@ const content = {
       plainLanguageImpact:
         "Ongoing work extends the research program in AI, signal processing, and mobile health.",
       availableOnRequest: false,
+    },
+  ],
+  projectGroups: [
+    {
+      id: "research",
+      label: "Research projects",
+      description: "Applied AI and signal-processing work across health and sensing.",
+    },
+    {
+      id: "industry",
+      label: "Industry projects",
+      description: "Production-oriented data, automation, and predictive-maintenance work.",
     },
   ],
   caseStudies: [
@@ -430,6 +462,7 @@ const content = {
   ],
   projects: [
     {
+      group: "research",
       title: "Vital Sign Monitoring (Mobile)",
       subtitle: "Computer Vision · PyTorch · ResNet + Attention",
       summary:
@@ -441,6 +474,7 @@ const content = {
       ],
     },
     {
+      group: "industry",
       title: "Predictive Maintenance for Rail",
       subtitle: "XGBoost · Time-series features · SQL",
       summary:
@@ -452,6 +486,7 @@ const content = {
       ],
     },
     {
+      group: "industry",
       title: "Data Flow Synchronicity Checker",
       subtitle: "Python · Hashing · Automation",
       summary:
